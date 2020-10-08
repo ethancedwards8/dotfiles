@@ -1,0 +1,10 @@
+configuration {
+	modi: "drun";
+	theme: "nord";
+	display-drun: "Search";
+	width: 16;
+	lines: 12;
+	location: 1;
+	xoffset: 12;
+	yoffset: 12;
+}

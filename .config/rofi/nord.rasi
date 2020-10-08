@@ -1,0 +1,138 @@
+
+/**
+ * rofi nord theme
+ **/
+
+/* global settings and color variables */
+* {
+   accentcolor:      #88c0d0;
+   urgentcolor:      #81a1c1;
+   foreground:       #d8dee9;
+   background:       #2e3440;
+   select-bg:        #4c566a;
+
+   font: "JetBrains Mono 16";
+   background-color: @background;
+}
+
+window {
+   background-color: @background;
+}
+
+mainbox {
+   background-color: @background;
+   spacing:0px;
+   children: [inputbar, message, listview];
+}
+
+message {
+   padding: 6px 10px;
+   background-color:@background;
+}
+
+textbox {
+   text-color:@foreground;
+   background-color:@background;
+}
+
+listview {
+   fixed-height: false;
+   dynamic: true;
+   scrollbar: false;
+   spacing: 0px;
+   padding: 1px 0px 0px 0px;
+   margin: 0px 0px 1px 0px;
+   background: @background;
+}
+
+element {
+   padding: 2px 15px;
+}
+
+element normal.normal {
+   padding: 0px 15px;
+   background-color: @background;
+   text-color: @foreground;
+}
+
+element normal.urgent {
+   background-color: @background;
+   text-color: @urgentcolor;
+}
+
+element normal.active {
+   background-color: @background;
+   text-color: @accentcolor;
+}
+
+element selected.normal {
+    background-color: @select-bg;
+    text-color:       @foreground;
+}
+
+element selected.urgent {
+    background-color: @urgentcolor;
+    text-color:       @background;
+}
+
+element selected.active {
+    background-color: @accentcolor;
+    text-color:       @background;
+}
+
+element alternate.normal {
+    background-color: @background;
+    text-color:       @foreground;
+}
+
+element alternate.urgent {
+    background-color: @background;
+    text-color:       @urgentcolor;
+}
+
+element alternate.active {
+    background-color: @background;
+    text-color:       @accentcolor;
+}
+
+scrollbar {
+   background-color: @background;
+   handle-color: @foreground;
+   handle-width: 15px;
+}
+
+mode-switcher {
+   background-color: @background;
+}
+
+button {
+   background-color: @background;
+   text-color:       @fgwhit;
+}
+
+button selected {
+    text-color:       @accentcolor;
+}
+
+inputbar {
+   background-color: @background;
+   spacing: 0px;
+}
+
+prompt {
+   padding:6px 9px;
+   background-color: @accentcolor;
+   text-color:@background;
+}
+
+entry {
+   padding:6px 10px;
+   background-color:@background;
+   text-color:@foreground;
+}
+
+case-indicator {
+   padding:6px 10px;
+   text-color:@accentcolor;
+   background-color:@background;
+}
