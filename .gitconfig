@@ -1,0 +1,20 @@
+[user]
+	name = Ethan Edwards
+	email = ethancarteredwards@gmail.com
+	signingKey = 0xF93DDAFA26EF2458
+[core]
+	editor = nvim
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[sendemail]
+	smtpServer = smtp.gmail.com
+	smtpServerPort = 587
+	smtpEncryption = TSL
+	smtpUser = ethancarteredwards@gmail.com
+[color]
+	ui = auto
+[pull]
+	rebase = false
