@@ -19,6 +19,7 @@ export EDITOR=nvim
 
 # set -o vi
 
+alias e="emacsclient -t"
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 # complete -F _complete_alias config
 alias sudo="sudo "
@@ -39,6 +40,33 @@ alias mv="mv -i"
 # source /usr/share/wikiman/widgets/widget.bash
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 
+### ARCHIVE EXTRACTION
+# usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *.deb)       ar x $1      ;;
+      *.tar.xz)    tar xf $1    ;;
+      *.tar.zst)   unzstd $1    ;;      
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
 # PS1='[\u@\h \W]\$ '
 
 function _update_ps1() {
@@ -48,33 +76,4 @@ function _update_ps1() {
 if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
-# export PS1="\u@\[\e[37m\]\h\[\e[m\]:\[\e[32m\]\w\[\e[m\]\[\e[31m\]\\$\[\e[m\] "
 
-# if [[ $TERM = xterm* ]]
-# then
-#     HN_CLR='\[\033[01;36m\]' # Hostname
-#     UR_CLR='\[\033[01;33m\]' # Username
-#     WD_CLR='\[\033[01;34m\]' # Working directory
-#     AT_CLR='\[\033[01;31m\]' # @ symbol
-#     DL_CLR='\[\033[01;32m\]' # Dollar sign after the prompt
-#     VC_CLR='\[\033[01;37m\]' # Version Control
-#     RT_CLR='\[\033[00m\]'    # Reset all colors
-# fi
-
-# PS1="${UR_CLR}\u${AT_CLR}@${HN_CLR}\h ${WD_CLR}\w${RT_CLR}"
-
-# # Git prompt
-# if command -v git >/dev/null
-# then
-#     GIT_PS1_DESCRIBE_STYLE=branch
-#     GIT_PS1_SHOWDIRTYSTATE=1
-#     GIT_PS1_SHOWSTASHSTATE=1
-#     GIT_PS1_SHOWUNTRACKEDFILES=1
-#     GIT_PS1_SHOWUPSTREAM=verbose
-#     PS1+="${VC_CLR}\$(__git_ps1)${RT_CLR}"
-# fi
-
-# PS1+="\n${DL_CLR}\$${RT_CLR} "
-
-# pfetch
-# ls

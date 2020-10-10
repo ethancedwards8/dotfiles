@@ -8,6 +8,10 @@ super + e
 # slock
 super + alt + @space
 	slock
+# pass menu
+super + ctrl + @space
+	passmenu
+
 # man page
 super + shift + @space
 	manpage 
