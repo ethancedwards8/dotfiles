@@ -25,7 +25,7 @@ alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias sudo="sudo "
 alias ..="cd .."
 alias ...="cd ../.."
-alias gs="git status"
+# alias gs="git status"
 alias gp="git pull"
 alias vim="nvim"
 alias mutt="neomutt"
@@ -76,4 +76,3 @@ function _update_ps1() {
 if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
-
