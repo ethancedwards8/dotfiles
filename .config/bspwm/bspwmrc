@@ -4,7 +4,9 @@ sxhkd &
 nitrogen --restore &
 $HOME/.config/polybar/launch.sh &
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+if [[ "$HOSTNAME" == "archlaptop" ]]; then
+	bspc monitor -d I II III IV V VI VII VIII IX X
+fi
 
 bspc config border_width         2
 bspc config window_gap          10
