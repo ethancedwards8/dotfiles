@@ -19,7 +19,9 @@ export EDITOR=nvim
 
 # set -o vi
 
+alias yeet="yay"
 alias e="emacsclient -t"
+alias sudo="sudo "
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 # complete -F _complete_alias config
 alias sudo="sudo "
@@ -36,6 +38,7 @@ alias la='exa --color=always -a'
 alias lah='exa --color=always -lah'
 alias rm="rm -i"
 alias mv="mv -i"
+alias scrot="scrot -s"
 
 # source /usr/share/wikiman/widgets/widget.bash
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
@@ -67,12 +70,28 @@ ex ()
   fi
 }
 
+
+# stops tmux from entering with my theme broken
+tfun()
+{
+if [[ $TERM == screen* ]] && [[ "$HOSTNAME" == "archpc" ]]; then
+	bash ~/.config/tmux/plugins/tmux/dracula.tmux
+fi
+}
+
 # PS1='[\u@\h \W]\$ '
 
 function _update_ps1() {
     PS1="$($GOPATH/bin/powerline-go -error $?)"
 }
 
-if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
+if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ] && [[ "$HOSTNAME" == "archlaptop" ]]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]] && [[ "$HOSTNAME" == "archpc" ]]; then
+      PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
