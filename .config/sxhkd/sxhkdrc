@@ -23,7 +23,7 @@ super + u
 	firefox
 # terminal emulator
 super + Return
-	termonad
+	kitty
 # program launcher
 super + @space
 	dmenu_run
