@@ -23,6 +23,9 @@ super + u
 # terminal emulator
 super + Return
 	kitty
+# mutt email
+super + v
+	kitty -e neomutt
 # program launcher
 super + @space
 	dmenu_run
