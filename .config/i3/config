@@ -38,17 +38,18 @@ font pango:monospace 8
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
+# all my keybinds for programs
 bindsym $mod+Return exec --no-startup-id kitty
 bindsym $mod+e exec --no-startup-id emacsclient -c
+bindsym $mod+u exec --no-startup-id firefox
 bindsym $mod+v exec --no-startup-id kitty -e neomutt
 bindsym $mod+p exec --no-startup-id rofi -show drun
 
@@ -159,32 +160,29 @@ bindsym $mod+$alt+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+$alt+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# autostart
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id nitrogen --restore
 
-# # resize window (you can also use the mouse for that)
-# mode "resize" {
-#         # These bindings trigger as soon as you enter the resize mode
 
-#         # Pressing left will shrink the window’s width.
-#         # Pressing right will grow the window’s width.
-#         # Pressing up will shrink the window’s height.
-#         # Pressing down will grow the window’s height.
-#         bindsym h resize shrink width 10 px or 10 ppt
-#         bindsym j resize grow height 10 px or 10 ppt
-#         bindsym k resize shrink height 10 px or 10 ppt
-#         bindsym l resize grow width 10 px or 10 ppt
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $mod+$alt+h resize shrink width 10 px or 10 ppt
+        bindsym $mod+$alt+j resize grow height 10 px or 10 ppt
+        bindsym $mod+$alt+k resize shrink height 10 px or 10 ppt
+        bindsym $mod+$alt+l resize grow width 10 px or 10 ppt
 
-#         # same bindings, but for the arrow keys
-#         bindsym Left resize shrink width 10 px or 10 ppt
-#         bindsym Down resize grow height 10 px or 10 ppt
-#         bindsym Up resize shrink height 10 px or 10 ppt
-#         bindsym Right resize grow width 10 px or 10 ppt
+        # same bindings, but for the arrow keys
+        bindsym $mod+$alt+Left resize shrink width 10 px or 10 ppt
+        bindsym $mod+$alt+Down resize grow height 10 px or 10 ppt
+        bindsym $mod+$alt+Up resize shrink height 10 px or 10 ppt
+        bindsym $mod+$alt+Right resize grow width 10 px or 10 ppt
 
-#         # back to normal: Enter or Escape or $mod+r
-#         bindsym Return mode "default"
-#         bindsym Escape mode "default"
-#         bindsym $mod+r mode "default"
-# }
+        # back to normal: Enter or Escape or $mod+r
+        # bindsym Return mode "default"
+        # bindsym Escape mode "default"
+        # bindsym $mod+r mode "default"
 
 # bindsym $mod+r mode "resize"
