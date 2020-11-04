@@ -320,7 +320,7 @@ colors:
 #    - --login
 
 # Allow terminal applications to change Alacritty's wnidow title.
-dynamic_title: true
+# dynamic_title: true
 # Startup directory
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
