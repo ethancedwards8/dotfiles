@@ -48,10 +48,10 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# all my keybinds for programs
+# start a terminal
 bindsym $mod+Return exec --no-startup-id kitty
 bindsym $mod+e exec --no-startup-id emacsclient -c
-bindsym $mod+u exec --no-startup-id firefox
+bindsym $mod+u exec --no-startup-id MOZ_ENABLE_WAYLAND=1 firefox
 bindsym $mod+v exec --no-startup-id kitty -e neomutt
 bindsym $mod+p exec --no-startup-id rofi -show drun
 
@@ -159,12 +159,15 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Escape reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+$alt+r restart
+# screen locker
+bindsym $mod+$alt+space exec --no-startup-id swaylock
 # exit i3 (logs you out of your X session)
 bindsym $mod+$alt+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # autostart
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id nitrogen --restore
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# exec_always --no-startup-id nitrogen --restore
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 
         # Pressing left will shrink the window’s width.
@@ -188,3 +191,21 @@ exec_always --no-startup-id nitrogen --restore
         # bindsym $mod+r mode "default"
 
 # bindsym $mod+r mode "resize"
+#
+bar {
+    position top
+
+    swaybar_command waybar
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    # status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+
+    # status_command while cat /sys/class/power_supply/BAT1/capacity; do sleep 1; done
+
+    # colors {
+    #     statusline #ffffff
+    #     background #323232
+    #     inactive_workspace #32323200 #32323200 #5c5c5c
+    # }
+}
