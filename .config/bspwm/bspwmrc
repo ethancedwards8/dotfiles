@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sxhkd &
+pgrep -x sxhkd > /dev/null || sxhkd &
 nitrogen --restore &
 $HOME/.config/polybar/launch.sh &
 

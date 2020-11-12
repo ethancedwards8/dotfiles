@@ -13,6 +13,7 @@
 default_border pixel 2
 
 focus_follows_mouse no
+mouse_warping none
 
 # windows key, trying to mirror my bspwm keybinds
 set $mod Mod4
