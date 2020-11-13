@@ -51,7 +51,8 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec --no-startup-id kitty
 bindsym $mod+e exec --no-startup-id emacsclient -c
-bindsym $mod+u exec --no-startup-id MOZ_ENABLE_WAYLAND=1 firefox
+# bindsym $mod+u exec --no-startup-id MOZ_ENABLE_WAYLAND=1 firefox
+bindsym $mod+u exec --no-startup-id firefox
 bindsym $mod+v exec --no-startup-id kitty -e neomutt
 bindsym $mod+p exec --no-startup-id rofi -show drun
 
@@ -162,7 +163,7 @@ bindsym $mod+$alt+r restart
 # screen locker
 bindsym $mod+$alt+space exec --no-startup-id swaylock
 # exit i3 (logs you out of your X session)
-bindsym $mod+$alt+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+$alt+q exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit Sway? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # autostart
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
