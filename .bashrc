@@ -38,6 +38,7 @@ alias la='exa --color=always -a'
 alias lah='exa --color=always -lah'
 # sl alias because i mess up sometimes and its annoying
 alias sl='exa --color=always'
+alias ip='ip -c=always'
 alias rm="rm -i"
 alias mv="mv -i"
 alias scrot="scrot -s"

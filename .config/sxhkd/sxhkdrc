@@ -37,11 +37,17 @@ super + Escape
 	pkill -USR1 -x sxhkd
 # <sound>
 XF86AudioRaiseVolume
-	pactl set-sink-volume 0 +5%
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
 XF86AudioLowerVolume
-	pactl set-sink-volume 0 -5%
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
+super + XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +10%
+super + XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -10%
 XF86AudioMute
-	pactl set-sink-mute 0 toggle
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+XF86AudioMicMute
+	pactl set-source-mute @DEFAULT_SINK@ toggle
 # </sound>
 # <backlight>
 XF86MonBrightnessUp
