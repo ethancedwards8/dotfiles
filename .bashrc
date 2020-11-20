@@ -22,7 +22,7 @@ export EDITOR=nvim
 alias yeet="yay"
 alias e="emacsclient -t"
 alias sudo="sudo "
-alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias config="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 # complete -F _complete_alias config
 alias sudo="sudo "
 alias ..="cd .."
