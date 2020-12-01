@@ -2,9 +2,11 @@
 # wm independent hotkeys
 #
 
-# emacs
+# emacsclient - main thing
 super + e
 	emacsclient -c
+super + shift + e
+      	emacs
 # slock
 super + alt + @space
 	slock
