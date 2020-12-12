@@ -122,7 +122,5 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
-
-
 # Keybinds
 config.bind('M', 'hint links spawn mpv {hint-url}')
