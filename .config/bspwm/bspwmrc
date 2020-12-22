@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 nitrogen --restore &
