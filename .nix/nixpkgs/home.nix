@@ -18,6 +18,7 @@
   home.packages = with pkgs; [
     doc-repos
 
+    fzf
     wget
     curl
     # language servers
@@ -28,23 +29,27 @@
 
     neovim-nightly
 
+    mpv
+
+    speedtest-cli
+
     cmake
     exa
     ripgrep
     bash-completion
     tree
-    fzf
+    # fzf
     htop
     ffmpeg
-    emacs
+    # emacs
     nss
     # nss-cacert
     openssl
     bash-completion
 
     # gnupg stuffz
-    pinentry-curses
-    pinentry
+    # pinentry-curses
+    # pinentry
   ];
 
   # services.gpg-agent = {

@@ -7,9 +7,9 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [ 
     # emacs stuffz
-    ((emacsPackagesNgGen emacsPgtk).emacsWithPackages (epkgs: [
-      epkgs.vterm
-    ]))
+    # ((emacsPackagesNgGen emacsPgtk).emacsWithPackages (epkgs: [
+    #   epkgs.vterm
+    # ]))
 
     kitty
     wifi-password
