@@ -1,16 +1,9 @@
 { config, pkgs, lib, ... }:
 
 {
-  nixpkgs.overlays = import ../overlays;
-
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [ 
-    # emacs stuffz
-    # ((emacsPackagesNgGen emacsPgtk).emacsWithPackages (epkgs: [
-    #   epkgs.vterm
-    # ]))
-
     kitty
     wifi-password
   ];
@@ -20,6 +13,12 @@
     description = "Ethan Carter Edwards";
     shell = pkgs.bashInteractive;
   };
+
+  homebrew = {
+    enable = true;
+  };
+
+  security.pam.enableSudoTouchIdAuth = true;
 
   environment.shells = [ pkgs.bashInteractive pkgs.zsh ];
 

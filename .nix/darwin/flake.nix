@@ -3,13 +3,25 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    darwin.url = "github:lnl7/nix-darwin/master";
+
+    # darwin.url = "github:lnl7/nix-darwin/master";
+    darwin.url = "github:ethancedwards8/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    # neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+
+    # emacs-overlay.url = "github:nix-community/emacs-overlay";
   };
 
-  outputs = { self, darwin, nixpkgs }:
+  outputs = { self, darwin, nixpkgs }@inputs:
+  # outputs = { self }@inputs:
   let
     configuration = import ./darwin-configuration.nix;
+
+    overlays = [
+      inputs.emacs-overlay.overlay
+      inputs.neovim-nightly.overlay
+    ];
   in
   {
     darwinConfigurations."Ethans-MacBook-Air" = darwin.lib.darwinSystem {
