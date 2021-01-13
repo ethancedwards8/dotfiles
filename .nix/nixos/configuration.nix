@@ -42,7 +42,24 @@
   };
 
   # Configure keymap in X11
-  # services.xserver.layout = "us";
+  services.xserver.layout = "us";
+  services.xserver = {
+    enable = true;
+
+    windowManager = {
+      bspwm.enable = true;
+    };
+
+    displayManager = {
+      defaultSession = "none+bspwm";
+      lightdm.enable = true;
+    };
+
+    libinput.enable = true;
+  };
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
+
   # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
@@ -51,9 +68,6 @@
   # Enable sound.
   # sound.enable = true;
   # hardware.pulseaudio.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ece = {

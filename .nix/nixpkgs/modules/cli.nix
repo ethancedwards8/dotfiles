@@ -2,15 +2,16 @@
 
 {
   home.packages = with pkgs; [
-    fzf
-    wget
+    bash-completion
     curl
     exa
-    ripgrep
-    bash-completion
-    speedtest-cli
-    tree
+    fzf
     htop
+    ripgrep
+    speedtest-cli
+    sqlite
+    tree
+    wget
   ];
 
   programs.zsh = {
@@ -19,6 +20,8 @@
   };
   programs.bash = {
     enable = true;
+    initExtra = builtins.readFile ../../../.bashrc;
+    profileExtra = builtins.readFile ../../../.bash_profile;
   };
   programs.starship = {
     enable = true;

@@ -29,11 +29,11 @@
               nixpkgs.overlays = overlays;
               imports = [
                 # ./home.nix
+                ./modules/cli.nix
+                ./modules/emacs.nix
                 ./modules/home-manager.nix
                 ./modules/languages-and-server.nix
-                ./modules/cli.nix
                 ./modules/neovim.nix
-                ./modules/emacs.nix
               ];
             };
           system = "x86_64-darwin";
@@ -48,10 +48,14 @@
             nixpkgs.overlays = overlays;
             imports = [
               # ./home.nix
-              ./modules/home-manager.nix
+              ./modules/bspwm.nix
               ./modules/cli.nix
-              ./modules/neovim.nix
               ./modules/emacs.nix
+              ./modules/home-manager.nix
+              ./modules/languages-and-server.nix
+              ./modules/neovim.nix
+              ./modules/polybar.nix
+              ./modules/terminals.nix
             ];
           };
           system = "x86_64-linux";
