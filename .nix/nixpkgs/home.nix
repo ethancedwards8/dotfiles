@@ -28,6 +28,7 @@
 
     neovim-nightly
 
+    sqlite
     cmake
     exa
     ripgrep
