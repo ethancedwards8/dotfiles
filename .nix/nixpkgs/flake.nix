@@ -42,7 +42,24 @@
           # homeDirectory = "/Users/ece";
           # username = "ece";
         };
+        linux = inputs.home-manager.lib.homeManagerConfiguration {
+          configuration = { pkgs, ... }:
+          {
+            nixpkgs.overlays = overlays;
+            imports = [
+              # ./home.nix
+              ./modules/home-manager.nix
+              ./modules/cli.nix
+              ./modules/neovim.nix
+              ./modules/emacs.nix
+            ];
+          };
+          system = "x86_64-linux";
+          homeDirectory = "/home/ece";
+          username = "ece";
+        };
       };
       macbook-air = self.homeConfigurations.macbook-air.activationPackage;
+      linux = self.homeConfigurations.linux.activationPackage;
     };
 }

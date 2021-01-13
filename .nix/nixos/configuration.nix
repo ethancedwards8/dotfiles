@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -19,7 +19,6 @@
 
   # Set your time zone.
   time.timeZone = "America/New_York";
-
 
   # nixpkgs.config.allowUnfree = true;
 
@@ -67,21 +66,24 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    git
-    wget
     curl
+    git
+    unzip
+    wget
   ];
 
-  nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
+  nix.package = pkgs.nixFlakes;
+  nix.trustedUsers = [ "root" "ece" "@wheel" ];
+  nix.extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes) 
+  ''
+    experimental-features = nix-command flakes
+    auto-optimise-store = true
+  '';
 
-  virtualisation.docker = {
-    enable = true;
-  };
+  # virtualisation.docker = {
+  #   enable = true;
+  # };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -107,7 +109,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.09"; # Did you read the comment?
+  system.stateVersion = "21.03"; # Did you read the comment?
 
 }
-
