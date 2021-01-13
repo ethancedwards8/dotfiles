@@ -28,7 +28,7 @@ alias sudo="sudo "
 alias ..="cd .."
 alias ...="cd ../.."
 # alias gs="git status"
-alias gp="git pull"
+# alias gp="git pull"
 alias vim="nvim"
 alias mutt="neomutt"
 # alias ls='ls --color=auto'
@@ -81,7 +81,9 @@ if [[ $TERM == screen* ]] && [[ "$HOSTNAME" == "archpc" ]]; then
 fi
 }
 
-eval "$(starship init bash)"
+if [[ "$HOSTNAME" == arch* ]]; then
+    eval "$(starship init bash)"
+fi
 
 # PS1='[\u@\h \W]\$ '
 
