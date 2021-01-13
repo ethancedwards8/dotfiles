@@ -2,11 +2,10 @@
 
 {
   home.packages = with pkgs; [
-    rnix-lsp
-    rust-analyzer rls cargo
+    cmake
     nodePackages.typescript
     nodePackages.typescript-language-server
-
-    cmake
+    rnix-lsp
+    rust-analyzer rls cargo
   ];
 }

@@ -2,15 +2,15 @@
 
 {
   home.packages = with pkgs; [
-    fzf
-    wget
+    bash-completion
     curl
     exa
+    fzf
+    htop
     ripgrep
-    bash-completion
     speedtest-cli
     tree
-    htop
+    wget
   ];
 
   programs.zsh = {

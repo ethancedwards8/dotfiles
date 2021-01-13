@@ -5,6 +5,7 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [ 
     kitty
+    gimp
     wifi-password
   ];
 
@@ -38,6 +39,8 @@
     experimental-features = nix-command flakes
     auto-optimise-store = true
   '';
+
+  programs.nix-index.enable = true;
 
   programs.gnupg.agent = {
     enable = true;
