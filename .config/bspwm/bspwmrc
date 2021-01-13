@@ -2,6 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 nitrogen --restore &
+xss-lock -- slock &
 $HOME/.config/polybar/launch.sh &
 
 if [[ "$HOSTNAME" == "archlaptop" ]]; then

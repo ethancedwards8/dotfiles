@@ -85,21 +85,6 @@ eval "$(starship init bash)"
 
 # PS1='[\u@\h \W]\$ '
 
-# function _update_ps1() {
-#     PS1="$($GOPATH/bin/powerline-go -error $?)"
-# }
-
-# if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ] && [[ "$HOSTNAME" == "archlaptop" ]]; then
-#     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-# fi
-
-# function _update_ps1() {
-#     PS1=$(powerline-shell $?)
-# }
-# if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]] && [[ "$HOSTNAME" == "archpc" ]]; then
-#       PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-# fi
-
 vterm_printf(){
     if [ -n "$TMUX" ]; then
         # Tell tmux to pass the escape sequences through
