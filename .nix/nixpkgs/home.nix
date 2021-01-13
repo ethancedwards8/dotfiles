@@ -31,6 +31,7 @@
 
     mpv
 
+    sqlite
     cmake
     # exa
     # ripgrep
