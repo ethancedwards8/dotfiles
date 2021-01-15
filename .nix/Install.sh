@@ -12,8 +12,6 @@ case $1 in
 
 	# nixos|os)
 	*)
-		echo 'sorry, please choose an option'
+		echo 'sorry, please choose a valid option'
 	;;
 esac
-
-
