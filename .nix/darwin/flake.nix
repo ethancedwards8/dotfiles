@@ -2,7 +2,7 @@
   description = "Ethan darwin system flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # darwin.url = "github:lnl7/nix-darwin/master";
     darwin.url = "github:ethancedwards8/nix-darwin/master";

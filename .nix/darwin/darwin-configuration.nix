@@ -31,6 +31,8 @@
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
+
+  nix.registry.nixpkgs.flake = inputs.nixpkgs;
   nix.package = pkgs.nixFlakes;
   nix.buildCores = 4;
   nix.trustedUsers = [ "@admin" ];

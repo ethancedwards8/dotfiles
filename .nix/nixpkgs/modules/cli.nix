@@ -8,6 +8,7 @@
     fzf
     htop
     ripgrep
+    shellcheck
     speedtest-cli
     sqlite
     tree

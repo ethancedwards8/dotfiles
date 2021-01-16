@@ -86,6 +86,7 @@
     wget
   ];
 
+  nix.registry.nixpkgs.flake = inputs.nixpkgs;
   nix.package = pkgs.nixFlakes;
   nix.trustedUsers = [ "root" "ece" "@wheel" ];
   nix.extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes) 
