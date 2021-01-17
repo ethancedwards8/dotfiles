@@ -50,6 +50,10 @@
       bspwm.enable = true;
     };
 
+    desktopManager = {
+      # plasma5.enable = true;
+    };
+
     displayManager = {
       defaultSession = "none+bspwm";
       lightdm.enable = true;
@@ -86,7 +90,6 @@
     wget
   ];
 
-  nix.registry.nixpkgs.flake = inputs.nixpkgs;
   nix.package = pkgs.nixFlakes;
   nix.trustedUsers = [ "root" "ece" "@wheel" ];
   nix.extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes) 

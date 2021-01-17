@@ -5,8 +5,10 @@
     bash-completion
     curl
     exa
+    file
     fzf
     htop
+    python
     ripgrep
     shellcheck
     speedtest-cli
