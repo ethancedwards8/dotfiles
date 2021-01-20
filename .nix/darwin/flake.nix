@@ -14,9 +14,10 @@
   };
 
   outputs = { self, darwin, nixpkgs }@inputs:
-  # outputs = { self }@inputs:
   let
     configuration = import ./darwin-configuration.nix;
+
+    cachix = import ./cachix.nix;
 
     overlays = [
       inputs.emacs-overlay.overlay
@@ -25,12 +26,11 @@
   in
   {
     darwinConfigurations."Ethans-MacBook-Air" = darwin.lib.darwinSystem {
-      modules = [ configuration darwin.darwinModules.simple ];
+      modules = [ cachix configuration darwin.darwinModules.simple ];
+      inputs = inputs;
     };
 
     # expose the package set, including overlays, for convenience???
     darwinPackages = self.darwinConfigurations."Ethans-MacBook-Air".pkgs;
   };
-
-
 }

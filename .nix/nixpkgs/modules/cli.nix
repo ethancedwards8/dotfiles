@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     bash-completion
+    cachix
     curl
     exa
     file

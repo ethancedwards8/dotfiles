@@ -5,7 +5,8 @@
     jetbrains-mono
   ];
 
-  services.emacs.enable = true;
+  # services.emacs.enable = if pkgs.stdenv.isDarwin then true else false;
+  # if pkgs.stdenv.isLinux then services.emacs.enable = true;
 
   programs.emacs = {
     enable = true;
