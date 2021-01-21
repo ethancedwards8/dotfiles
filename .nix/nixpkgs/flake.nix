@@ -30,6 +30,7 @@
               nixpkgs.overlays = overlays;
               imports = [
                 # ./home.nix
+                ./modules/cachix.nix
                 ./modules/cli.nix
                 ./modules/emacs.nix
                 ./modules/home-manager.nix
@@ -51,6 +52,7 @@
               imports = [
                 # ./home.nix
                 ./modules/bspwm.nix
+                ./modules/cachix.nix
                 ./modules/cli.nix
                 ./modules/emacs.nix
                 ./modules/home-manager.nix
