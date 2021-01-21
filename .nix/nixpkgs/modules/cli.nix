@@ -9,6 +9,7 @@
     file
     fzf
     htop
+    jq
     python
     ripgrep
     shellcheck
