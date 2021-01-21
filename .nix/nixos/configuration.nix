@@ -50,6 +50,10 @@
       bspwm.enable = true;
     };
 
+    desktopManager = {
+      # plasma5.enable = true;
+    };
+
     displayManager = {
       defaultSession = "none+bspwm";
       lightdm.enable = true;
@@ -80,6 +84,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    cachix
     curl
     git
     unzip

@@ -26,9 +26,11 @@
         macbook-air = inputs.home-manager.lib.homeManagerConfiguration {
           configuration = { pkgs, ... }:
             {
+              nixpkgs.config = import ./modules/config.nix;
               nixpkgs.overlays = overlays;
               imports = [
                 # ./home.nix
+                ./modules/cachix.nix
                 ./modules/cli.nix
                 ./modules/emacs.nix
                 ./modules/home-manager.nix
@@ -44,20 +46,23 @@
         };
         linux = inputs.home-manager.lib.homeManagerConfiguration {
           configuration = { pkgs, ... }:
-          {
-            nixpkgs.overlays = overlays;
-            imports = [
-              # ./home.nix
-              ./modules/bspwm.nix
-              ./modules/cli.nix
-              ./modules/emacs.nix
-              ./modules/home-manager.nix
-              ./modules/languages-and-server.nix
-              ./modules/neovim.nix
-              ./modules/polybar.nix
-              ./modules/terminals.nix
-            ];
-          };
+            {
+              nixpkgs.overlays = overlays;
+              nixpkgs.config = import ./modules/config.nix;
+              imports = [
+                # ./home.nix
+                ./modules/bspwm.nix
+                ./modules/cachix.nix
+                ./modules/cli.nix
+                ./modules/emacs.nix
+                ./modules/home-manager.nix
+                ./modules/languages-and-server.nix
+                ./modules/linux-specific.nix
+                ./modules/neovim.nix
+                ./modules/polybar.nix
+                ./modules/terminals.nix
+              ];
+            };
           system = "x86_64-linux";
           homeDirectory = "/home/ece";
           username = "ece";

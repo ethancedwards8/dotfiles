@@ -5,7 +5,12 @@ set number relativenumber
 set nowrap
 set smartindent
 set incsearch
+
+" bar settings
 set showcmd
+set showmode
+set ruler
+
 set tabstop=8
 set softtabstop=8
 set shiftwidth=8

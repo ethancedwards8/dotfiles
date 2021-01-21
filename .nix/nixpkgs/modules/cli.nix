@@ -3,11 +3,15 @@
 {
   home.packages = with pkgs; [
     bash-completion
+    cachix
     curl
     exa
+    file
     fzf
     htop
+    python
     ripgrep
+    shellcheck
     speedtest-cli
     sqlite
     tree

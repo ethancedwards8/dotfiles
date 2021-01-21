@@ -10,10 +10,11 @@ case $1 in
 		ln -s $(pwd)/nixpkgs ~/.config/
 	;;
 
-	# nixos|os)
+	nixos|os)
+		ln -s $(pwd)/nixos /etc/
+	;;
+
 	*)
-		echo 'sorry, please choose an option'
+		echo 'sorry, please choose a valid option'
 	;;
 esac
-
-
