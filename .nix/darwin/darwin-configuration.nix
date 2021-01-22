@@ -5,6 +5,11 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [ 
     cachix
+
+    ((emacsPackagesNgGen emacs).emacsWithPackages (epkgs: [
+      epkgs.vterm
+    ]))
+
     kitty
     gimp
     wifi-password
@@ -16,9 +21,9 @@
     shell = pkgs.bashInteractive;
   };
 
-  homebrew = {
-    enable = true;
-  };
+  # homebrew = {
+  #   enable = true;
+  # };
 
   security.pam.enableSudoTouchIdAuth = true;
 
@@ -29,7 +34,10 @@
   environment.darwinConfig = "$HOME/.nixpkgs/darwin-configuration.nix";
 
   services.emacs.enable = true;
-
+  services.emacs.package = pkgs.emacs.pkgs.withPackages (epkgs: [
+    epkgs.vterm
+  ]);
+  
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
 
