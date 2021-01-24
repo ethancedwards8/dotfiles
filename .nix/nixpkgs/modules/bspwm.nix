@@ -3,8 +3,8 @@
 {
   home.packages = with pkgs; [
     bspwm
-    sxhkd
     nitrogen
+    sxhkd
   ];
 
   home.file = {

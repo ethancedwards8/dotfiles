@@ -8,6 +8,8 @@
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
+    nur.url = "github:nix-community/NUR";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,6 +20,7 @@
     let
       overlays = [
           inputs.neovim-nightly.overlay
+          inputs.nur.overlay
           inputs.emacs-overlay.overlay
       ];
     in
@@ -35,6 +38,7 @@
                 ./modules/home-manager.nix
                 ./modules/languages-and-server.nix
                 ./modules/neovim.nix
+                ./modules/vscodium.nix
               ];
             };
           system = "x86_64-darwin";
@@ -53,6 +57,7 @@
                 ./modules/bspwm.nix
                 ./modules/cli.nix
                 ./modules/emacs.nix
+                ./modules/firefox.nix
                 ./modules/home-manager.nix
                 ./modules/languages-and-server.nix
                 ./modules/linux-specific.nix
