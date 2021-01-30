@@ -4,10 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    inputs.nixos-hardware.url = "github:nixos/nixos-hardware";
-
-    darwin.url = "github:ethancedwards8/nix-darwin/master";
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
 
     darwin = {
       url = "github:ethancedwards8/nix-darwin/master";
@@ -19,15 +16,23 @@
 
   outputs = { self, darwin, nixpkgs, nur, ...}@inputs:
     let
-      darwin-configuration = ./darwin/darwin-configuration.nix;
+      darwin-configuration = ./darwin-configuration.nix;
+
+      nixos-configuration = ./nixos-configuration.nix;
       
       cachix = import ./cachix.nix;
     in
       {
-        darwinConfigurations.mbpro = darwin.lib.darwinSystem {
+        darwinConfigurations.mbair = darwin.lib.darwinSystem {
           modules = [ cachix darwin-configuration darwin.darwinModules.simple {nixpkgs.overlays = [ nur.overlay ]; } ];
           inputs = inputs;
         };
+        nixosConfigurations.nixos-laptop = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ cachix nixos-configuration {nixpkgs.overlays = [ nur.overlay ]; } ];
+        };
 
+        # expose the package set, including overlays, for convenience???
+        darwinPackages = self.darwinConfigurations.mbair.pkgs;
       };
 }

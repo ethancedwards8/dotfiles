@@ -32,7 +32,7 @@
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  environment.darwinConfig = "$HOME/.nixpkgs/darwin-configuration.nix";
+  # environment.darwinConfig = "$HOME/.nixpkgs/darwin-configuration.nix";
 
   services.emacs.enable = true;
   services.emacs.package = pkgs.emacs.pkgs.withPackages (epkgs: [

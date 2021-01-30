@@ -75,6 +75,7 @@
                 ./modules/polybar.nix
                 ./modules/terminals.nix
               ];
+              services.emacs.enable = true;
             };
           system = "x86_64-linux";
           homeDirectory = "/home/ece";

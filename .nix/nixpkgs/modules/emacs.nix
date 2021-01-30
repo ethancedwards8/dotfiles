@@ -5,9 +5,6 @@
     jetbrains-mono
   ];
 
-  services.emacs.enable = if pkgs.stdenv.isLinux then true else false;
-  # if pkgs.stdenv.isLinux then services.emacs.enable = true;
-
   programs.emacs = {
     enable = true;
 
