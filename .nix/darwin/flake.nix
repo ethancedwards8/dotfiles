@@ -15,7 +15,7 @@
     # emacs-overlay.url = "github:nix-community/emacs-overlay";
   };
 
-  outputs = { self, darwin, nixpkgs, nur }@inputs:
+  outputs = { self, darwin, nixpkgs, nur, ... }@inputs:
   let
     configuration = import ./darwin-configuration.nix;
 

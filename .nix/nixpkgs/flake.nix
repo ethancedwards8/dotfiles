@@ -22,6 +22,9 @@
   outputs = { self, ... }@inputs:
     let
       overlays = [
+          (self: super: {
+            lightcord = super.callPackage ./packages/lightcord {};
+          })
           inputs.neovim-nightly.overlay
           inputs.nur.overlay
           inputs.emacs-overlay.overlay

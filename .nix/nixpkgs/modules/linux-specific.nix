@@ -2,7 +2,13 @@
 
 {
   home.packages = with pkgs; [
+    lightcord
+    nextcloud-client
+    nur.repos.mic92.nixos-shell
+    qutebrowser
     spotify
+    sxiv
+    zathura
 
     (st.overrideAttrs (oldAttrs: rec {
       src = fetchGit {
@@ -22,7 +28,4 @@
 
   ];
 
-  programs.firefox = {
-    enable = true;
-  };
 }
