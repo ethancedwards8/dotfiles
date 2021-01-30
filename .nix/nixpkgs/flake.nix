@@ -4,7 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+    neovim-nightly = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
@@ -35,9 +38,11 @@
                 # ./home.nix
                 ./modules/cli.nix
                 ./modules/emacs.nix
+                ./modules/games.nix
                 ./modules/home-manager.nix
                 ./modules/languages-and-server.nix
                 ./modules/neovim.nix
+                ./modules/nix-du.nix
                 ./modules/vscodium.nix
               ];
             };
@@ -58,10 +63,12 @@
                 ./modules/cli.nix
                 ./modules/emacs.nix
                 ./modules/firefox.nix
+                ./modules/games.nix
                 ./modules/home-manager.nix
                 ./modules/languages-and-server.nix
                 ./modules/linux-specific.nix
                 ./modules/neovim.nix
+                ./modules/nix-du.nix
                 ./modules/polybar.nix
                 ./modules/terminals.nix
               ];

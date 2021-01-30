@@ -10,8 +10,9 @@
       epkgs.vterm
     ]))
 
-    kitty
     gimp
+    kitty
+    mpv
     wifi-password
   ];
 

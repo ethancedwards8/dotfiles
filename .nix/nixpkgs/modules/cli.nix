@@ -10,11 +10,13 @@
     fzf
     htop
     jq
+    neofetch
     python
     ripgrep
     shellcheck
     speedtest-cli
     sqlite
+    tldr
     tree
     wget
   ];
