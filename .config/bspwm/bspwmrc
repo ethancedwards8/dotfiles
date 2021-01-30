@@ -11,7 +11,8 @@ fi
 
 if [[ "$HOSTNAME" == "archpc" ]]; then
 	bspc monitor DP-1 -d I II III IV V VI VII VIII IX X
-	bspc monitor HDMI-1 -d I II III IV V VI VII VIII IX X
+	bspc monitor HDMI-0 -d I II III IV V VI VII VIII IX X
+	bspc monitor DVI-D-0 -d I II III IV V VI VII VIII IX X
 	dailyman
 fi
 
@@ -33,3 +34,4 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 # dailyman
+
