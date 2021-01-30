@@ -1,8 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports =
@@ -48,6 +44,13 @@
 
     windowManager = {
       bspwm.enable = true;
+      awesome = {
+        enable = true;
+        luaModules = with pkgs.luaPackages; [
+          luarocks
+          luadbi-mysql
+        ];
+      };
     };
 
     desktopManager = {
@@ -70,8 +73,8 @@
   # services.printing.enable = true;
 
   # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ece = {
@@ -91,6 +94,7 @@
     wget
   ];
 
+  # nix.registry.nixpkgs.flake = inputs.nixpkgs;
   nix.package = pkgs.nixFlakes;
   nix.trustedUsers = [ "root" "ece" "@wheel" ];
   nix.extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes) 
