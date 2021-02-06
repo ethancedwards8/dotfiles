@@ -2,12 +2,20 @@
 
 {
   home.packages = with pkgs; [
+    gnome3.gnome-keyring
+    gnome3.nautilus
     lightcord
+    minecraft
+    multimc
     nextcloud-client
-    nur.repos.mic92.nixos-shell
+    nixos-shell
+    picom
     qutebrowser
+    scrot
+    slock
     spotify
     sxiv
+    xss-lock
     zathura
 
     (st.overrideAttrs (oldAttrs: rec {

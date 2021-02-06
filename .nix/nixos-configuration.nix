@@ -1,14 +1,15 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware/nixos-laptop.nix
-    ];
+  # imports =
+  #   [ # Include the results of the hardware scan.
+  #     ./hardware/nixos-laptop.nix
+  #   ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "nixlaptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -74,13 +75,21 @@
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware = {
+    pulseaudio = {
+      enable = true;
+      package = pkgs.pulseaudioFull;
+      support32Bit = true;
+    };
+
+    bluetooth.enable = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ece = {
     createHome = true;
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "networkmanager" "vboxusers" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "video" "audio" "networkmanager" "vboxusers" "docker" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.bashInteractive;
   };
 

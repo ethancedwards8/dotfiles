@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    polybar
+    polybarFull
     # python2.pkgs.dbus-python
   ];
 

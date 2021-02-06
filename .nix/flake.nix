@@ -19,6 +19,9 @@
       darwin-configuration = ./darwin-configuration.nix;
 
       nixos-configuration = ./nixos-configuration.nix;
+
+      nixpc-hardware = ./hardware/nixpc.nix;
+      nixlaptop-hardware = ./hardware/nixlaptop.nix;
       
       cachix = import ./cachix.nix;
     in
@@ -27,10 +30,16 @@
           modules = [ cachix darwin-configuration darwin.darwinModules.simple {nixpkgs.overlays = [ nur.overlay ]; } ];
           inputs = inputs;
         };
-        nixosConfigurations.nixos-laptop = nixpkgs.lib.nixosSystem {
+        nixosConfigurations.nixlaptop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ cachix nixos-configuration {nixpkgs.overlays = [ nur.overlay ]; } ];
+          modules = [ cachix nixos-configuration nixlaptop-hardware {nixpkgs.overlays = [ nur.overlay ]; } ];
         };
+        nixosConfigurations.nixpc = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ cachix nixos-configuration nixpc-hardware {nixpkgs.overlays = [ nur.overlay ]; } ];
+          # inputs = inputs;
+        };
+
 
         # expose the package set, including overlays, for convenience???
         darwinPackages = self.darwinConfigurations.mbair.pkgs;
