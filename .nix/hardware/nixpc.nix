@@ -8,6 +8,24 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
+  # boot loader stuffz
+  boot.loader = {
+    systemd-boot.enable = false;
+    efi = {
+      canTouchEfiVariables = true;
+    };
+    grub = {
+      enable = true;
+      version = 2;
+      device = "nodev";
+      efiSupport = true;
+      useOSProber = true;
+    };
+  };
+
+  # Change the kernel to the latest
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.supportedFilesystems = [ "ntfs" ];
