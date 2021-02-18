@@ -8,6 +8,17 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
+  # boot loader stuffz
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # Change the kernel to the latest
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # /tmp is tmpfs
+  boot.tmpOnTmpfs = true;
+  boot.cleanTmpDir = true;
+  
   boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "sd_mod" "rtsx_usb_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];

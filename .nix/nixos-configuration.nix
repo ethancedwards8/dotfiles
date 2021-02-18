@@ -35,6 +35,7 @@
 
     windowManager = {
       bspwm.enable = true;
+      exwm.enable = true;
       awesome = {
         enable = true;
         luaModules = with pkgs.luaPackages; [
@@ -93,6 +94,8 @@
     git
     unzip
     wget
+    gnupg
+    pinentry-curses
   ];
 
   # nix.registry.nixpkgs.flake = inputs.nixpkgs;
@@ -103,6 +106,11 @@
     experimental-features = nix-command flakes
     auto-optimise-store = true
   '';
+
+  fonts = {
+    fontDir.enable = true;
+    fonts = with pkgs; [ jetbrains-mono emacs-all-the-icons-fonts ];
+  };
 
   # virtualisation.docker = {
   #   enable = true;
@@ -120,6 +128,16 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  services.pcscd.enable = true;
+  services.udev.packages = [ pkgs.yubikey-personalization ];
+  programs = {
+    ssh.startAgent = false;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

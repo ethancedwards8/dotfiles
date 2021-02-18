@@ -26,6 +26,12 @@
   # Change the kernel to the latest
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # /tmp is tmpfs
+  boot.tmpOnTmpfs = true;
+
+  # amd microcode stuffz
+  hardware.cpu.amd.updateMicrocode = true;
+
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.supportedFilesystems = [ "ntfs" ];

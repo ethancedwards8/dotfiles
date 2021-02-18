@@ -3,7 +3,7 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 nitrogen --restore &
 picom &
-xss-lock -- slock &
+xss-lock -- i3lock -c 000000 &
 $HOME/.config/polybar/launch.sh &
 
 if [[ "$HOSTNAME" == *laptop* ]]; then

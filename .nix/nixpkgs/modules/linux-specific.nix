@@ -3,7 +3,9 @@
 {
   home.packages = with pkgs; [
     gnome3.gnome-keyring
+    mpv
     gnome3.nautilus
+    i3lock
     lightcord
     minecraft
     multimc

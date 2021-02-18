@@ -73,6 +73,7 @@
                 ./modules/neovim.nix
                 ./modules/nix-du.nix
                 ./modules/polybar.nix
+                ./modules/gpg.nix
                 ./modules/terminals.nix
               ];
               services.emacs.enable = true;

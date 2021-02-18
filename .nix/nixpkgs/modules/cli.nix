@@ -19,6 +19,7 @@
     tldr
     tree
     wget
+    youtube-dl
   ];
 
   programs.zsh = {
@@ -56,5 +57,4 @@
 
   programs.git.enable = true;
   home.file.".gitconfig".source = ../../../.gitconfig;
-
 }
