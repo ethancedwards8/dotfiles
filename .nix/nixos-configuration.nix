@@ -1,16 +1,6 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  # imports =
-  #   [ # Include the results of the hardware scan.
-  #     ./hardware/nixos-laptop.nix
-  #   ];
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   networking.hostName = "nixlaptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -84,6 +74,8 @@
 
     bluetooth.enable = true;
   };
+
+  security.doas.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ece = {
