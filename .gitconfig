@@ -1,8 +1,8 @@
 [user]
 	name = Ethan Edwards
-	; email = ethancarteredwards@gmail.com
 	email = ethan@ethancedwards.com
-	signingKey = 0xF93DDAFA26EF2458
+	signingKey = "0E69 0F46 3457 D812 3387  C978 F93D DAFA 26EF 2458"
+	gpgSign = true
 [core]
 	editor = nvim
 [filter "lfs"]
