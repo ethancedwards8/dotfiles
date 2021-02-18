@@ -42,9 +42,9 @@
     enable = true;
     clock24 = true;
     # plugins = with pkgs.tmuxPlugins; [
-      # sensible
-      # yank
-      # dracula
+    #   sensible
+    #   yank
+    #   dracula
     # ];
     extraConfig = builtins.readFile ./tmux.conf;
   };
