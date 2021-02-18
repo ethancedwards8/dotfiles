@@ -7,5 +7,9 @@
     nodePackages.typescript-language-server
     rnix-lsp
     rust-analyzer rls cargo
+
+
+
+    haskell-language-server
   ];
 }

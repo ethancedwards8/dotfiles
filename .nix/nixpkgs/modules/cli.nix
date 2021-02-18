@@ -19,6 +19,7 @@
     tldr
     tree
     wget
+    youtube-dl
   ];
 
   programs.zsh = {
