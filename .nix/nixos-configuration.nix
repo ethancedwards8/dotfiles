@@ -77,6 +77,7 @@
   };
 
   security.doas.enable = true;
+  security.pam.services.ece.gnupg.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ece = {
@@ -138,6 +139,8 @@
       enableSSHSupport = true;
     };
   };
+
+  services.gnome3.gnome-keyring.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

@@ -73,13 +73,14 @@
                 ./modules/emacs.nix
                 ./modules/firefox.nix
                 ./modules/games.nix
+                ./modules/gpg.nix
                 ./modules/home-manager.nix
                 ./modules/languages-and-server.nix
                 ./modules/linux-specific.nix
+                ./modules/neomutt.nix
                 ./modules/neovim.nix
                 ./modules/nix-du.nix
                 ./modules/polybar.nix
-                ./modules/gpg.nix
                 ./modules/redshift.nix
                 ./modules/terminals.nix
               ];
