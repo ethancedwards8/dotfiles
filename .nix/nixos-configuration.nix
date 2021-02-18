@@ -73,7 +73,7 @@
       support32Bit = true;
     };
 
-    bluetooth.enable = true;
+    # bluetooth.enable = true;
   };
 
   security.doas.enable = true;

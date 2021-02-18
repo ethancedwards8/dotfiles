@@ -27,18 +27,41 @@
     in
       {
         darwinConfigurations.mbair = darwin.lib.darwinSystem {
-          modules = [ cachix darwin-configuration darwin.darwinModules.simple {nixpkgs.overlays = [ nur.overlay ]; } ];
-          inputs = inputs;
+          modules = [ ({ pkgs, config, lib, ...}: {
+            nixpkgs.overlays = [ nur.overlay ];
+            nix.registry.nixpkgs.flake = nixpkgs;
+            nix.registry.nur.flake = nur;
+          })
+                      cachix
+                      darwin-configuration
+                      darwin.darwinModules.simple
+          ];
         };
         nixosConfigurations.nixlaptop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ cachix nixos-configuration nixlaptop-hardware {nixpkgs.overlays = [ nur.overlay ]; } {nix.registry.nixpkgs.flake = nixpkgs; nix.registry.nur.flake = nur;} ];
+          modules = [ ({pkgs, config, lib, ... }: {
+            nixpkgs.overlays = [ nur.overlay ];
+            nix.registry.nixpkgs.flake = nixpkgs;
+            nix.registry.nur.flake = nur;
+          })
+                      cachix
+                      nixos-configuration
+                      nixlaptop-hardware
+                      
+          ];
         };
         nixosConfigurations.nixpc = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ cachix nixos-configuration nixpc-hardware {nixpkgs.overlays = [ nur.overlay ]; } {nix.registry.nixpkgs.flake = nixpkgs; nix.registry.nur.flake = nur;} ];
+          modules = [ ({ pkgs, config, lib, ...}: {
+            nixpkgs.overlays = [ nur.overlay ];
+            nix.registry.nixpkgs.flake = nixpkgs;
+            nix.registry.nur.flake = nur;
+          })
+                      cachix
+                      nixos-configuration
+                      nixpc-hardware
+          ];
         };
-
 
         # expose the package set, including overlays, for convenience???
         darwinPackages = self.darwinConfigurations.mbair.pkgs;
