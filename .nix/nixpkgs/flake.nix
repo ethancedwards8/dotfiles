@@ -17,17 +17,23 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sysfo = {
+      url = "github:ethancedwards8/sysfo";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, ... }@inputs:
     let
       overlays = [
-          (self: super: {
-            lightcord = super.callPackage ./packages/lightcord {};
-          })
+          # (self: super: {
+          #   lightcord = super.callPackage ./packages/lightcord {};
+          # })
           inputs.neovim-nightly.overlay
           inputs.nur.overlay
           inputs.emacs-overlay.overlay
+          inputs.sysfo.overlay
       ];
     in
     {
@@ -67,12 +73,15 @@
                 ./modules/emacs.nix
                 ./modules/firefox.nix
                 ./modules/games.nix
+                ./modules/gpg.nix
                 ./modules/home-manager.nix
                 ./modules/languages-and-server.nix
                 ./modules/linux-specific.nix
+                ./modules/neomutt.nix
                 ./modules/neovim.nix
                 ./modules/nix-du.nix
                 ./modules/polybar.nix
+                ./modules/redshift.nix
                 ./modules/terminals.nix
               ];
               services.emacs.enable = true;

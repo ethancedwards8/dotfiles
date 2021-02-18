@@ -9,7 +9,7 @@ super + shift + e
       	emacs
 # slock
 super + alt + @space
-	slock
+	i3lock -c 000000
 # pass menu
 super + ctrl + @space
 	passmenu

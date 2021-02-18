@@ -32,12 +32,11 @@
         };
         nixosConfigurations.nixlaptop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ cachix nixos-configuration nixlaptop-hardware {nixpkgs.overlays = [ nur.overlay ]; } ];
+          modules = [ cachix nixos-configuration nixlaptop-hardware {nixpkgs.overlays = [ nur.overlay ]; } {nix.registry.nixpkgs.flake = nixpkgs; nix.registry.nur.flake = nur;} ];
         };
         nixosConfigurations.nixpc = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ cachix nixos-configuration nixpc-hardware {nixpkgs.overlays = [ nur.overlay ]; } ];
-          # inputs = inputs;
+          modules = [ cachix nixos-configuration nixpc-hardware {nixpkgs.overlays = [ nur.overlay ]; } {nix.registry.nixpkgs.flake = nixpkgs; nix.registry.nur.flake = nur;} ];
         };
 
 

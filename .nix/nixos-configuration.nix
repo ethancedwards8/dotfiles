@@ -35,6 +35,7 @@
 
     windowManager = {
       bspwm.enable = true;
+      exwm.enable = true;
       awesome = {
         enable = true;
         luaModules = with pkgs.luaPackages; [
@@ -76,6 +77,7 @@
   };
 
   security.doas.enable = true;
+  security.pam.services.ece.gnupg.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ece = {
@@ -93,6 +95,8 @@
     git
     unzip
     wget
+    gnupg
+    pinentry-curses
   ];
 
   # nix.registry.nixpkgs.flake = inputs.nixpkgs;
@@ -103,6 +107,11 @@
     experimental-features = nix-command flakes
     auto-optimise-store = true
   '';
+
+  fonts = {
+    fontDir.enable = true;
+    fonts = with pkgs; [ jetbrains-mono emacs-all-the-icons-fonts ];
+  };
 
   # virtualisation.docker = {
   #   enable = true;
@@ -120,6 +129,18 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  services.pcscd.enable = true;
+  services.udev.packages = [ pkgs.yubikey-personalization ];
+  programs = {
+    ssh.startAgent = false;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+  };
+
+  services.gnome3.gnome-keyring.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

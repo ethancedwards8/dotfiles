@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     polybarFull
-    # python2.pkgs.dbus-python
   ];
 
   home.file = {
