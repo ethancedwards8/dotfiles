@@ -33,7 +33,7 @@
           inputs.neovim-nightly.overlay
           inputs.nur.overlay
           inputs.emacs-overlay.overlay
-          # inputs.sysfo.overlay
+          inputs.sysfo.overlay
       ];
     in
     {

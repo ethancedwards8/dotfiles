@@ -10,7 +10,7 @@
 
   # boot loader stuffz
   boot.loader.systemd-boot.enable = true;
-  boot.loader.canTouchEfiVariables.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   # Change the kernel to the latest
   boot.kernelPackages = pkgs.linuxPackages_latest;
