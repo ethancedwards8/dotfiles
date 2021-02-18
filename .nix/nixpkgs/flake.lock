@@ -176,7 +176,28 @@
         "home-manager": "home-manager",
         "neovim-nightly": "neovim-nightly",
         "nixpkgs": "nixpkgs",
-        "nur": "nur"
+        "nur": "nur",
+        "sysfo": "sysfo"
+      }
+    },
+    "sysfo": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1612981982,
+        "narHash": "sha256-YO0ct05naea6P3j7GYlDQp7uhtDjZGzc6HhDEDRFANI=",
+        "owner": "ethancedwards8",
+        "repo": "sysfo",
+        "rev": "43804b10981021f72eaa51c5c44570079f792d7e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ethancedwards8",
+        "repo": "sysfo",
+        "type": "github"
       }
     }
   },
