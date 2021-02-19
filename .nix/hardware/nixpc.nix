@@ -28,6 +28,7 @@
 
   # /tmp is tmpfs
   boot.tmpOnTmpfs = true;
+  boot.cleanTmpDir = true;
 
   # amd microcode stuffz
   hardware.cpu.amd.updateMicrocode = true;

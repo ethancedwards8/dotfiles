@@ -19,6 +19,9 @@
   boot.tmpOnTmpfs = true;
   boot.cleanTmpDir = true;
   
+  # intel microcode stuffz
+  hardware.cpu.intel.updateMicrocode = true;
+
   boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "sd_mod" "rtsx_usb_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.supportedFilesystems = [ "ntfs" ];
