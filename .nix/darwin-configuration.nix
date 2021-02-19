@@ -21,12 +21,13 @@
     description = "Ethan Carter Edwards";
     shell = pkgs.bashInteractive;
   };
+  users.nix.configureBuildUsers = true;
 
   # homebrew = {
   #   enable = true;
   # };
 
-  security.pam.enableSudoTouchIdAuth = true;
+  # security.pam.enableSudoTouchIdAuth = true;
 
   environment.shells = [ pkgs.bashInteractive pkgs.zsh ];
 
