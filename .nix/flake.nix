@@ -23,7 +23,7 @@
       nixpc-hardware = ./hardware/nixpc.nix;
       nixlaptop-hardware = ./hardware/nixlaptop.nix;
       
-      cachix = import ./cachix.nix;
+      cachix = ./cachix.nix;
     in
       {
         darwinConfigurations.mbair = darwin.lib.darwinSystem {
