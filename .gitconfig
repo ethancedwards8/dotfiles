@@ -2,6 +2,7 @@
 	name = Ethan Edwards
 	email = ethan@ethancedwards.com
 	signingKey = "0E69 0F46 3457 D812 3387  C978 F93D DAFA 26EF 2458"
+[commit]
 	gpgSign = true
 [core]
 	editor = nvim
