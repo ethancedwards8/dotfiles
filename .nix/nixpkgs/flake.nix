@@ -48,6 +48,7 @@
                 ./modules/cli.nix
                 ./modules/emacs.nix
                 ./modules/games.nix
+                ./modules/gpg.nix
                 ./modules/home-manager.nix
                 ./modules/languages-and-server.nix
                 ./modules/neovim.nix
@@ -84,7 +85,9 @@
                 ./modules/redshift.nix
                 ./modules/terminals.nix
               ];
+              # linux stuff
               services.emacs.enable = true;
+              services.gpg-agent.enable = true;
             };
           system = "x86_64-linux";
           homeDirectory = "/home/ece";

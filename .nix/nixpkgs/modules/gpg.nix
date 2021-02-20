@@ -4,9 +4,6 @@
   programs.gpg = {
     enable = true;
   };
-  services.gpg-agent = {
-    enable = true;
-  };
 
   home.file.".gnupg/gpg.conf".source = ../../../.gnupg/gpg.conf;
   home.file.".gnupg/gpg-agent.conf".text = ''
