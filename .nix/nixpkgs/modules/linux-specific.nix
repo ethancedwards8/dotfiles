@@ -7,6 +7,7 @@
     i3lock
     # lightcord
     discord
+    trezor-suite
     nextcloud-client
     nixos-shell
     picom

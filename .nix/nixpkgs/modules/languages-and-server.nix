@@ -6,6 +6,9 @@
     gcc
     # clang
 
+    python3
+    python38Packages.python-language-server
+
     nodePackages.dockerfile-language-server-nodejs
 
     nodePackages.typescript
