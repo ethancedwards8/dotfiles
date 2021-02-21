@@ -113,7 +113,10 @@
     fonts = with pkgs; [ jetbrains-mono emacs-all-the-icons-fonts ];
   };
 
-  # virtualisation.docker = {
+  virtualisation.docker = {
+    enable = true;
+  };
+  # virtualisation.podman = {
   #   enable = true;
   # };
 
@@ -140,6 +143,7 @@
     };
   };
 
+  services.trezord.enable = true;
   services.gnome3.gnome-keyring.enable = true;
 
   # Open ports in the firewall.
