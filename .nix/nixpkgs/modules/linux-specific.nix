@@ -10,6 +10,7 @@
     trezor-suite
     nextcloud-client
     nixos-shell
+    picard
     picom
     qutebrowser
     scrot
