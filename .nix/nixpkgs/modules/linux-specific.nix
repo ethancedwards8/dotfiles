@@ -2,12 +2,13 @@
 
 {
   home.packages = with pkgs; [
-    mpv
-    gnome3.nautilus
-    i3lock
     # lightcord
     discord
-    trezor-suite
+    gnome3.nautilus
+    i3lock
+    monero
+    monero-gui
+    mpv
     nextcloud-client
     nixos-shell
     picard
@@ -17,6 +18,7 @@
     slock
     spotify
     sxiv
+    trezor-suite
     xss-lock
     zathura
 

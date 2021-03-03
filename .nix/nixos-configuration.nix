@@ -14,7 +14,7 @@
   # replicates the default behaviour.
   networking.useDHCP = false;
   # networking.interfaces.enp1s0.useDHCP = true;
-  networking.interfaces.wlp2s0.useDHCP = true;
+  # networking.interfaces.wlp2s0.useDHCP = true;
   networking.networkmanager.enable = true;
 
   # Configure network proxy if necessary
@@ -113,9 +113,10 @@
     fonts = with pkgs; [ jetbrains-mono emacs-all-the-icons-fonts ];
   };
 
-  virtualisation.docker = {
-    enable = true;
-  };
+  # virtualisation.docker = {
+  #   enable = true;
+  #   liveRestore = false;
+  # };
   # virtualisation.podman = {
   #   enable = true;
   # };

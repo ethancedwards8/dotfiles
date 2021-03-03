@@ -5,11 +5,13 @@
     bash-completion
     cachix
     curl
+    doctl
     exa
     file
     fzf
     htop
     jq
+    kubectl
     neofetch
     python
     ripgrep
