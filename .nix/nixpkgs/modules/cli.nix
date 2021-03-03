@@ -18,6 +18,7 @@
     shellcheck
     speedtest-cli
     sqlite
+    doctl
     tldr
     tree
     wget

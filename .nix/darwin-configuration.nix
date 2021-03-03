@@ -13,6 +13,7 @@
     gimp
     kitty
     mpv
+    pinentry-curses
     wifi-password
   ];
 

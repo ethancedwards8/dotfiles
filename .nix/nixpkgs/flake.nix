@@ -22,6 +22,11 @@
       url = "github:ethancedwards8/sysfo";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    neovide = {
+      url = "github:mjlbach/neovide-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, ... }@inputs:
@@ -34,6 +39,7 @@
           inputs.nur.overlay
           inputs.emacs-overlay.overlay
           inputs.sysfo.overlay
+          # inputs.neovide.overlay
       ];
     in
     {

@@ -22,7 +22,8 @@
       vimtex
       nerdtree
     ];
-
   };
-
+  # home.packages = with pkgs; [
+  #   neovide
+  # ];
 }
