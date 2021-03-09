@@ -6,19 +6,20 @@
     cachix
     curl
     doctl
+    doctl
     exa
     file
     fzf
     htop
     jq
     kubectl
+    ncdu
     neofetch
     python
     ripgrep
     shellcheck
     speedtest-cli
     sqlite
-    doctl
     tldr
     tree
     wget

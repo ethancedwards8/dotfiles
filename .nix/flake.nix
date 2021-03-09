@@ -43,6 +43,7 @@
             nixpkgs.overlays = [ nur.overlay ];
             nix.registry.nixpkgs.flake = nixpkgs;
             nix.registry.nur.flake = nur;
+            networking.hostName = "nixlaptop"; # Define your hostname.
           })
                       cachix
                       nixos-configuration
@@ -56,6 +57,7 @@
             nixpkgs.overlays = [ nur.overlay ];
             nix.registry.nixpkgs.flake = nixpkgs;
             nix.registry.nur.flake = nur;
+            networking.hostName = "nixpc"; # Define your hostname.
           })
                       cachix
                       nixos-configuration

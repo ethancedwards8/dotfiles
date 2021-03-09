@@ -1,13 +1,12 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  networking.hostName = "nixlaptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
   time.timeZone = "America/New_York";
 
-  # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -72,6 +71,7 @@
       package = pkgs.pulseaudioFull;
       support32Bit = true;
     };
+    opengl.driSupport32Bit = true;
 
     # bluetooth.enable = true;
   };
@@ -120,6 +120,12 @@
   # virtualisation.podman = {
   #   enable = true;
   # };
+  virtualisation = {
+    virtualbox = {
+      host.enable = true;
+      host.enableExtensionPack = true;
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

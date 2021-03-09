@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     jetbrains-mono
+    mu
   ];
 
   programs.emacs = {

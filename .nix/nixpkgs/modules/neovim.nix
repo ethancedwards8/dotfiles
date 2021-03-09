@@ -11,16 +11,16 @@
 
     plugins = with pkgs.vimPlugins; [
       fzf-vim
-      vim-rooter
+      lightline-vim #lightline.vim
+      nerdtree
+      # vifm
       vim-commentary 
       vim-css-color
       vim-fugitive
-      # vifm
-      lightline-vim #lightline.vim
       vim-highlightedyank
       vim-nix
+      vim-rooter
       vimtex
-      nerdtree
     ];
   };
   # home.packages = with pkgs; [

@@ -4,27 +4,23 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nur.url = "github:nix-community/NUR";
+
     neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
-
-    nur.url = "github:nix-community/NUR";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
     sysfo = {
       url = "github:ethancedwards8/sysfo";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neovide = {
-      url = "github:mjlbach/neovide-flake";
+    home-manager = {
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -59,7 +55,7 @@
                 ./modules/languages-and-server.nix
                 ./modules/neovim.nix
                 ./modules/nix-du.nix
-                ./modules/vscodium.nix
+                # ./modules/vscodium.nix
               ];
             };
           system = "x86_64-darwin";
@@ -75,6 +71,7 @@
               nixpkgs.config = import ./modules/config.nix;
               imports = [
                 # ./home.nix
+                # ./modules/brave.nix
                 ./modules/bspwm.nix
                 ./modules/cli.nix
                 ./modules/emacs.nix
@@ -90,9 +87,15 @@
                 ./modules/polybar.nix
                 ./modules/redshift.nix
                 ./modules/terminals.nix
+                # ./modules/vscodium.nix
               ];
               # linux stuff
-              services.emacs.enable = true;
+              services.emacs = {
+                enable = true;
+                client.enable = true;
+              };
+              xdg.userDirs.enable = false;
+              xdg.userDirs.desktop = "";
               services.gpg-agent.enable = true;
             };
           system = "x86_64-linux";

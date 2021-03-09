@@ -3,13 +3,13 @@
 {
   home.packages = with pkgs; [
     # lightcord
+    nodePackages.ganache-cli
     discord
     gnome3.nautilus
     i3lock
     monero
     monero-gui
     mpv
-    nextcloud-client
     nixos-shell
     picard
     picom
@@ -21,6 +21,18 @@
     trezor-suite
     xss-lock
     zathura
+
+    nextcloud-client
+    # fix bad nextcloud version
+    # (nextcloud-client.overrideAttrs (oldAttrs: rec { 
+    #   version = "3.0.3";
+    #   src = pkgs.fetchFromGitHub {
+    #     owner = "nextcloud";
+    #     repo = "desktop";
+    #     rev = "v${version}";
+    #     sha256 = "0idh8i71jivdjjs2y62l22yl3qxwgcr0hf53dad587bzgkkkr223";
+    # };
+    # }))
 
     (st.overrideAttrs (oldAttrs: rec {
       src = pkgs.fetchFromGitLab {

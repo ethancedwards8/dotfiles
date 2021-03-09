@@ -1,27 +1,31 @@
 { config, pkgs, libs, ... }:
 
 {
-  home.packages = with pkgs; [
-    cmake
-    gcc
+  home.packages = (with pkgs; [
     # clang
+    cmake
+    gnumake
+    gcc
+
+    haskell-language-server
 
     python3
     python38Packages.python-language-server
 
-    nodePackages.dockerfile-language-server-nodejs
-
-    nodePackages.typescript
-    nodePackages.typescript-language-server
+    nodePackages.npm
+    nodejs-slim
 
     rnix-lsp
 
-    haskell-language-server
-
     rust-analyzer rls cargo rustc rustfmt
 
-    yaml-language-server
+    texlab
 
-    nodePackages.vscode-json-languageserver
-  ];
+    yaml-language-server
+  ]) ++ (with pkgs.nodePackages; [
+    dockerfile-language-server-nodejs
+    typescript
+    typescript-language-server
+    vscode-json-languageserver
+  ]);
 }
