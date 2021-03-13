@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     # lightcord
-    nodePackages.ganache-cli
     discord
     gnome3.nautilus
     i3lock
@@ -11,8 +10,10 @@
     monero-gui
     mpv
     nixos-shell
+    nodePackages.ganache-cli
     picard
     picom
+    qbittorrent
     qutebrowser
     scrot
     slock
