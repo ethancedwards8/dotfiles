@@ -4,17 +4,17 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [ 
-    cachix
+    # cachix
 
     ((emacsPackagesNgGen emacs).emacsWithPackages (epkgs: [
       epkgs.vterm
     ]))
 
-    gimp
-    kitty
-    mpv
-    pinentry-curses
-    wifi-password
+    # gimp
+    # kitty
+    # mpv
+    # pinentry-curses
+    # wifi-password
   ];
 
   users.users.ece = {
@@ -37,17 +37,17 @@
   # environment.darwinConfig = "$HOME/.nixpkgs/darwin-configuration.nix";
 
   services.emacs.enable = true;
-  services.emacs.package = pkgs.emacs.pkgs.withPackages (epkgs: [
-    epkgs.vterm
-  ]);
+  # services.emacs.package = pkgs.emacs.pkgs.withPackages (epkgs: [
+  #   epkgs.vterm
+  # ]);
   
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
 
-  nix.package = pkgs.nixFlakes;
+  nix.package = pkgs.nixUnstable;
   nix.buildCores = 4;
   nix.trustedUsers = [ "@admin" ];
-  nix.extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes) 
+  nix.extraOptions = /* lib.optionalString (config.nix.package == pkgs.nixUnstable) */
   ''
     experimental-features = nix-command flakes
     auto-optimise-store = true

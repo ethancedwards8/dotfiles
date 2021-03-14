@@ -11,10 +11,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    nur.url = "github:nix-community/NUR";
+    # nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, darwin, nixpkgs, nur, ...}@inputs:
+  outputs = { self, darwin, nixpkgs, /* nur, */ ...}@inputs:
     let
       darwin-configuration = ./darwin-configuration.nix;
 
@@ -28,9 +28,8 @@
       {
         darwinConfigurations.mbair = darwin.lib.darwinSystem {
           modules = [ ({ pkgs, config, lib, ...}: {
-            nixpkgs.overlays = [ nur.overlay ];
+            # nixpkgs.overlays = [ nur.overlay ];
             nix.registry.nixpkgs.flake = nixpkgs;
-            nix.registry.nur.flake = nur;
           })
                       cachix
                       darwin-configuration
@@ -40,9 +39,8 @@
         nixosConfigurations.nixlaptop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [ ({pkgs, config, lib, ... }: {
-            nixpkgs.overlays = [ nur.overlay ];
+            # nixpkgs.overlays = [ nur.overlay ];
             nix.registry.nixpkgs.flake = nixpkgs;
-            nix.registry.nur.flake = nur;
             networking.hostName = "nixlaptop"; # Define your hostname.
           })
                       cachix
@@ -54,9 +52,8 @@
         nixosConfigurations.nixpc = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [ ({ pkgs, config, lib, ...}: {
-            nixpkgs.overlays = [ nur.overlay ];
+            # nixpkgs.overlays = [ nur.overlay ];
             nix.registry.nixpkgs.flake = nixpkgs;
-            nix.registry.nur.flake = nur;
             networking.hostName = "nixpc"; # Define your hostname.
           })
                       cachix
