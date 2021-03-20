@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # nur.url = "github:nix-community/NUR";
+    nur.url = "github:nix-community/NUR";
 
     neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";
@@ -14,10 +14,10 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
-    # sysfo = {
-    #   url = "github:ethancedwards8/sysfo";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    sysfo = {
+      url = "github:ethancedwards8/sysfo";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -29,9 +29,9 @@
     let
       overlays = [
           inputs.neovim-nightly.overlay
-          # inputs.nur.overlay
+          inputs.nur.overlay
           inputs.emacs-overlay.overlay
-          # inputs.sysfo.overlay
+          inputs.sysfo.overlay
       ];
     in
     {

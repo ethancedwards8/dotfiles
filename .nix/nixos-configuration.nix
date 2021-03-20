@@ -124,6 +124,7 @@
     virtualbox = {
       host.enable = true;
       host.enableExtensionPack = true;
+      host.package = pkgs.virtualboxWithExtpack;
     };
   };
 

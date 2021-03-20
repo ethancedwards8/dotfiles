@@ -10,6 +10,7 @@
     haskell-language-server
 
     python3
+    pipenv
     python38Packages.python-language-server
 
     nodePackages.npm
