@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     # lightcord
+    anki
     discord
     gnome3.nautilus
     i3lock
@@ -23,15 +24,14 @@
     xss-lock
     zathura
 
-    nextcloud-client
     # fix bad nextcloud version
     # (nextcloud-client.overrideAttrs (oldAttrs: rec { 
-    #   version = "3.0.3";
+    #   version = "3.2.0-rc2";
     #   src = pkgs.fetchFromGitHub {
     #     owner = "nextcloud";
     #     repo = "desktop";
     #     rev = "v${version}";
-    #     sha256 = "0idh8i71jivdjjs2y62l22yl3qxwgcr0hf53dad587bzgkkkr223";
+    #     sha256 = "7euKV6IODa0oMI9LYsr++n9bCHrYzxyzu3KmvzSjvTc=";
     # };
     # }))
 

@@ -93,10 +93,10 @@
     cachix
     curl
     git
-    unzip
-    wget
     gnupg
     pinentry-curses
+    unzip
+    wget
   ];
 
   # nix.registry.nixpkgs.flake = inputs.nixpkgs;
@@ -120,13 +120,13 @@
   # virtualisation.podman = {
   #   enable = true;
   # };
-  virtualisation = {
-    virtualbox = {
-      host.enable = true;
-      host.enableExtensionPack = true;
-      host.package = pkgs.virtualboxWithExtpack;
-    };
-  };
+  # virtualisation = {
+  #   virtualbox = {
+  #     host.enable = true;
+  #     host.enableExtensionPack = true;
+  #     host.package = pkgs.virtualboxWithExtpack;
+  #   };
+  # };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
