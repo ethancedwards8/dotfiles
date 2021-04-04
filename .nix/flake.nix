@@ -4,8 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nur.url = "github:ethancedwards8/nur/add_ethancedwards8-nur";
-    # nur.url = "github:nix-community/nur";
+    nur = {
+      # url = "github:nix-community/nur";
+      url = "github:ethancedwards8/nur/add_ethancedwards8-nur";
+      inputs.nur.follows = "nixpkgs";
+    };
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
