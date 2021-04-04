@@ -157,11 +157,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1617505367,
-        "narHash": "sha256-EEumm+ZLrSrfngwq4N7C/2ME8WXL/ijamdGCD70MnNM=",
+        "lastModified": 1617509938,
+        "narHash": "sha256-q02Lk4rKoriI4enWmKcmDQqh4ns8V+qAp+5dtAZycdg=",
         "owner": "ethancedwards8",
         "repo": "nur",
-        "rev": "3f9b7074ddad1014373809be8cfae9d46b299dfd",
+        "rev": "a0de37a0739741975ab8ae06cb3760e45a7bb901",
         "type": "github"
       },
       "original": {
