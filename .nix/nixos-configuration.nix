@@ -53,7 +53,10 @@
       lightdm.enable = true;
     };
 
-    libinput.enable = true;
+    libinput = {
+      enable = true;
+      mouse.middleEmulation = true;
+    };
   };
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -102,11 +105,21 @@
   # nix.registry.nixpkgs.flake = inputs.nixpkgs;
   nix.package = pkgs.nixFlakes;
   nix.trustedUsers = [ "root" "ece" "@wheel" ];
+  nix.autoOptimiseStore = true;
   nix.extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes) 
   ''
     experimental-features = nix-command flakes
-    auto-optimise-store = true
+    # builders-use-substitutes = true
   '';
+  nix.distributedBuilds = true;
+  nix.buildMachines = [{
+    hostName = "builder";
+    systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" ];
+    maxJobs = 3;
+    speedFactor = 2;
+    supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+    mandatoryFeatures = [ ];
+  }];
 
   fonts = {
     fontDir.enable = true;
@@ -159,6 +172,16 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
+
+  networking.extraHosts = ''
+    192.168.7.76 rpi1
+    192.168.7.77 rpi2
+    192.168.7.78 rpi3
+    192.168.7.79 rpi4
+    192.168.7.207 fedora
+    192.168.7.247 nixlaptop
+    192.168.7.248 nixpc
+  '';
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

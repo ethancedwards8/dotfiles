@@ -21,7 +21,8 @@ export EDITOR=nvim
 # set -o vi
 
 alias yeet="yay"
-alias e="emacsclient -t"
+alias e="emacsclient -c"
+alias et="emacsclient -t"
 alias sudo="sudo "
 alias config="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 # complete -F _complete_alias config

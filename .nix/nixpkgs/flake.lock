@@ -85,11 +85,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1617220862,
-        "narHash": "sha256-nLka+S6Vww8hTF3ZkzK/BezvgAo1Z433/L6TR1SiXyM=",
+        "lastModified": 1617493660,
+        "narHash": "sha256-PnPSs6RkkI2M6GyB2iGsL6hgDTe01yk5ZGP9q/Q14M8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ad04237d5142f53dcba258942b78e2d2bbf210c8",
+        "rev": "25a6a6d2984e70c9a07c8f8a69ebe24e6c700abf",
         "type": "github"
       },
       "original": {
@@ -110,11 +110,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1617265327,
-        "narHash": "sha256-qIdDSHz6qUvXLWaN/gjySK0IeOgCQ9h3IGRDEtu+Vl4=",
+        "lastModified": 1617437781,
+        "narHash": "sha256-oEeI5yxhjshR16rQFNlDHsszPxtqeYHwH6l8TkeWmiE=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "2b2b5cb6eda3e2d8dd369655694e42378cf50e1e",
+        "rev": "a8c4baa84129f046823b44f92ebf650263e64e85",
         "type": "github"
       },
       "original": {
@@ -126,11 +126,11 @@
     "neovim-nightly_2": {
       "flake": false,
       "locked": {
-        "lastModified": 1617264519,
-        "narHash": "sha256-Y4HAc4Xg5HLos/ZYM7EgDhgK1eqhFbWblh8p1qnmkbc=",
+        "lastModified": 1617398143,
+        "narHash": "sha256-O2Q6qvVGE2UUqq9q4XGvV9DIwCI7awAkGPIwjmEbWbg=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "3d25a72a60323c9d6eab2daf9dbd4920b94b8a94",
+        "rev": "6db3ba9df27619703947fee11493354ca3a06878",
         "type": "github"
       },
       "original": {
@@ -157,16 +157,17 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1617322146,
-        "narHash": "sha256-FQTmDGqTnBtj4/qVcanbRtdrcUICr2moAQULKuR2q40=",
-        "owner": "nix-community",
-        "repo": "NUR",
-        "rev": "f3407099e13dcd1fd1ffa520e7c9500a70050eab",
+        "lastModified": 1617505367,
+        "narHash": "sha256-EEumm+ZLrSrfngwq4N7C/2ME8WXL/ijamdGCD70MnNM=",
+        "owner": "ethancedwards8",
+        "repo": "nur",
+        "rev": "3f9b7074ddad1014373809be8cfae9d46b299dfd",
         "type": "github"
       },
       "original": {
-        "owner": "nix-community",
-        "repo": "NUR",
+        "owner": "ethancedwards8",
+        "ref": "add_ethancedwards8-nur",
+        "repo": "nur",
         "type": "github"
       }
     },
@@ -204,11 +205,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1615898547,
-        "narHash": "sha256-gLeGxgCPdAcfE3yYDOH3c+hFvpJB/WMO8BxGb+KsyN8=",
+        "lastModified": 1617483591,
+        "narHash": "sha256-IAZGz5mHTLIOP0RXuyXTJAdNT0fW6PhyjZptJ1ssL3Y=",
         "owner": "ethancedwards8",
         "repo": "sysfo",
-        "rev": "b76e19f431154b0a5a8c58b63824662317f3dd93",
+        "rev": "fd620e7ffd81c8fad7210ad3c99d92e2307a679a",
         "type": "github"
       },
       "original": {

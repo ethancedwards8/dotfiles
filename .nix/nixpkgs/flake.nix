@@ -4,7 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nur.url = "github:nix-community/NUR";
+    nur.url = "github:ethancedwards8/nur/add_ethancedwards8-nur";
+    # nur.url = "github:nix-community/nur";
 
     neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";
