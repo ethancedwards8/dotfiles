@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs ? nixpkgs, lib ? nixpkgs.lib, inputs, ... }:
 
 {
   nixpkgs.overlays = [ inputs.nur.overlay ];

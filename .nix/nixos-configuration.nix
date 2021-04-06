@@ -11,7 +11,6 @@
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
-  networking.useDHCP = false;
   # networking.interfaces.enp1s0.useDHCP = true;
   # networking.interfaces.wlp2s0.useDHCP = true;
   networking.networkmanager.enable = true;
@@ -109,17 +108,39 @@
   nix.extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes) 
   ''
     experimental-features = nix-command flakes
-    # builders-use-substitutes = true
+    builders-use-substitutes = true
   '';
   nix.distributedBuilds = true;
   nix.buildMachines = [{
-    hostName = "builder";
+    hostName = "builder-nixpc";
+    systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" ];
+    maxJobs = 3;
+    speedFactor = 2;
+    supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+    mandatoryFeatures = [ ];
+  }{
+    hostName = "builder-fedora";
     systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" ];
     maxJobs = 3;
     speedFactor = 2;
     supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
     mandatoryFeatures = [ ];
   }];
+  programs.ssh.startAgent = false;
+  programs.ssh.extraConfig = ''
+    Host builder-nixpc
+         HostName 192.168.7.248
+         Port 22
+         User ece
+         IdentitiesOnly yes
+         IdentityFile /home/ece/.ssh/id_rsa
+    Host builder-fedora
+         HostName 192.168.7.207
+         Port 22
+         User root
+         IdentitiesOnly yes
+         IdentityFile /home/ece/.ssh/id_rsa
+    '';
 
   fonts = {
     fontDir.enable = true;
@@ -157,7 +178,6 @@
   services.pcscd.enable = true;
   services.udev.packages = [ pkgs.yubikey-personalization ];
   programs = {
-    ssh.startAgent = false;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;

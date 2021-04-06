@@ -5,8 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nur = {
-      # url = "github:nix-community/nur";
-      url = "github:ethancedwards8/nur/add_ethancedwards8-nur";
+      url = "github:nix-community/nur";
       inputs.nur.follows = "nixpkgs";
     };
 
@@ -28,7 +27,7 @@
       
       cachix = ./cachix.nix;
 
-      common = import ./modules/common.nix { inherit inputs; pkgs = nixpkgs; lib = nixpkgs.lib; };
+      common = import ./modules/common.nix { inherit inputs; };
     in
       {
         darwinConfigurations.mbair = darwin.lib.darwinSystem {
