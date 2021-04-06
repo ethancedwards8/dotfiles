@@ -118,14 +118,15 @@
     speedFactor = 2;
     supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
     mandatoryFeatures = [ ];
-  }{
-    hostName = "builder-fedora";
-    systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" ];
-    maxJobs = 3;
-    speedFactor = 2;
-    supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-    mandatoryFeatures = [ ];
-  }];
+  }# {
+  #   hostName = "builder-fedora";
+  #   systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" ];
+  #   maxJobs = 3;
+  #   speedFactor = 2;
+  #   supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+  #   mandatoryFeatures = [ ];
+  # }
+                      ];
   programs.ssh.startAgent = false;
   programs.ssh.extraConfig = ''
     Host builder-nixpc
