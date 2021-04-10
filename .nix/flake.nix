@@ -3,13 +3,15 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-20.09";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
     nur = {
-      url = "github:nix-community/nur";
+      url = "github:nix-community/nur/master";
       inputs.nur.follows = "nixpkgs";
     };
 
-    nixos-hardware.url = "github:nixos/nixos-hardware";
+    nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
     darwin = {
       url = "github:lnl7/nix-darwin/master";

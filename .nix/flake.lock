@@ -32,17 +32,18 @@
       },
       "original": {
         "owner": "nixos",
+        "ref": "master",
         "repo": "nixos-hardware",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1617636226,
-        "narHash": "sha256-iZhBWrOR2DoDs1C+0FlnM9AQLMol/qoGQ+d+S43CKJM=",
+        "lastModified": 1617899217,
+        "narHash": "sha256-gd5JHH7IkeoIQ/oiGZSqDpGdGt7DMRJTQ8JiD8+hdOQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "3d1a7716d7f1fccbd7d30ab3b2ed3db831f43bde",
+        "rev": "9e377a6ce42dccd9b624ae4ce8f978dc892ba0e2",
         "type": "github"
       },
       "original": {
@@ -52,17 +53,50 @@
         "type": "github"
       }
     },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1618088308,
+        "narHash": "sha256-/aadnwrLmrKjPjCYyy3crF6Kn8nArsoL6wtQzBfQ6G8=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "f9951f50a5c14eb405be1959f9b7b30a849040f2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-stable": {
+      "locked": {
+        "lastModified": 1617958586,
+        "narHash": "sha256-Nedx7LR1e8V5/AFhdAC2nGm1ttNCPIuNsZFk5x6HZXE=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "a6847cb5460b47241eb35d1a6588652411642066",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-20.09",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nur": {
       "locked": {
-        "lastModified": 1617847615,
-        "narHash": "sha256-4VqkpsL8encEhY8PBq3l+33zGKM6/sggPwmEBBL91Wo=",
+        "lastModified": 1618089008,
+        "narHash": "sha256-DRmUj37PvZDkEg9RISjK9bZwgbRYgwcR+XfWYIyG584=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "c22c64cea210258fd2add3719b3c026d7f15bb34",
+        "rev": "40da8ce2a362d70663c7f5a3ac23b3ee8189ea5f",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
+        "ref": "master",
         "repo": "nur",
         "type": "github"
       }
@@ -72,6 +106,8 @@
         "darwin": "darwin",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-master": "nixpkgs-master",
+        "nixpkgs-stable": "nixpkgs-stable",
         "nur": "nur"
       }
     }
