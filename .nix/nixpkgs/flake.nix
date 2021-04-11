@@ -74,7 +74,7 @@
                 ./modules/bspwm.nix
                 ./modules/cli.nix
                 ./modules/emacs.nix
-                ./modules/firefox.nix
+                # ./modules/firefox.nix
                 ./modules/games.nix
                 ./modules/gpg.nix
                 ./modules/home-manager.nix

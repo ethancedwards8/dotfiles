@@ -21,15 +21,19 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  # i18n.
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
   };
 
   # Configure keymap in X11
-  services.xserver.layout = "us";
   services.xserver = {
     enable = true;
+
+    layout = "us,es";
+    xkbOptions = "grp:lalt_lshift_toggle";
+    # xkbVariant = ",qwerty";
 
     windowManager = {
       bspwm.enable = true;
@@ -111,14 +115,14 @@
     builders-use-substitutes = true
   '';
   nix.distributedBuilds = true;
-  nix.buildMachines = [{
-    hostName = "builder-nixpc";
-    systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" ];
-    maxJobs = 3;
-    speedFactor = 2;
-    supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-    mandatoryFeatures = [ ];
-  }# {
+  # nix.buildMachines = [{
+    # hostName = "builder-nixpc";
+    # systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" ];
+    # maxJobs = 3;
+    # speedFactor = 2;
+    # supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+    # mandatoryFeatures = [ ];
+  # }# {
   #   hostName = "builder-fedora";
   #   systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" ];
   #   maxJobs = 3;
@@ -126,7 +130,7 @@
   #   supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
   #   mandatoryFeatures = [ ];
   # }
-                      ];
+                      # ];
   programs.ssh.startAgent = false;
   programs.ssh.extraConfig = ''
     Host builder-nixpc
@@ -148,10 +152,10 @@
     fonts = with pkgs; [ jetbrains-mono emacs-all-the-icons-fonts ];
   };
 
-  # virtualisation.docker = {
-  #   enable = true;
-  #   liveRestore = false;
-  # };
+  virtualisation.docker = {
+    enable = true;
+    liveRestore = false;
+  };
   # virtualisation.podman = {
   #   enable = true;
   # };

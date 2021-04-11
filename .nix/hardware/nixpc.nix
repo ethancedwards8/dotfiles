@@ -55,6 +55,6 @@
       options = [ "rw" "uid=100" ];
     };
 
-  swapDevices = [ ];
+  swapDevices = [ { device = "/swapfile"; size = 2048 * 4; }];
 
 }

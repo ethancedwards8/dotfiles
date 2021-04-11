@@ -5,12 +5,13 @@
     # lightcord
     anki
     discord
+    firefox
     gnome3.nautilus
     i3lock
     monero
     monero-gui
     mpv
-    # nextcloud-client
+    nextcloud-client
     nixos-shell
     nodePackages.ganache-cli
     picard
