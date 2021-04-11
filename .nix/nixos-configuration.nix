@@ -138,7 +138,7 @@
          Port 22
          User ece
          IdentitiesOnly yes
-         IdentityFile /home/ece/.ssh/id_rsa
+         IdentityFile /home/ece/.ssh/id_ed25519
     Host builder-fedora
          HostName 192.168.7.207
          Port 22
