@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     # lightcord
     anki
+    godot
     discord
     firefox
     gnome3.nautilus

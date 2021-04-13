@@ -19,7 +19,7 @@
     };
   };
 
-  outputs = { self, darwin, nixpkgs, /* nur, */ ...}@inputs:
+  outputs = { self, darwin, nixpkgs, nur, ...}@inputs:
     let
       darwin-configuration = ./darwin-configuration.nix;
       nixos-configuration = ./nixos-configuration.nix;
@@ -44,7 +44,7 @@
         nixosConfigurations.nixlaptop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [ ({pkgs, config, lib, ... }: {
-            networking.hostName = "nixlaptop"; # Define your hostname.
+            networking.hostName = "nixlaptop";
           })
                       cachix
                       common
@@ -56,7 +56,7 @@
         nixosConfigurations.nixpc = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [ ({ pkgs, config, lib, ...}: {
-            networking.hostName = "nixpc"; # Define your hostname.
+            networking.hostName = "nixpc";
           })
                       cachix
                       common

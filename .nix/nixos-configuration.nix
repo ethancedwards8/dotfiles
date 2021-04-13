@@ -111,7 +111,7 @@
   nix.autoOptimiseStore = true;
   nix.extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes) 
   ''
-    experimental-features = nix-command flakes
+    experimental-features = nix-command flakes ca-references
     builders-use-substitutes = true
   '';
   nix.distributedBuilds = true;
@@ -166,6 +166,8 @@
   #     host.package = pkgs.virtualboxWithExtpack;
   #   };
   # };
+
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
