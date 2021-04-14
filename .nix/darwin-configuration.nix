@@ -24,9 +24,10 @@
   };
   users.nix.configureBuildUsers = true;
 
-  # homebrew = {
-  #   enable = true;
-  # };
+  homebrew = {
+    enable = true;
+    casks = [ "godot" ];
+  };
 
   # security.pam.enableSudoTouchIdAuth = true;
 
