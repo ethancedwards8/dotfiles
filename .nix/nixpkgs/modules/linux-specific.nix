@@ -30,7 +30,6 @@
     nur.repos.ethancedwards8.st
 
     nur.repos.ethancedwards8.dmenu
-
   ];
 
 }
