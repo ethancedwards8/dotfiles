@@ -3,12 +3,13 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-20.09";
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
+    # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-20.09";
+    # nixpkgs-master.url = "github:nixos/nixpkgs/master";
+    flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
 
     nur = {
       url = "github:nix-community/nur/master";
-      inputs.nur.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";

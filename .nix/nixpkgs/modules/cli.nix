@@ -6,13 +6,12 @@
     cachix
     curl
     doctl
-    doctl
     exa
     file
     fzf
     htop
     jq
-    kubectl
+    # kubectl
     ncdu
     neofetch
     python
@@ -20,6 +19,7 @@
     shellcheck
     speedtest-cli
     sqlite
+    sysfo
     tldr
     tree
     wget
