@@ -31,7 +31,7 @@
 
   # security.pam.enableSudoTouchIdAuth = true;
 
-  environment.shells = [ pkgs.bashInteractive pkgs.zsh ];
+  environment.shells = with pkgs; [ bashInteractive zsh ];
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix

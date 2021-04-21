@@ -183,7 +183,7 @@
   services.openssh.enable = true;
 
   services.pcscd.enable = true;
-  services.udev.packages = [ pkgs.yubikey-personalization ];
+  services.udev.packages = with pkgs; [ yubikey-personalization ];
   programs = {
     gnupg.agent = {
       enable = true;
