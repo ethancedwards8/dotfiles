@@ -34,6 +34,15 @@
 
   services.nix-daemon.enable = true;
 
+  nix.package = pkgs.nixUnstable;
+  nix.buildCores = 4;
+  nix.trustedUsers = [ "@admin" ];
+  nix.extraOptions =
+  ''
+    experimental-features = nix-command flakes
+    auto-optimise-store = true
+  '';
+
   programs.nix-index.enable = true;
 
   programs.gnupg.agent = {

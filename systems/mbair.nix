@@ -3,7 +3,6 @@ inputs: {
 
   modules = [
     ../modules/darwin.nix
-    # ../modules/default.nix
     inputs.darwin.darwinModules.simple
     inputs.home-manager.darwinModules.home-manager
     ({pkgs, config, ...}: {
