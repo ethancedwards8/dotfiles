@@ -15,7 +15,6 @@ inputs: {
           };
           xdg.userDirs.enable = false;
           xdg.userDirs.desktop = "";
-          services.gpg-agent.enable = true;
         };
       home-manager.useUserPackages = true;
       home-manager.useGlobalPkgs = true;
