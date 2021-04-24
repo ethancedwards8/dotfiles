@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    abook
+    # abook
     curl
     isync
     lynx
