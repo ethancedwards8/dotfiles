@@ -9,6 +9,8 @@
 
     haskell-language-server
 
+    sumneko-lua-language-server
+
     python3
     pipenv
     python38Packages.python-language-server
