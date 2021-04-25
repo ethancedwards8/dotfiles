@@ -1,4 +1,4 @@
-{ config, pkgs, libs, ... }:
+{ config, pkgs, lib, stdenv, ... }:
 
 {
   programs.gpg = {
@@ -11,7 +11,7 @@
     };
   };
   services.gpg-agent = {
-    enable = true;
+    enable = pkgs.stdenv.isLinux;
     enableScDaemon = true;
     extraConfig = ''
       enable-ssh-support
