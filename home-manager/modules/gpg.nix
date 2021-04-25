@@ -12,11 +12,12 @@
   };
   services.gpg-agent = {
     enable = true;
-    enableSshSupport = true;
     enableScDaemon = true;
-    enableExtraSocket = true;
-    defaultCacheTtl = 28800;
-    maxCacheTtl = 28800;
+    extraConfig = ''
+      enable-ssh-support
+      default-cache-ttl 28800
+      max-cache-ttl 28800
+    '';
   };
 
   # home.packages = with pkgs; [
