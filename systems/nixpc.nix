@@ -3,6 +3,7 @@ inputs: {
 
   modules = [
     ../modules/linux.nix
+    ../modules/desktop.nix
     ../hardware/nixpc.nix
     inputs.home-manager.nixosModules.home-manager
     ({ pkgs, config, ... }: {
