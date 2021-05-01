@@ -29,7 +29,8 @@
 
     # nur.repos.ethancedwards8.st
 
+    # fix
+    dmenu
     # nur.repos.ethancedwards8.dmenu
   ];
-
 }
