@@ -16,7 +16,7 @@
     ./neovim.nix
     ./nix-du.nix
     # ./polybar.nix
-    # ./pin-nixpkgs.nix
+    ./pin-nixpkgs.nix
     ./terminals.nix
   ];
 }

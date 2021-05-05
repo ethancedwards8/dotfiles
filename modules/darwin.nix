@@ -1,6 +1,10 @@
 { config, lib, pkgs, ...}:
 
 {
+  imports = [
+    ./pin-nixpkgs.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     cachix
 
