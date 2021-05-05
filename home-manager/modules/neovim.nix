@@ -1,11 +1,13 @@
 { config, pkgs, lib, ... }:
-
+let
+  inherit (config.ece.pkgs) nixpkgs;
+in
 {
   programs.neovim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
-    # package = pkgs.neovim-nightly;
+    package = pkgs.neovim-nightly;
     extraConfig = builtins.readFile ./init.vim;
 
     plugins = with pkgs.vimPlugins; [

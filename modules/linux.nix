@@ -8,7 +8,7 @@
     ./fonts.nix
     ./networking.nix
     ./nix.nix
-    # ./pin-nixpkgs.nix
+    ./pin-nixpkgs.nix
     ./security.nix
     ./shells.nix
     ./xserver.nix

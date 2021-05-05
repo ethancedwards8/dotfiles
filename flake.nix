@@ -38,12 +38,6 @@
       inherit (home-manager.lib) homeManagerConfiguration;
       inherit (darwin.lib) darwinSystem;
 
-      overlays = [
-        inputs.neovim-nightly.overlay
-        inputs.nur.overlay
-        inputs.emacs-overlay.overlay
-      ];
-
       supportedSystems = [ "x86_64-linux" "i686-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
     in {
@@ -56,8 +50,21 @@
       nixosConfigurations.nixpc = nixosSystem (import ./systems/nixpc.nix inputs);
       nixpc = self.nixosConfigurations.nixpc.config.system.build.toplevel;
 
-      # nixpkgs.overlays = overlays;
+      overlays = {
+        neovim = self.inputs.neovim-nightly.overlay;
+        nur = self.inputs.nur.overlay;
+        emacs = self.inputs.emacs-overlay.overlay;
+      };
 
+      # packages =
+      #   forAllSystems (system:
+      #     let
+      #       mkPkg' =
+      #         nixpkgs: name: package: (import nixpkgs { inherit system; overlays = [ self.overlays."${name}" ]; }).ece."${package}";
+      #       mkPkg = name: mkPkg' nixpkgs name name;
+      #     in
+      #       {
+      #       });
       darwinPackages = self.darwinConfigurations.mbair.pkgs;
       };
 }

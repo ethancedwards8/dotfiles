@@ -4,7 +4,7 @@
   networking.networkmanager.enable = true;
 
   # networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  # networking.firewall.allowedTCPPorts = [ 22 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   networking.extraHosts = ''
     192.168.7.76 rpi1

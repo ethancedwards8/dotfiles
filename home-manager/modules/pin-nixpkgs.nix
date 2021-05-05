@@ -3,6 +3,13 @@ with lib;
 let
   cfg = config.ece;
   system = pkgs.stdenv.system;
+
+  overlayType = mkOptionType {
+    name = "nixpkgs-overlay";
+    description = "nixpkgs overlay";
+    check = builtins.isFunction;
+    merge = lib.mergeOneOption;
+  };
 in
 {
   options.ece = {
@@ -22,7 +29,8 @@ in
     };
     overlays = mkOption {
       description = "Overlays which should be loaded for all versions of nixpkgs";
-      type = with types; listOf overlayType;
+      type = with types; attrsOf unspecified;
+      # type = types.nullOr (types.listOf overlayType);
     };
   };
 
@@ -40,7 +48,7 @@ in
       (options ? "nixpkgs")
       {
         nixpkgs.config = cfg.config;
-        nixpkgs.overlays = listToAttrs (_: v: v) cfg.overlays;
+        nixpkgs.overlays = mapAttrsToList (_: v: v) cfg.overlays;
       })
     {
 
@@ -49,7 +57,7 @@ in
           (n: v: import v {
             inherit system;
             config = cfg.config;
-            overlays = (listToAttrs (_: v: v) cfg.overlays);
+            overlays = (mapAttrsToList (_: v: v) cfg.overlays);
           })
           (filterAttrs (n: v: builtins.hasAttr "legacyPackages" v) cfg.pins);
     }

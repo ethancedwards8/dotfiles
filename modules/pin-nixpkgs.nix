@@ -3,6 +3,13 @@ with lib;
 let
   cfg = config.ece;
   system = pkgs.stdenv.system;
+
+  overlayType = mkOptionType {
+    name = "nixpkgs-overlay";
+    description = "nixpkgs overlay";
+    check = builtins.isFunction;
+    merge = lib.mergeOneOption;
+  };
 in
 {
   options.ece = {
@@ -23,6 +30,7 @@ in
     overlays = mkOption {
       description = "Overlays which should be loaded for all versions of nixpkgs";
       type = with types; attrsOf unspecified;
+      # type = types.nullOr (types.listOf overlayType);
     };
   };
 

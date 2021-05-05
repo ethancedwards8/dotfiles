@@ -10,13 +10,36 @@ inputs: {
       home-manager.users."ece" =
         { ... }: {
           imports = [ ../home-manager/modules/linux.nix ];
-          services.emacs = {
-            enable = true;
-            client.enable = true;
+
+          ece = {
+            pins = {
+              inherit (inputs)
+                nixpkgs
+                darwin
+
+                home-manager
+                nur;
+            };
+            config = {
+              allowUnfree = true;
+            };
+            overlays = inputs.self.overlays;
           };
-          xdg.userDirs.enable = false;
-          xdg.userDirs.desktop = "";
         };
+      ece = {
+        pins = {
+          inherit (inputs)
+            nixpkgs
+            darwin
+
+            home-manager
+            nur;
+        };
+        config = {
+          allowUnfree = true;
+        };
+        overlays = inputs.self.overlays;
+      };
       home-manager.useUserPackages = true;
       home-manager.useGlobalPkgs = true;
       networking.hostName = "nixpc";
