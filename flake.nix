@@ -30,6 +30,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    #### PACKAGES ####
+    st = {
+      url = "gitlab:ethancedwards/st-config";
+      flake = false;
+    };
+    dmenu = {
+      url = "gitlab:ethancedwards/dmenu-config";
+      flake = false;
+    };
   };
 
   outputs = { self, darwin, nixpkgs, nur, home-manager, ...}@inputs:

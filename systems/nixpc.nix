@@ -11,6 +11,15 @@ inputs: {
         { ... }: {
           imports = [ ../home-manager/modules/linux.nix ];
 
+          home.packages = with pkgs; [
+            (nur.repos.ethancedwards8.st.overrideAttrs (oldAttrs: rec {
+              src = inputs.st;
+            }))
+            (nur.repos.ethancedwards8.dmenu.overrideAttrs (oldAttrs: rec {
+              src = inputs.dmenu;
+            }))
+          ];
+
           ece = {
             pins = {
               inherit (inputs)
