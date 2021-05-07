@@ -5,13 +5,13 @@ add_newline = false
 disabled = true
 
 [git_status]
-enabled = true
+# enabled = true
 
 [cmd_duration]
 disabled = true
 
 [directory]
-enabled = true
+# enabled = true
 truncation_length = 4
 
 # Replace the "❯" symbol in the prompt with "➜"

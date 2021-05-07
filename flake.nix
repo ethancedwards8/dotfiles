@@ -11,6 +11,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nur = {
       url = "github:nix-community/nur/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,8 +31,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    easy-hls-nix = {
+      url = "github:jkachmar/easy-hls-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -64,6 +69,7 @@
         neovim = self.inputs.neovim-nightly.overlay;
         nur = self.inputs.nur.overlay;
         emacs = self.inputs.emacs-overlay.overlay;
+        # emacs-ece = import ./overlays/emacs/default.nix inputs;
       };
 
       # packages =
@@ -74,6 +80,7 @@
       #       mkPkg = name: mkPkg' nixpkgs name name;
       #     in
       #       {
+      #         emacs-ece = mkPkg "emacs-ece";
       #       });
       darwinPackages = self.darwinConfigurations.mbair.pkgs;
       };

@@ -7,7 +7,10 @@
     gnumake
     gcc
 
-    haskell-language-server
+    cabal-install
+    ghc
+    # haskell-language-server
+    stack
 
     python3
     pipenv
