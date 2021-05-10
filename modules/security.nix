@@ -2,6 +2,7 @@
 
 {
   security.doas.enable = true;
+  security.doas.extraRules = [{ users = [ "ece" ]; persist = true; }];
   security.pam.services.ece.gnupg.enable = true;
 
   services.openssh.enable = true;

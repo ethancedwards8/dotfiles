@@ -24,6 +24,9 @@
     tree
     wget
     youtube-dl
+
+    azure-cli
+    terraform_0_15
   ];
 
   programs.zsh = {
@@ -46,8 +49,8 @@
     enable = true;
     clock24 = true;
     # plugins = with pkgs.tmuxPlugins; [
-    #   sensible
-    #   yank
+    #   # sensible
+    #   # yank
     #   dracula
     # ];
     extraConfig = builtins.readFile ./tmux.conf;
