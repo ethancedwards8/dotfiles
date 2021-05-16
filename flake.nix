@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-20.09";
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
@@ -33,6 +34,11 @@
 
     easy-hls-nix = {
       url = "github:jkachmar/easy-hls-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    veloren = {
+      url = "gitlab:veloren/veloren/43593bc4c90172b06f5dc709ff96d960995d9fa4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

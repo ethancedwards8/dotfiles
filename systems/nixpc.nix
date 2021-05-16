@@ -19,13 +19,15 @@ inputs: {
               src = inputs.dmenu;
             }))
 
-            (inputs.easy-hls-nix.defaultPackage.x86_64-linux)
+            (inputs.easy-hls-nix.defaultPackage."${system}")
+            (inputs.veloren.defaultPackage."${system}")
           ];
 
           ece = {
             pins = {
               inherit (inputs)
                 nixpkgs
+                nixpkgs-stable
                 darwin
 
                 home-manager
@@ -41,6 +43,7 @@ inputs: {
         pins = {
           inherit (inputs)
             nixpkgs
+            nixpkgs-stable
             darwin
 
             home-manager

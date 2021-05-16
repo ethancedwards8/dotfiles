@@ -27,7 +27,7 @@
   xdg.userDirs.desktop = "";
 
   home.packages = with pkgs; [
-    anki
+    anki-bin
     godot
     discord
     firefox

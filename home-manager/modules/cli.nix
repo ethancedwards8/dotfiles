@@ -1,5 +1,8 @@
 { config, pkgs, lib, ... }:
 
+let
+  inherit (config.ece.pkgs) nixpkgs-stable;
+in
 {
   home.packages = with pkgs; [
     bash-completion
@@ -25,8 +28,11 @@
     wget
     youtube-dl
 
-    azure-cli
+    nixpkgs-stable.azure-cli
     terraform_0_15
+
+
+    git-lfs
   ];
 
   programs.zsh = {
@@ -63,5 +69,6 @@
   };
 
   programs.git.enable = true;
+  programs.git.package = pkgs.gitFull;
   home.file.".gitconfig".source = ../../.gitconfig;
 }
