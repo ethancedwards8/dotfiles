@@ -22,7 +22,7 @@ in
     shellcheck
     speedtest-cli
     sqlite
-    # sysfo
+    # nur.repos.ethancedwards8.sysfo
     tldr
     tree
     wget

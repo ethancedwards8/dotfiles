@@ -13,6 +13,7 @@
     ./shells.nix
     ./xserver.nix
   ];
+  nix.distributedBuilds = true;
 
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
@@ -24,6 +25,8 @@
     curl
     git
     gnupg
+    kitty
+    mpv
     pinentry-curses
     unzip
     wget

@@ -3,19 +3,29 @@
 {
   imports = [
     ./pin-nixpkgs.nix
+    ./nix.nix
+    ./cachix.nix
+    ./shells.nix
   ];
+  services.nix-daemon.enable = true;
+  programs.nix-index.enable = true;
 
   environment.systemPackages = with pkgs; [
     cachix
+    curl
 
     ((emacsPackagesNgGen emacs).emacsWithPackages (epkgs: [
       epkgs.vterm
     ]))
 
     gimp
+    git
+    gnupg
     kitty
     mpv
     pinentry-curses
+    unzip
+    wget
     wifi-password
   ];
 
@@ -35,19 +45,6 @@
   services.emacs.package = pkgs.emacs.pkgs.withPackages (epkgs: [
     epkgs.vterm
   ]);
-
-  services.nix-daemon.enable = true;
-
-  nix.package = pkgs.nixUnstable;
-  nix.buildCores = 4;
-  nix.trustedUsers = [ "@admin" ];
-  nix.extraOptions =
-  ''
-    experimental-features = nix-command flakes
-    auto-optimise-store = true
-  '';
-
-  programs.nix-index.enable = true;
 
   programs.gnupg.agent = {
     enable = true;

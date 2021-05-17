@@ -3,13 +3,12 @@
 {
   nix.package = pkgs.nixUnstable;
   nix.trustedUsers = [ "root" "ece" "@wheel" "@admin" ];
-  nix.autoOptimiseStore = true;
   nix.extraOptions = # lib.optionalString (config.nix.package == pkgs.nixFlakes)
   ''
     experimental-features = nix-command flakes ca-references ca-derivations
     builders-use-substitutes = true
+    auto-optimise-store = true
   '';
-  nix.distributedBuilds = true;
 
   # TODO: OLD
   # nix.buildMachines = [{
