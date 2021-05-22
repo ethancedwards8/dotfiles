@@ -10,7 +10,6 @@
 
     windowManager = {
       bspwm.enable = true;
-      exwm.enable = true;
       awesome = {
         enable = true;
         luaModules = with pkgs.luaPackages; [
@@ -34,5 +33,5 @@
       mouse.middleEmulation = true;
     };
   };
-  
+
 }

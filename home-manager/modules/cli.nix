@@ -9,6 +9,7 @@ in
     cachix
     curl
     doctl
+    hydra-check
     exa
     file
     fzf

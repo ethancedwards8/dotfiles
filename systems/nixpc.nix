@@ -12,10 +12,10 @@ inputs: {
           imports = [ ../home-manager/modules/linux.nix ];
 
           home.packages = with pkgs; [
-            (st.overrideAttrs (oldAttrs: rec {
+            (nur.repos.ethancedwards8.st.overrideAttrs (oldAttrs: rec {
               src = inputs.st;
             }))
-            (dmenu.overrideAttrs (oldAttrs: rec {
+            (nur.repos.ethancedwards8.dmenu.overrideAttrs (oldAttrs: rec {
               src = inputs.dmenu;
             }))
 
@@ -35,6 +35,7 @@ inputs: {
             };
             config = {
               allowUnfree = true;
+              # contentAddressedByDefault = true;
             };
             overlays = inputs.self.overlays;
           };
@@ -51,6 +52,7 @@ inputs: {
         };
         config = {
           allowUnfree = true;
+          # contentAddressedByDefault = true;
         };
         overlays = inputs.self.overlays;
       };

@@ -2,9 +2,10 @@
 
 {
   imports = [
-    ./pin-nixpkgs.nix
-    ./nix.nix
     ./cachix.nix
+    ./emacs.nix
+    ./nix.nix
+    ./pin-nixpkgs.nix
     ./shells.nix
   ];
   services.nix-daemon.enable = true;
@@ -13,11 +14,6 @@
   environment.systemPackages = with pkgs; [
     cachix
     curl
-
-    ((emacsPackagesNgGen emacs).emacsWithPackages (epkgs: [
-      epkgs.vterm
-    ]))
-
     gimp
     git
     gnupg
@@ -40,11 +36,6 @@
     enable = true;
     casks = [ "godot" ];
   };
-
-  services.emacs.enable = true;
-  services.emacs.package = pkgs.emacs.pkgs.withPackages (epkgs: [
-    epkgs.vterm
-  ]);
 
   programs.gnupg.agent = {
     enable = true;

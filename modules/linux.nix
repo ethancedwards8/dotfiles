@@ -5,6 +5,7 @@
     ./audio.nix
     ./cachix.nix
     ./ece.nix
+    ./emacs.nix
     ./fonts.nix
     ./networking.nix
     ./nix.nix
