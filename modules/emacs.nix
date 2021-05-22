@@ -13,11 +13,4 @@
       epkgs.vterm
     ]);
   };
-
-  services.xserver = {
-    windowManager = {
-      exwm.enable = pkgs.stdenv.isLinux;
-      exwm.extraPackages = epkgs: [ epkgs.vterm ];
-    };
-  };
 }

@@ -10,6 +10,8 @@
 
     windowManager = {
       bspwm.enable = true;
+      exwm.enable = true;
+      exwm.extraPackages = epkgs: [ epkgs.vterm ];
       awesome = {
         enable = true;
         luaModules = with pkgs.luaPackages; [
