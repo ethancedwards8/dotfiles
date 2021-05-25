@@ -23,6 +23,7 @@ inputs: {
             pins = {
               inherit (inputs)
                 nixpkgs
+                nixpkgs-stable
                 darwin
 
                 home-manager
@@ -38,6 +39,7 @@ inputs: {
         pins = {
           inherit (inputs)
             nixpkgs
+            nixpkgs-stable
             darwin
 
             home-manager
@@ -53,7 +55,6 @@ inputs: {
       networking.hostName = "nixlaptop";
       system.stateVersion = "21.03";
       time.timeZone = "America/New_York";
-      nixpkgs.config.allowUnfree = true;
     })
   ];
 }

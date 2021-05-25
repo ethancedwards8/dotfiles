@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-20.09";
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
@@ -36,6 +37,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    veloren = {
+      url = "gitlab:veloren/veloren/43593bc4c90172b06f5dc709ff96d960995d9fa4";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     #### PACKAGES ####
     st = {
       url = "gitlab:ethancedwards/st-config";
@@ -53,6 +59,11 @@
       inherit (home-manager.lib) homeManagerConfiguration;
       inherit (darwin.lib) darwinSystem;
 
+      evalNixos = configuration: import "${inputs.nixpkgs}/nixos" {
+        inherit configuration;
+        system = "x86_64-linux";
+      };
+
       supportedSystems = [ "x86_64-linux" "i686-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
     in {
@@ -65,23 +76,16 @@
       nixosConfigurations.nixpc = nixosSystem (import ./systems/nixpc.nix inputs);
       nixpc = self.nixosConfigurations.nixpc.config.system.build.toplevel;
 
+      usb = (evalNixos (import ./systems/usb.nix inputs)).config.system.build.isoImage;
+
       overlays = {
         neovim = self.inputs.neovim-nightly.overlay;
         nur = self.inputs.nur.overlay;
         emacs = self.inputs.emacs-overlay.overlay;
-        # emacs-ece = import ./overlays/emacs/default.nix inputs;
       };
 
-      # packages =
-      #   forAllSystems (system:
-      #     let
-      #       mkPkg' =
-      #         nixpkgs: name: package: (import nixpkgs { inherit system; overlays = [ self.overlays."${name}" ]; }).ece."${package}";
-      #       mkPkg = name: mkPkg' nixpkgs name name;
-      #     in
-      #       {
-      #         emacs-ece = mkPkg "emacs-ece";
-      #       });
       darwinPackages = self.darwinConfigurations.mbair.pkgs;
+
+      devShell = forAllSystems (system: nixpkgs.legacyPackages."${system}".callPackage ./packages/devShell.nix { });
       };
 }

@@ -1,11 +1,15 @@
 { config, pkgs, lib, ... }:
 
+let
+  inherit (config.ece.pkgs) nixpkgs-stable;
+in
 {
   home.packages = with pkgs; [
     bash-completion
     cachix
     curl
     doctl
+    hydra-check
     exa
     file
     fzf
@@ -19,11 +23,17 @@
     shellcheck
     speedtest-cli
     sqlite
-    # sysfo
+    # nur.repos.ethancedwards8.sysfo
     tldr
     tree
     wget
     youtube-dl
+
+    nixpkgs-stable.azure-cli
+    terraform_0_15
+
+
+    git-lfs
   ];
 
   programs.zsh = {
@@ -46,8 +56,8 @@
     enable = true;
     clock24 = true;
     # plugins = with pkgs.tmuxPlugins; [
-    #   sensible
-    #   yank
+    #   # sensible
+    #   # yank
     #   dracula
     # ];
     extraConfig = builtins.readFile ./tmux.conf;
@@ -60,5 +70,6 @@
   };
 
   programs.git.enable = true;
+  programs.git.package = pkgs.gitFull;
   home.file.".gitconfig".source = ../../.gitconfig;
 }

@@ -12,20 +12,22 @@ inputs: {
           imports = [ ../home-manager/modules/linux.nix ];
 
           home.packages = with pkgs; [
-            (st.overrideAttrs (oldAttrs: rec {
+            (nur.repos.ethancedwards8.st.overrideAttrs (oldAttrs: rec {
               src = inputs.st;
             }))
-            (dmenu.overrideAttrs (oldAttrs: rec {
+            (nur.repos.ethancedwards8.dmenu.overrideAttrs (oldAttrs: rec {
               src = inputs.dmenu;
             }))
 
-            (inputs.easy-hls-nix.defaultPackage.x86_64-linux)
+            (inputs.easy-hls-nix.defaultPackage."${system}")
+            (inputs.veloren.defaultPackage."${system}")
           ];
 
           ece = {
             pins = {
               inherit (inputs)
                 nixpkgs
+                nixpkgs-stable
                 darwin
 
                 home-manager
@@ -33,6 +35,7 @@ inputs: {
             };
             config = {
               allowUnfree = true;
+              # contentAddressedByDefault = true;
             };
             overlays = inputs.self.overlays;
           };
@@ -41,6 +44,7 @@ inputs: {
         pins = {
           inherit (inputs)
             nixpkgs
+            nixpkgs-stable
             darwin
 
             home-manager
@@ -48,6 +52,7 @@ inputs: {
         };
         config = {
           allowUnfree = true;
+          # contentAddressedByDefault = true;
         };
         overlays = inputs.self.overlays;
       };

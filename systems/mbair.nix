@@ -14,6 +14,7 @@ inputs: {
             pins = {
               inherit (inputs)
                 nixpkgs
+                nixpkgs-stable
                 darwin
 
                 home-manager
@@ -29,6 +30,7 @@ inputs: {
         pins = {
           inherit (inputs)
             nixpkgs
+            nixpkgs-stable
             darwin
 
             home-manager
@@ -41,7 +43,6 @@ inputs: {
       };
       home-manager.useUserPackages = true;
       home-manager.useGlobalPkgs = true;
-      nixpkgs.config.allowUnfree = true;
     })
   ];
 }
