@@ -10,6 +10,15 @@ inputs: {
         { ... }: {
           imports = [ ../home-manager/modules/linux.nix ];
 
+          home.packages = with pkgs; [
+            (st.overrideAttrs (oldAttrs: rec {
+              src = inputs.st;
+            }))
+            (dmenu.overrideAttrs (oldAttrs: rec {
+              src = inputs.dmenu;
+            }))
+          ];
+
           ece = {
             pins = {
               inherit (inputs)
