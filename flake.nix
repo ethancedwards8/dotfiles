@@ -32,6 +32,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    utils = {
+      url = "github:gytis-ivaskevicius/flake-utils-plus/staging";
+    };
+
     easy-hls-nix = {
       url = "github:jkachmar/easy-hls-nix";
       inputs.nixpkgs.follows = "nixpkgs";

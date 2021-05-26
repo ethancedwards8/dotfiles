@@ -11,10 +11,10 @@ inputs: {
           imports = [ ../home-manager/modules/linux.nix ];
 
           home.packages = with pkgs; [
-            (st.overrideAttrs (oldAttrs: rec {
+            (nur.repos.ethancedwards8.st.overrideAttrs (oldAttrs: rec {
               src = inputs.st;
             }))
-            (dmenu.overrideAttrs (oldAttrs: rec {
+            (nur.repos.ethancedwards8.dmenu.overrideAttrs (oldAttrs: rec {
               src = inputs.dmenu;
             }))
           ];
@@ -49,6 +49,9 @@ inputs: {
           allowUnfree = true;
         };
         overlays = inputs.self.overlays;
+      };
+      environment.shellAliases = {
+        nix-repl = "nix repl ${inputs.utils.lib.repl}";
       };
       home-manager.useUserPackages = true;
       home-manager.useGlobalPkgs = true;
