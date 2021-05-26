@@ -57,6 +57,9 @@ inputs: {
         };
         overlays = inputs.self.overlays;
       };
+      environment.shellAliases = {
+        nix-repl = "nix repl ${inputs.utils.lib.repl}";
+      };
       home-manager.useUserPackages = true;
       home-manager.useGlobalPkgs = true;
       networking.hostName = "nixpc";
