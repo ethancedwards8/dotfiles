@@ -42,6 +42,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-eval-lsp = {
+      url = "github:aaronjanse/nix-eval-lsp";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    #### NON FLAKE NIX PACKAGES ####
+
     #### PACKAGES ####
     st = {
       url = "gitlab:ethancedwards/st-config";
@@ -82,6 +89,7 @@
         neovim = self.inputs.neovim-nightly.overlay;
         nur = self.inputs.nur.overlay;
         emacs = self.inputs.emacs-overlay.overlay;
+        doc-repos = (import "${inputs.doc-repos}/default.nix");
       };
 
       darwinPackages = self.darwinConfigurations.mbair.pkgs;

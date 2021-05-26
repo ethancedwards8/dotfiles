@@ -6,6 +6,8 @@ in
 {
   home.packages = with pkgs; [
     bash-completion
+    tshark
+    lsof
     cachix
     curl
     doctl

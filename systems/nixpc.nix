@@ -20,6 +20,7 @@ inputs: {
             }))
 
             (inputs.easy-hls-nix.defaultPackage."${system}")
+            (inputs.nix-eval-lsp.defaultPackage."${system}")
             (inputs.veloren.defaultPackage."${system}")
           ];
 
@@ -61,7 +62,6 @@ inputs: {
       networking.hostName = "nixpc";
       system.stateVersion = "21.03";
       time.timeZone = "America/New_York";
-      nixpkgs.config.allowUnfree = true;
     })
   ];
 }
