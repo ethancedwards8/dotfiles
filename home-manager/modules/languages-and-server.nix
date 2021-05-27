@@ -1,11 +1,16 @@
 { config, pkgs, lib, ... }:
 
+let
+  inherit (config.ece.pkgs) nixpkgs-stable;
+in
 {
   home.packages = (with pkgs; [
     # clang
     cmake
     gnumake
     gcc
+    clang-tools
+    nixpkgs-stable.bear
 
     cabal-install
     ghc
