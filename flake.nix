@@ -93,7 +93,6 @@
         neovim = self.inputs.neovim-nightly.overlay;
         nur = self.inputs.nur.overlay;
         emacs = self.inputs.emacs-overlay.overlay;
-        doc-repos = (import "${inputs.doc-repos}/default.nix");
       };
 
       darwinPackages = self.darwinConfigurations.mbair.pkgs;
