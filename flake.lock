@@ -91,11 +91,11 @@
     },
     "emacs-overlay": {
       "locked": {
-        "lastModified": 1622490648,
-        "narHash": "sha256-SOzqeZDEANEvnTm1d+CpSt+Bi2NEhuVdmO1M9BZn7oo=",
+        "lastModified": 1622548235,
+        "narHash": "sha256-qhA0cC4iAa5jOG8RbcrMEQOwdVSxO8BqGYUNcN3/v3g=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "ca18017fa61a4bb8069d1bba74c4198c3c21c6fc",
+        "rev": "050d7a805a9eaff4183f3405968db47105824516",
         "type": "github"
       },
       "original": {
@@ -243,11 +243,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1622347770,
-        "narHash": "sha256-reuhbVHdVGwvxyGq8fo/i1fVwqsoswQDb/YasgSPJ8k=",
+        "lastModified": 1622537558,
+        "narHash": "sha256-co0ATkTCURqTJbzrRnCqYHw+u4WL7H2EFdkgRoAplZw=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "3cd688ff775a50808eb7d260e540038cc32b4a40",
+        "rev": "64bdaef327a587aaceff9cff1f204b9b93b7e3e8",
         "type": "github"
       },
       "original": {
@@ -266,11 +266,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1622451818,
-        "narHash": "sha256-JGL1kzVXhkVMHl0UA/FW3zJ6BncJnwJ4YKOnGLjNnjk=",
+        "lastModified": 1622539123,
+        "narHash": "sha256-5xpahEQOr9s06HH+fnFJ1hYWF5KE8fBEUiAOpMdzWpg=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "381238fc989d4790b70417c22b682bb1aa5ea0af",
+        "rev": "0fab0e67422fddc4edbb91cd83e63debaa75a05d",
         "type": "github"
       },
       "original": {
@@ -328,11 +328,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1622475342,
-        "narHash": "sha256-c08illT/TUfI2oeLlN8YP4kcGtXLsJOcoq9CNzoRQhM=",
+        "lastModified": 1622521809,
+        "narHash": "sha256-7XcqrtrHDeaasKzg/ruroLsC2fb6Fi3aenCrv1+xVLk=",
         "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "d38958a6aa5bdbf3239f26a04689f3d9ae7da0c0",
+        "rev": "b2186d6c3cdc58fb3a8def0f608bcae61138cc6f",
         "type": "github"
       },
       "original": {
@@ -376,11 +376,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1622505834,
-        "narHash": "sha256-ZYfbV1aeJcSwCyfA/HX8BcM1TXPoqjc1tDOetssCa/M=",
+        "lastModified": 1622562705,
+        "narHash": "sha256-tWKPfPmGsWCBWcMU9pTFulwKoD4YHlSOfmjznEDsZ/s=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "57cad740ed4b486113adb46f3f5e1586e23f6b12",
+        "rev": "951b24b40410244ba2faab134b5f10c0372645cc",
         "type": "github"
       },
       "original": {
@@ -398,11 +398,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1622427630,
-        "narHash": "sha256-uSCPvQ06dPuZa5g/Gq7ssVdradFVpeV399Z/57mCNFs=",
+        "lastModified": 1622526995,
+        "narHash": "sha256-JG0gN0RCkumfkh1zqI7Imn0v3JXvAdXiXM1heUKfMwg=",
         "owner": "piston-cli",
         "repo": "piston-cli",
-        "rev": "5913bb70847aae8d693e7903248398ba1a214d3d",
+        "rev": "8c2173ef1ae3e23c66c1fbcfc0fc20b6bf4cba9d",
         "type": "github"
       },
       "original": {
@@ -483,11 +483,11 @@
         "flake-utils": "flake-utils_3"
       },
       "locked": {
-        "lastModified": 1622483093,
-        "narHash": "sha256-OsT4fKqgM4gcNAsGwf7E7c4iclAvqoFlMe1tslowRBw=",
+        "lastModified": 1622553785,
+        "narHash": "sha256-zccUcgFmAI2YGq5AmNOKjYGHLVKnOvzD5vfHymu5nYU=",
         "owner": "gytis-ivaskevicius",
         "repo": "flake-utils-plus",
-        "rev": "7f2371107b82c7c08558f59e0d25b65000f64a99",
+        "rev": "10096872a0691c3a213073aa8bfe739d37d84a49",
         "type": "github"
       },
       "original": {
@@ -506,7 +506,7 @@
       },
       "locked": {
         "lastModified": 1620679450,
-        "narHash": "sha256-hlW1F2usLnC8pWnNhmiHyDJsDUDVyaTIUDfywLM/A5c=",
+        "narHash": "sha256-ur0NTUnpPEyydPQIuFQXF4Q3cpcw6Kcfn6X7UzJSaPc=",
         "owner": "veloren",
         "repo": "veloren",
         "rev": "43593bc4c90172b06f5dc709ff96d960995d9fa4",

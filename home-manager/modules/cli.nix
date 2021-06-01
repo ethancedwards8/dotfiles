@@ -24,11 +24,13 @@ in
     shellcheck
     speedtest-cli
     sqlite
-    nur.repos.ethancedwards8.sysfo
     tldr
     tree
     wget
     youtube-dl
+
+    ansible
+    sshpass
 
     nixpkgs-stable.azure-cli
     terraform_0_15
@@ -69,7 +71,7 @@ in
   };
 
   programs.piston-cli = {
-    enable = true;
+    enable = pkgs.stdenv.isLinux;
     package = pkgs.piston-cli-unstable;
     settings = {
       theme = "emacs";
@@ -78,6 +80,6 @@ in
   };
 
   programs.git.enable = true;
-  programs.git.package = pkgs.gitFull;
+  programs.git.package = nixpkgs-stable.gitFull;
   home.file.".gitconfig".source = ../../.gitconfig;
 }

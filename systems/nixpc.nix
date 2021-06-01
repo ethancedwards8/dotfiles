@@ -19,6 +19,8 @@ inputs: {
               src = inputs.dmenu;
             }))
 
+            nur.repos.ethancedwards8.sysfo
+
             (inputs.easy-hls-nix.defaultPackage."${system}")
             (inputs.nix-eval-lsp.defaultPackage."${system}")
             (inputs.veloren.defaultPackage."${system}")
