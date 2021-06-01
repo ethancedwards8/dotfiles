@@ -13,7 +13,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:ethancedwards8/home-manager/module-programs-piston-cli";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -51,6 +51,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    piston-cli = {
+      url = "github:piston-cli/piston-cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     #### NON FLAKE NIX PACKAGES ####
 
     #### PACKAGES ####
@@ -62,6 +67,10 @@
       url = "gitlab:ethancedwards/dmenu-config";
       flake = false;
     };
+    # discord = {
+    #   url = "https://discord.com/api/download?platform=linux&format=tar.gz";
+    #   flake = false;
+    # };
   };
 
   outputs = { self, darwin, nixpkgs, nur, home-manager, ...}@inputs:
@@ -93,6 +102,7 @@
         neovim = self.inputs.neovim-nightly.overlay;
         nur = self.inputs.nur.overlay;
         emacs = self.inputs.emacs-overlay.overlay;
+        piston-cli = self.inputs.piston-cli.overlay;
       };
 
       darwinPackages = self.darwinConfigurations.mbair.pkgs;

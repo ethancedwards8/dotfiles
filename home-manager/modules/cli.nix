@@ -17,7 +17,6 @@ in
     fzf
     htop
     jq
-    # kubectl
     ncdu
     neofetch
     python
@@ -25,7 +24,7 @@ in
     shellcheck
     speedtest-cli
     sqlite
-    # nur.repos.ethancedwards8.sysfo
+    nur.repos.ethancedwards8.sysfo
     tldr
     tree
     wget
@@ -34,14 +33,9 @@ in
     nixpkgs-stable.azure-cli
     terraform_0_15
 
-
     git-lfs
   ];
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-  };
   programs.bash = {
     enable = true;
     initExtra = builtins.readFile ../../.bashrc;
@@ -50,7 +44,8 @@ in
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
-    enableZshIntegration = true;
+    enableFishIntegration = false;
+    enableZshIntegration = false;
   };
   home.file.".config/starship.toml".source = ../../.config/starship.toml;
 
@@ -58,8 +53,8 @@ in
     enable = true;
     clock24 = true;
     # plugins = with pkgs.tmuxPlugins; [
-    #   # sensible
-    #   # yank
+    #   sensible
+    #   yank
     #   dracula
     # ];
     extraConfig = builtins.readFile ./tmux.conf;
@@ -67,8 +62,19 @@ in
 
   programs.direnv = {
     enable = true;
-    enableZshIntegration = true;
     enableNixDirenvIntegration = true;
+    enableBashIntegration = true;
+    enableFishIntegration = false;
+    enableZshIntegration = false;
+  };
+
+  programs.piston-cli = {
+    enable = true;
+    package = pkgs.piston-cli-unstable;
+    settings = {
+      theme = "emacs";
+      box_style = "ASCII";
+    };
   };
 
   programs.git.enable = true;
