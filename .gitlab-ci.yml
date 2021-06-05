@@ -1,0 +1,8 @@
+image: nixos/nix:latest
+
+build:
+  before_script:
+    - nix-env -iA nixpkgs.bash nixpkgs.nixUnstable
+    - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+  script:
+    - nix build .#nixosConfigurations.nixpc.config.system.build.toplevel -L
