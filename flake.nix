@@ -32,24 +32,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    utils = {
-      url = "github:gytis-ivaskevicius/flake-utils-plus/staging";
-    };
-
-    easy-hls-nix = {
-      url = "github:jkachmar/easy-hls-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    veloren = {
-      url = "gitlab:veloren/veloren/43593bc4c90172b06f5dc709ff96d960995d9fa4";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-eval-lsp = {
-      url = "github:aaronjanse/nix-eval-lsp";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # veloren = {
+    #   url = "gitlab:veloren/veloren/43593bc4c90172b06f5dc709ff96d960995d9fa4";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     piston-cli = {
       url = "github:piston-cli/piston-cli";
@@ -67,10 +53,6 @@
       url = "gitlab:ethancedwards/dmenu-config";
       flake = false;
     };
-    # discord = {
-    #   url = "https://discord.com/api/download?platform=linux&format=tar.gz";
-    #   flake = false;
-    # };
   };
 
   outputs = { self, darwin, nixpkgs, nur, home-manager, ...}@inputs:

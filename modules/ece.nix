@@ -13,10 +13,11 @@ in {
       createHome = true;
       home = "/home/ece";
       shell = pkgs.bashInteractive;
-      extraGroups = with lib; [ "wheel" "video" "audio" ]
-                    ++ (optional nm-enable "networkmanager")
-                    ++ (optional docker-enable "docker")
-                    ++ (optional vbox-enable "vboxusers");
+      # extraGroups = with lib; [ "wheel" "video" "audio" ]
+      #               ++ (optional nm-enable "networkmanager")
+      #               ++ (optional docker-enable "docker")
+      #               ++ (optional vbox-enable "vboxusers");
+      extraGroups = [ "wheel" "video" "audio" "networkmanager" "docker" "libvirtd" "vboxusers" ];
     };
   };
 }

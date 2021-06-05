@@ -21,9 +21,7 @@ inputs: {
 
             nur.repos.ethancedwards8.sysfo
 
-            (inputs.easy-hls-nix.defaultPackage."${system}")
-            (inputs.nix-eval-lsp.defaultPackage."${system}")
-            (inputs.veloren.defaultPackage."${system}")
+            # (inputs.veloren.defaultPackage."${system}")
           ];
 
           ece = {
@@ -58,9 +56,6 @@ inputs: {
           # contentAddressedByDefault = true;
         };
         overlays = inputs.self.overlays;
-      };
-      environment.shellAliases = {
-        nix-repl = "nix repl ${inputs.utils.lib.repl}";
       };
       home-manager.useUserPackages = true;
       home-manager.useGlobalPkgs = true;

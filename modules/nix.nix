@@ -3,6 +3,7 @@
 {
   nix.package = pkgs.nixUnstable;
   nix.trustedUsers = [ "root" "ece" "@wheel" "@admin" ];
+  nix.distributedBuilds = true;
   nix.extraOptions = # lib.optionalString (config.nix.package == pkgs.nixFlakes)
   ''
     experimental-features = nix-command flakes ca-references ca-derivations

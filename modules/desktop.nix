@@ -3,6 +3,16 @@
 {
   services.trezord.enable = true;
 
+  # vm's
+  virtualisation.virtualbox = {
+    host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
+  };
+  virtualisation.libvirtd.enable = true;
+
+  # containers
   virtualisation.docker = {
     enable = true;
     liveRestore = false;
@@ -10,10 +20,13 @@
   virtualisation.podman = {
     enable = true;
   };
-  services.nomad.enable = true;
-  services.nomad.extraPackages = with pkgs; [ nomad-driver-podman consul ];
-  services.nomad.dropPrivileges = false;
-  services.nomad.extraSettingsPaths = [ "/etc/nomad.hlc" ];
+  #nomad
+  services.nomad = {
+    enable = true;
+    extraPackages = with pkgs; [ nomad-driver-podman consul ];
+    dropPrivileges = false;
+    extraSettingsPaths = [ "/etc/nomad.hlc" ];
+  };
   environment.etc."nomad.hlc".source = pkgs.writeText "nomad.hcl.tpl" ''
       data_dir = "/var/lib/nomad"
       datacenter = "homelab-1"
@@ -41,6 +54,4 @@
              }
       }
   '';
-
-  networking.networkmanager.enable = true;
 }
