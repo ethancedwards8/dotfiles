@@ -10,11 +10,11 @@ in
     package = pkgs.neovim-nightly;
     extraConfig = builtins.readFile ./init.vim;
 
+    #vifm
     plugins = with pkgs.vimPlugins; [
       fzf-vim
       lightline-vim #lightline.vim
       nerdtree
-      # vifm
       vim-commentary
       vim-css-color
       vim-fugitive
