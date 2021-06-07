@@ -79,7 +79,14 @@ in
     };
   };
 
-  programs.git.enable = true;
-  programs.git.package = nixpkgs-stable.gitFull;
   home.file.".gitconfig".source = ../../.gitconfig;
+  programs.git = {
+    enable = true;
+    package = nixpkgs-stable.gitFull;
+    extraConfig = {
+      credential.helper = "${
+        nixpkgs-stable.gitFull.override { withLibsecret = true; }
+      }/bin/git-credential-libsecret";
+    };
+  };
 }
