@@ -9,10 +9,11 @@ inputs: { pkgs, ...}: {
   # home-manager.useUserPackages = true;
   # home-manager.useGlobalPkgs = true;
   networking.hostName = "nixusb";
-  system.stateVersion = "21.03";
+  system.stateVersion = "21.05";
   time.timeZone = "America/New_York";
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.zfs.enableUnstable = true;
   boot.tmpOnTmpfs = true;
   services.pcscd.enable = true;
   services.udev.packages = with pkgs; [ yubikey-personalization ];
