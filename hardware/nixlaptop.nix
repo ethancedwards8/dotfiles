@@ -29,18 +29,16 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/cfa3d553-745e-4e31-8477-9af183501a36";
+    { device = "/dev/disk/by-label/ROOTFS";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/CF97-243D";
+    { device = "/dev/disk/by-label/BOOTFS";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/740d77bb-165f-455c-b0fe-62536d7fdc84"; }
+    [ { device = "/dev/disk/by-label/SWAPFS"; }
     ];
-
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }
