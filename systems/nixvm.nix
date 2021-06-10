@@ -2,7 +2,7 @@ inputs: {
   system = "x86_64-linux";
 
   modules = [
-    ../modules/linux.nix
+    ../modules/server.nix
     ../hardware/nixvm.nix
     inputs.home-manager.nixosModules.home-manager
     ({ pkgs, config, ... }: {
@@ -42,15 +42,13 @@ inputs: {
         };
         overlays = inputs.self.overlays;
       };
-      users.users.ece.initialPassword = "asdf";
       home-manager.useUserPackages = true;
       home-manager.useGlobalPkgs = true;
       networking.hostName = "nixvm";
       system.stateVersion = "21.05";
       time.timeZone = "America/New_York";
       networking.hostId = "6ffc53da";
-      #networking.useDHCP = false;
-      #networking.interfaces.ens18.useDHCP = true;
+      users.users.ece.initialPassword = "asdf";
     })
   ];
 }
