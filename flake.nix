@@ -13,7 +13,7 @@
     };
 
     home-manager = {
-      url = "github:ethancedwards8/home-manager/module-programs-piston-cli";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
