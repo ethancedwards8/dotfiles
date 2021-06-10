@@ -10,7 +10,7 @@ in
     gnumake
     gcc
     clang-tools
-    nixpkgs-stable.bear
+    #bear
 
     cabal-install
     ghc
