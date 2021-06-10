@@ -9,6 +9,7 @@
     experimental-features = nix-command flakes ca-references ca-derivations
     builders-use-substitutes = true
     auto-optimise-store = true
+    extra-platforms = x86_64-darwin aarch64-darwin
   '';
 
   # TODO: OLD
