@@ -6,7 +6,7 @@ build:
     - cachix authtoken $CACHIX_AUTH_TOKEN
     - cachix use ethancedwards8
     - cachix use nix-community
-    - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+    - echo "experimental-features = nix-command flakes ca-references ca-derivations" >> /etc/nix/nix.conf
     - nix path-info --all > /tmp/store-path-pre-build
   script:
     - nix build .#nixosConfigurations.nixpc.config.system.build.toplevel -L
