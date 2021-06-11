@@ -42,9 +42,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    guix = {
+      url = "github:ethancedwards8/nixos-guix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     #### NON FLAKE NIX PACKAGES ####
 
-    #### PACKAGES ####
+    #### NON NIX PACKAGES ####
     st = {
       url = "gitlab:ethancedwards/st-config";
       flake = false;
@@ -88,6 +93,7 @@
         nur = self.inputs.nur.overlay;
         emacs = self.inputs.emacs-overlay.overlay;
         piston-cli = self.inputs.piston-cli.overlay;
+        guix = self.inputs.guix.overlay;
       };
 
       darwinPackages = self.darwinConfigurations.mbair.pkgs;

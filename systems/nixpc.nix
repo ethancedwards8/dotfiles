@@ -6,6 +6,7 @@ inputs: {
     ../modules/desktop.nix
     ../hardware/nixpc.nix
     inputs.home-manager.nixosModules.home-manager
+    inputs.guix.nixosModules.guix
     ({ pkgs, config, ... }: {
       home-manager.users."ece" =
         { ... }: {
@@ -57,6 +58,7 @@ inputs: {
         };
         overlays = inputs.self.overlays;
       };
+      services.guix.enable = true;
       home-manager.useUserPackages = true;
       home-manager.useGlobalPkgs = true;
       networking.hostName = "nixpc";

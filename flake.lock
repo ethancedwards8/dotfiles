@@ -99,6 +99,26 @@
         "type": "github"
       }
     },
+    "guix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1623375280,
+        "narHash": "sha256-tsO7SENG7Ifb8Ir2gYlmsUYOAher/qMJGI6l9nTH1Kk=",
+        "owner": "ethancedwards8",
+        "repo": "nixos-guix",
+        "rev": "f98f3248deb4d53c7770e1a98c7a8e3d045f4324",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ethancedwards8",
+        "repo": "nixos-guix",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -254,6 +274,7 @@
         "darwin": "darwin",
         "dmenu": "dmenu",
         "emacs-overlay": "emacs-overlay",
+        "guix": "guix",
         "home-manager": "home-manager",
         "neovim-nightly": "neovim-nightly",
         "nixos-hardware": "nixos-hardware",
