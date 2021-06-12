@@ -49,6 +49,8 @@ inputs: {
           allowUnfree = true;
         };
         overlays = inputs.self.overlays;
+
+        podman.enable = true;
       };
       home-manager.useUserPackages = true;
       home-manager.useGlobalPkgs = true;
