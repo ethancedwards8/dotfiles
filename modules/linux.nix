@@ -10,6 +10,7 @@
     ./networking.nix
     ./nix.nix
     ./pin-nixpkgs.nix
+    ./podman.nix
     ./security.nix
     ./shells.nix
     ./xserver.nix

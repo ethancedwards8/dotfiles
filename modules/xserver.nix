@@ -35,5 +35,8 @@
       mouse.middleEmulation = true;
     };
   };
+  environment.systemPackages = with pkgs; [
+    xorg.xbacklight
+  ];
 
 }

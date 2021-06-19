@@ -8,9 +8,6 @@
     enable = true;
     liveRestore = false;
   };
-  virtualisation.podman = {
-    enable = true;
-  };
   #nomad
   services.nomad = {
     enable = true;
