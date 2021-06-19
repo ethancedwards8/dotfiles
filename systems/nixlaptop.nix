@@ -5,6 +5,7 @@ inputs: {
     ../modules/linux.nix
     ../hardware/nixlaptop.nix
     inputs.home-manager.nixosModules.home-manager
+    inputs.guix.nixosModules.guix
     ({ pkgs, config, ... }: {
       home-manager.users."ece" =
         { ... }: {
@@ -52,6 +53,7 @@ inputs: {
 
         podman.enable = true;
       };
+      services.guix.enable = true;
       home-manager.useUserPackages = true;
       home-manager.useGlobalPkgs = true;
       networking.hostName = "nixlaptop";
