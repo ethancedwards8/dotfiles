@@ -8,7 +8,7 @@ in
     viAlias = true;
     vimAlias = true;
     package = pkgs.neovim-nightly;
-    extraConfig = builtins.readFile ./init.vim;
+    extraConfig = builtins.readFile ../config/init.vim;
 
     #vifm
     plugins = with pkgs.vimPlugins; [
