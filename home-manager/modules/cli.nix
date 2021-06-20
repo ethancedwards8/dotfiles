@@ -60,7 +60,7 @@ in
     #   yank
     #   dracula
     # ];
-    extraConfig = builtins.readFile ./tmux.conf;
+    extraConfig = builtins.readFile ../config/tmux.conf;
   };
 
   programs.direnv = {
