@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let
+  inherit (config.ece.pkgs) nixpkgs-stable;
+in
 {
   imports = [
     ./virtualisation.nix
@@ -12,6 +15,7 @@
   virtualisation.virtualbox = {
     host = {
       enable = true;
+      package = nixpkgs-stable.virtualbox;
       enableExtensionPack = true;
     };
   };

@@ -31,8 +31,9 @@ in
     texlab
 
     yaml-language-server
+
+    nixpkgs-stable.nodePackages.dockerfile-language-server-nodejs
   ]) ++ (with pkgs.nodePackages; [
-    dockerfile-language-server-nodejs
     typescript
     typescript-language-server
     vscode-json-languageserver

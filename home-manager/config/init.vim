@@ -11,6 +11,10 @@ set showcmd
 set showmode
 set ruler
 
+" undofile
+set undofile
+set undodir=~/.config/nvim/undo/
+
 " set tabstop=8
 " set softtabstop=8
 " set shiftwidth=8
