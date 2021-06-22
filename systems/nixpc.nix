@@ -57,6 +57,8 @@ inputs: {
           # contentAddressedByDefault = true;
         };
         overlays = inputs.self.overlays;
+
+        podman.enable = true;
       };
       services.guix.enable = true;
       home-manager.useUserPackages = true;

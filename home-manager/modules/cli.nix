@@ -93,4 +93,6 @@ in
       }/bin/git-credential-libsecret";
     };
   };
+
+  home.file.".ghci".source = ../../.ghci;
 }

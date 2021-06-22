@@ -42,10 +42,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    guix = {
-      url = "github:ethancedwards8/nixos-guix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    guix.url = "github:ethancedwards8/nixos-guix";
 
     #### NON FLAKE NIX PACKAGES ####
 
