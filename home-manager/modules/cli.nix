@@ -36,7 +36,7 @@ in
     nixpkgs-stable.azure-cli
     terraform_0_15
 
-    git-lfs
+    nixpkgs-stable.git-lfs
   ];
 
   programs.bash = {
