@@ -76,7 +76,7 @@ in
 
   programs.piston-cli = {
     enable = pkgs.stdenv.isLinux;
-    package = pkgs.piston-cli-unstable;
+    # package = pkgs.piston-cli-unstable;
     settings = {
       theme = "emacs";
       box_style = "ASCII";

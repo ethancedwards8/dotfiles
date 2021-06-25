@@ -50,5 +50,6 @@
     trezor-suite
     xss-lock
     zathura
+    virt-viewer
   ];
 }

@@ -37,10 +37,10 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
 
-    piston-cli = {
-      url = "github:piston-cli/piston-cli";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # piston-cli = {
+    #   url = "github:piston-cli/piston-cli";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     guix.url = "github:ethancedwards8/nixos-guix";
 
@@ -89,7 +89,7 @@
         neovim = self.inputs.neovim-nightly.overlay;
         nur = self.inputs.nur.overlay;
         emacs = self.inputs.emacs-overlay.overlay;
-        piston-cli = self.inputs.piston-cli.overlay;
+        # piston-cli = self.inputs.piston-cli.overlay;
         guix = self.inputs.guix.overlay;
       };
 
