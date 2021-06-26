@@ -38,7 +38,6 @@
     mpv
     nextcloud-client
     nixos-shell
-    nodePackages.ganache-cli
     picard
     picom
     qbittorrent
