@@ -1,30 +1,15 @@
 inputs: {
-  system = "x86_64-linux";
+  system = "aarch64-linux";
 
   modules = [
     ../modules/linux.nix
-    ../modules/desktop.nix
-    ../hardware/nixpc.nix
+    ../hardware/nixrpi.nix
+    inputs.nixos-hardware.nixosModules.raspberry-pi-4
     inputs.home-manager.nixosModules.home-manager
-    inputs.guix.nixosModules.guix
     ({ pkgs, config, ... }: {
       home-manager.users."ece" =
         { ... }: {
-          imports = [ ../home-manager/modules/linux.nix ];
-
-          home.packages = with pkgs; [
-            (nur.repos.ethancedwards8.st.overrideAttrs (oldAttrs: rec {
-              src = inputs.st;
-            }))
-            (nur.repos.ethancedwards8.dmenu.overrideAttrs (oldAttrs: rec {
-              src = inputs.dmenu;
-            }))
-
-            nur.repos.ethancedwards8.sysfo
-
-            # (inputs.veloren.defaultPackage."${system}")
-          ];
-
+          imports = [ ../home-manager/modules/pin-nixpkgs.nix ../home-manager/modules/neovim.nix ];
           ece = {
             pins = {
               inherit (inputs)
@@ -57,15 +42,11 @@ inputs: {
           # contentAddressedByDefault = true;
         };
         overlays = inputs.self.overlays;
-
-        podman.enable = true;
-        xserver.enable = true;
       };
-      services.guix.enable = true;
       home-manager.useUserPackages = true;
       home-manager.useGlobalPkgs = true;
-      networking.hostName = "nixpc";
-      system.stateVersion = "21.03";
+      networking.hostName = "nixrpi";
+      system.stateVersion = "21.05";
       time.timeZone = "America/New_York";
     })
   ];

@@ -8,7 +8,7 @@ in
     enable = mkEnableOption "Enable podman and related packages";
   };
 
-  config = {
+  config = mkIf cfg.enable {
       virtualisation.podman.enable = true;
       environment.systemPackages = with pkgs; [ buildah skopeo ];
   };

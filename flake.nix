@@ -83,6 +83,9 @@
       nixosConfigurations.nixvm = nixosSystem (import ./systems/nixvm.nix inputs);
       nixvm = self.nixosConfigurations.nixvm.config.system.build.toplevel;
 
+      nixosConfigurations.nixrpi = nixosSystem (import ./systems/nixrpi.nix inputs);
+      nixrpi = self.nixosConfigurations.nixrpi.config.system.build.toplevel;
+
       usb = (evalNixos (import ./systems/usb.nix inputs)).config.system.build.isoImage;
 
       overlays = {

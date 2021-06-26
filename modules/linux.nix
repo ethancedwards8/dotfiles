@@ -26,8 +26,6 @@
     curl
     git
     gnupg
-    kitty
-    mpv
     pinentry-curses
     unzip
     wget
