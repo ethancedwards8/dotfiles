@@ -61,7 +61,7 @@ inputs: {
         podman.enable = true;
         xserver.enable = true;
       };
-      services.guix.enable = true;
+      # services.guix.enable = true;
       home-manager.useUserPackages = true;
       home-manager.useGlobalPkgs = true;
       networking.hostName = "nixpc";

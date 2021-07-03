@@ -74,14 +74,14 @@ in
     enableZshIntegration = false;
   };
 
-  programs.piston-cli = {
-    enable = pkgs.stdenv.isLinux;
-    # package = pkgs.piston-cli-unstable;
-    settings = {
-      theme = "emacs";
-      box_style = "ASCII";
-    };
-  };
+  # programs.piston-cli = {
+  #   enable = pkgs.stdenv.isLinux;
+  #   # package = pkgs.piston-cli-unstable;
+  #   settings = {
+  #     theme = "emacs";
+  #     box_style = "ASCII";
+  #   };
+  # };
 
   home.file.".gitconfig".source = ../../.gitconfig;
   programs.git = {
