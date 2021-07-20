@@ -16,7 +16,6 @@
       },
       "original": {
         "owner": "lnl7",
-        "ref": "master",
         "repo": "nix-darwin",
         "type": "github"
       }
@@ -194,7 +193,6 @@
       },
       "original": {
         "owner": "nixos",
-        "ref": "master",
         "repo": "nixos-hardware",
         "type": "github"
       }
@@ -233,16 +231,16 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1626732200,
-        "narHash": "sha256-+S4r56of+/+jwqd44c4nXqIrLR6nXwTUIzdLan+U1Vc=",
+        "lastModified": 1626556499,
+        "narHash": "sha256-c2ueMT7fi/yvCNq3nGLEC2v5GklS7eHpB1240LRSW9Y=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4331afb9461ed13de9c8ddbfd5dc0eaa799cb8a2",
+        "rev": "b59c06dc92f8d03660eb4155754d93a6c34cda83",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixpkgs-unstable",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -258,7 +256,6 @@
       },
       "original": {
         "owner": "nix-community",
-        "ref": "master",
         "repo": "nur",
         "type": "github"
       }
