@@ -2,7 +2,7 @@
   description = "Ethan's NixOS, nix-darwin, and h-m system flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-21.05";
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
