@@ -14,7 +14,6 @@
   environment.systemPackages = with pkgs; [
     cachix
     curl
-    gimp
     git
     gnupg
     kitty
