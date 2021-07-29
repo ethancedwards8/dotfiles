@@ -48,7 +48,7 @@ inputs: {
       system.stateVersion = "21.05";
       time.timeZone = "America/New_York";
       networking.hostId = "6ffc53da";
-      users.users.ece.initialPassword = "asdf";
+      users.users.ece.initialPassword = "hunter2";
     })
   ];
 }
