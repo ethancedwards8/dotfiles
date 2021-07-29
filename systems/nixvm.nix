@@ -42,6 +42,7 @@ inputs: {
         };
         overlays = inputs.self.overlays;
       };
+      services.qemuGuest.enable = true;
       home-manager.useUserPackages = true;
       home-manager.useGlobalPkgs = true;
       networking.hostName = "nixvm";
