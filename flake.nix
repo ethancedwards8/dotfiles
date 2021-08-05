@@ -6,6 +6,7 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-21.05";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    impermanence.url = "github:nix-community/impermanence";
 
     darwin = {
       url = "github:lnl7/nix-darwin";
