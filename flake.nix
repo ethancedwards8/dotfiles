@@ -99,6 +99,14 @@
 
       darwinPackages = self.darwinConfigurations.mbair.pkgs;
 
+      hydraJobs = {
+        nixpc = self.nixosConfigurations.nixpc.config.system.build.toplevel;
+        nixlaptop = self.nixosConfigurations.nixlaptop.config.system.build.toplevel;
+        nixvm = self.nixosConfigurations.nixvm.config.system.build.toplevel;
+        nixrpi = self.nixosConfigurations.nixrpi.config.system.build.toplevel;
+        usb = (evalNixos (import ./systems/usb.nix inputs)).config.system.build.isoImage;
+      };
+
       devShell = forAllSystems (system:
         let
           pkgs = import nixpkgs { inherit system; };
