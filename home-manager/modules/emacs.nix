@@ -8,8 +8,8 @@
 
   programs.emacs = {
     enable = true;
-
-    package = if pkgs.stdenv.isDarwin then pkgs.emacs else pkgs.emacs;
+    # package = if pkgs.stdenv.isDarwin then pkgs.emacs else pkgs.emacs;
+    package = pkgs.emacsGit;
     extraPackages = (epkgs: [ epkgs.vterm ] );
   };
     

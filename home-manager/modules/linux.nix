@@ -21,6 +21,7 @@
 
   services.emacs = {
     enable = true;
+    package = pkgs.emacsGit;
     client.enable = true;
   };
   xdg.userDirs.enable = false;

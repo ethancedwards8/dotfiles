@@ -2,14 +2,14 @@
 
 {
   environment.systemPackages = with pkgs; [
-    ((emacsPackagesNgGen emacs).emacsWithPackages (epkgs: [
+    ((emacsPackagesNgGen emacsGit).emacsWithPackages (epkgs: [
       epkgs.vterm
     ]))
   ];
 
   services.emacs = {
     enable = true;
-    package = pkgs.emacs.pkgs.withPackages (epkgs: [
+    package = pkgs.emacsGit.pkgs.withPackages (epkgs: [
       epkgs.vterm
     ]);
   };

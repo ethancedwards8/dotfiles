@@ -26,6 +26,7 @@ in
     speedtest-cli
     sqlite
     tldr
+    ispell
     tree
     wget
     youtube-dl
