@@ -1,6 +1,6 @@
 inputs: {
   # system = "aarch64-darwin";
-  # system = "x86_64-darwin";
+  system = "x86_64-darwin";
 
   modules = [
     ../modules/darwin.nix

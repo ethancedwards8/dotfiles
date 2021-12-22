@@ -68,7 +68,6 @@ in
     enable = true;
     nix-direnv = {
       enable = true;
-      enableFlakes = true;
     };
     enableBashIntegration = true;
     enableFishIntegration = false;
