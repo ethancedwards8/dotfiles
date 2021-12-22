@@ -11,7 +11,7 @@ in
     cachix
     curl
     doctl
-    hydra-check
+    # hydra-check
     exa
     file
     fzf
@@ -34,7 +34,7 @@ in
     ansible
     sshpass
 
-    nixpkgs-stable.azure-cli
+    # nixpkgs-stable.azure-cli
     terraform_0_15
 
     nixpkgs-stable.git-lfs

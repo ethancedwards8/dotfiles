@@ -26,7 +26,7 @@ in
 
     rnix-lsp
 
-    rust-analyzer rls cargo rustc rustfmt
+    rust-analyzer rls /* cargo rustc */ rustfmt
 
     texlab
 
