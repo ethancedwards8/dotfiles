@@ -86,7 +86,7 @@ if [[ $TERM == screen* ]] && [[ "$HOSTNAME" == "archpc" ]]; then
 fi
 }
 
-if [[ "$HOSTNAME" == arch* ]]; then
+if [[ "$HOSTNAME" == arch* ]] || [[ "$HOSTNAME" == "navidad" ]]; then
     eval "$(starship init bash)"
 fi
 
@@ -108,3 +108,7 @@ vterm_printf(){
 # https://unix.stackexchange.com/questions/12107/how-to-unfreeze-after-accidentally-pressing-ctrl-s-in-a-terminal
 # stop the godawful terminal freeze
 stty -ixon
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION
