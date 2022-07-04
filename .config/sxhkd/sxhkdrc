@@ -34,6 +34,9 @@ super + @space
 # nautilus
 super + n
 	nautilus
+# scrot
+super + s
+        scrot -s
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd

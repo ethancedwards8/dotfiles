@@ -1,5 +1,8 @@
 { config, lib, pkgs, ...}:
 
+let
+  inherit (config.ece.pkgs) nixpkgs-stable;
+in
 {
   imports = [
     ./cachix.nix
@@ -10,13 +13,14 @@
   ];
   services.nix-daemon.enable = true;
   programs.nix-index.enable = true;
+  programs.nix-index.package = nixpkgs-stable.nix-index;
 
   environment.systemPackages = with pkgs; [
     cachix
     curl
     git
     gnupg
-    kitty
+    nixpkgs-stable.kitty
     mpv
     pinentry-curses
     unzip
