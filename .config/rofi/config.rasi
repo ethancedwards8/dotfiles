@@ -1,6 +1,5 @@
 configuration {
 	modi: "drun";
-	theme: "nord";
 	display-drun: "Search";
 	width: 16;
 	lines: 12;
@@ -8,3 +7,4 @@ configuration {
 	xoffset: 12;
 	yoffset: 12;
 }
+@theme "nord"
