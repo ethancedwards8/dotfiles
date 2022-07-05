@@ -76,6 +76,7 @@ inputs: {
         buildMachinesFiles = [];
         useSubstitutes = true;
       };
+      networking.firewall.allowedTCPPorts = [ 3000 ];
     })
   ];
 }
