@@ -86,7 +86,7 @@ if [[ $TERM == screen* ]] && [[ "$HOSTNAME" == "archpc" ]]; then
 fi
 }
 
-if [[ "$HOSTNAME" == arch* ]]; then
+if [[ "$HOSTNAME" == arch* ]] || [[ "$HOSTNAME" == *MacBook* ]]; then
     eval "$(starship init bash)"
 fi
 
