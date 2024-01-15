@@ -16,6 +16,7 @@ export DENO_INSTALL="/home/ece/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="$PATH:~/.gem/ruby/2.7.0/bin"
 export PATH="$PATH:~/.node/bin"
+export PATH=$GOPATH:$GOPATH/bin:${PATH}
 export EDITOR=nvim
 
 # set -o vi
