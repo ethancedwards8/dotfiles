@@ -17,6 +17,7 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="$PATH:~/.gem/ruby/2.7.0/bin"
 export PATH="$PATH:~/.node/bin"
 export PATH=$GOPATH:$GOPATH/bin:${PATH}
+if [ -e /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"; fi
 export EDITOR=nvim
 
 # set -o vi
@@ -38,12 +39,12 @@ alias .5="cd ../../../../../"
 alias vim="nvim"
 alias mutt="neomutt"
 # alias ls='ls --color=auto'
-alias ls='exa --color=always'
-alias ll='exa --color=always -l'
-alias la='exa --color=always -a'
-alias lah='exa --color=always -lah'
+alias ls='eza --color=always'
+alias ll='eza --color=always -l'
+alias la='eza --color=always -a'
+alias lah='eza --color=always -lah'
 # sl alias because i mess up sometimes and its annoying
-alias sl='exa --color=always'
+alias sl='eza --color=always'
 alias ip='ip -c=always'
 alias rm="rm -i"
 alias mv="mv -i"
