@@ -1,9 +1,9 @@
 [user]
 	name = Ethan Edwards
 	email = ethan@ethancedwards.com
-	signingKey = "0E69 0F46 3457 D812 3387  C978 F93D DAFA 26EF 2458"
+	signingKey = "2E51 F618 39D1 FA94 7A73 00C2 34C0 4305 D581 DBFE"
 [commit]
-	gpgSign = false
+	gpgSign = true
 [core]
 	editor = nvim
 [filter "lfs"]
