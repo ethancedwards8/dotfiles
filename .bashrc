@@ -22,7 +22,7 @@ export EDITOR=nvim
 
 # set -o vi
 
-alias yeet="yay"
+alias yeet="paru"
 alias e="emacsclient -c"
 alias et="emacsclient -t"
 alias sudo="sudo "
