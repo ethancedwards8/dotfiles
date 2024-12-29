@@ -62,6 +62,13 @@ servers = (
     address = "irc.undernet.org";
     chatnet = "Undernet";
     port = "6667";
+  },
+  {
+    address = "irc.libera.chat";
+    chatnet = "LiberaChat";
+    port = "6697";
+    use_tls = "yes";
+    tls_verify = "yes";
   }
 );
 
@@ -134,6 +141,7 @@ chatnets = {
     max_msgs = "1";
     max_whois = "1";
   };
+  LiberaChat = { type = "IRC"; };
 };
 
 channels = (

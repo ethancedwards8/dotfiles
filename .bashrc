@@ -19,6 +19,8 @@ export PATH="$PATH:~/.node/bin"
 export PATH=$GOPATH:$GOPATH/bin:${PATH}
 if [ -e /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"; fi
 export EDITOR=nvim
+export GPG_TTY=$(tty)
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 # set -o vi
 

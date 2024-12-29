@@ -13,11 +13,11 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-; [sendemail]
-; 	smtpServer = smtp.gmail.com
-; 	smtpServerPort = 587
-; 	smtpEncryption = TSL
-; 	smtpUser = ethancarteredwards@gmail.com
+[sendemail]
+	smtpServer = 127.0.0.1
+	smtpServerPort = 1025
+	; smtpEncryption = TSL
+	smtpUser = ethan@ethancedwards.com
 [color]
 	ui = auto
 [pull]
