@@ -1,4 +1,8 @@
 # vim: filetype=neomuttrc
 source /usr/share/mutt-wizard/mutt-wizard.muttrc
+
+set signature="~/.config/mutt/signature"
 source /home/ece/.config/mutt/accounts/ethan@ethancedwards.com.muttrc
 macro index,pager i1 '<sync-mailbox><enter-command>source /home/ece/.config/mutt/accounts/ethan@ethancedwards.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to ethan@ethancedwards.com"
+
+set signature="~/.config/mutt/signature"

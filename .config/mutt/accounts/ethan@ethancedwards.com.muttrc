@@ -19,4 +19,4 @@ macro index o "<shell-escape>mw -y ethan@ethancedwards.com<enter>" "run mbsync t
 macro index \eg "<enter-command>unset wait_key<enter><shell-escape>gpg --list-secret-keys; printf 'Enter email ID of user to publish: '; read eID; printf 'Enter fingerprint of GPG key to publish: '; read eFGPT; /usr/libexec/gpg-wks-client --create \$eFGPT \$eID | msmtp --read-envelope-from --read-recipients -a ethan@ethancedwards.com<enter>"  "publish GPG key to WKS provider"
 macro index \eh "<pipe-message>/usr/libexec/gpg-wks-client --receive | msmtp --read-envelope-from --read-recipients -a ethan@ethancedwards.com<enter>" "confirm GPG publication"
 
-mailboxes "=Archive" "=Sent" "=Starred" "=Spam" "=Trash" "=AlthaTech" "=Purchases" "=INBOX" "=All Mail" "=Drafts"
+mailboxes "=INBOX" "=Drafts" "=Sent" "=Starred" "=Archive" "=Spam" "=Trash" "=Folders" "=Folders/Purchases" "=Folders/AlthaTech" "=Folders/Reminders" "=Labels" 
