@@ -3,45 +3,83 @@ inputs: {
 
     modules = [
       ../modules/cachix.nix
-      ({ pkgs, ... }: {
+      ../modules/nix.nix
+      ({ pkgs, self, lib, ... }: {
+        # thank you @elvishjerricco:matrix.org!
+        # map flake inputs to registry
+        nix.registry = lib.mapAttrs (n: flake: { inherit flake; }) inputs;
+        environment.etc = lib.mapAttrs' (name: flake: {
+            name = "nix/inputs/${name}";
+            value.source = flake.outPath;
+            }) inputs;
+        nix.nixPath = ["/etc/nix/inputs"];
+
+
+
         services.nix-daemon.enable = true;
         programs.nix-index.enable = true;
         programs.nix-index.package = pkgs.nix-index;
-        nix.channel.enable = false;
-        nix.settings.trusted-users = [ "root" "ece" "@wheel" "@admin" ];
-        nix.configureBuildUsers = true;
-        nix.package = pkgs.nixVersions.latest;
-        nix.extraOptions = 
-        ''
-          experimental-features = nix-command flakes ca-derivations
-          builders-use-substitutes = true
-          auto-optimise-store = true
-          extra-platforms = aarch64-darwin
-        '';
 
+        security.pam.enableSudoTouchIdAuth = true;
 
-        # system.configurationRevision = self.rev or self.dirtyRev or null;
+        programs.direnv.enable = true;
 
         users.users.ece = {
           home = "/Users/ece";
           description = "Ethan Carter Edwards";
-          # shell = pkgs.bashInteractive;
+          shell = pkgs.bashInteractive;
         };
 
         environment.systemPackages =
-          [ 
-            # inputs.nixpkgs.pkgs.neovim
+          with pkgs; [
+              nixfmt-rfc-style
+              nixpkgs-review
+              nix-info
           ];
 
         homebrew = {
             enable = true;
+            onActivation.cleanup = "uninstall";
             brews = [
-                "neovim"
+              "atomicparsley"
+              "bash"
+              "ca-certificates"
+              "exiftool"
+              "eza"
+              "fzf"
+              "gh"
+              "git"
+              "gnupg"
+              "htop"
+              "ispell"
+              "jq"
+              "mas"
+              "neofetch"
+              "neomutt"
+              "neovim"
+              "nmap"
+              "pinentry"
+              "ripgrep"
+              "starship"
+              "tmux"
+              "wget"
+              "yt-dlp"
+              "podman"
             ];
             casks = [
-                "kitty"
+                "element"
                 "emacs"
+                "firefox"
+                "ghostty"
+                "kdenlive"
+                "kitty"
+                "postman"
+                "signal"
+                "tailscale"
+                "vlc"
             ];
+            masApps = {
+            };
         };
 
         programs.gnupg.agent = {
