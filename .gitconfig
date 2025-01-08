@@ -24,3 +24,4 @@
 	rebase = false
 [alias]
 	pall = !git remote | xargs -L1 git push --all
+	fall = !git fetch --all
