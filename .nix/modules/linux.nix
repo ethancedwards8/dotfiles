@@ -1,6 +1,10 @@
 { pkgs, config, lib, inputs, ... }:
 
 {
+  imports = [
+    ./common.nix
+  ];
+
   programs.neovim = {
     enable = true;
     vimAlias = true;

@@ -16,6 +16,7 @@
       "/etc/NetworkManager/system-connections"
       "/var/log"
       "/var/lib/systemd/coredump"
+      "/var/lib/nixos"
     ];
     files = [
       "/etc/machine-id"
