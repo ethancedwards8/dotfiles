@@ -9,10 +9,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixos-hardware.url = "github:nixos/nixos-hardware";
     impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, impermanence, }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;

@@ -2,6 +2,8 @@
 
 {
   imports = [
+    inputs.home-manager.darwinModules.home-manager
+
     ../modules/cachix.nix
     ../modules/nix.nix
     ../modules/common.nix
@@ -64,6 +66,9 @@
     masApps = {
     };
   };
+
+  home-manager.useUserPackages = true;
+  home-manager.useGlobalPkgs = true;
 
   programs.bash.enable = true;
 

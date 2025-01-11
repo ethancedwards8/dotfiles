@@ -8,7 +8,7 @@
 
     ../modules/cachix.nix
     ../modules/nix.nix
-    ../modules/common.nix
+    ../modules/linux.nix
   ];
 
   environment.persistence."/nix/persist" = {
