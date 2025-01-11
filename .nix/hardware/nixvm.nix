@@ -5,9 +5,29 @@
     [ (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
-  boot.initrd.postDeviceCommands = lib.mkAfter ''
-    zfs rollback -r rpool/local/root@blank
-  '';
+  # https://discourse.nixos.org/t/zfs-rollback-not-working-using-boot-initrd-systemd/37195
+  boot.initrd.systemd.enable = lib.mkDefault true;
+  boot.initrd.systemd.services.rollback = {
+      description = "Rollback root filesystem to a pristine state on boot";
+      wantedBy = [
+        # "zfs.target"
+        "initrd.target"
+      ];
+      after = [
+        "zfs-import-rpool.service"
+      ];
+      before = [
+        "sysroot.mount"
+      ];
+      path = with pkgs; [
+        zfs
+      ];
+      unitConfig.DefaultDependencies = "no";
+      serviceConfig.Type = "oneshot";
+      script = ''
+        zfs rollback -r rpool/nixos/local/root@blank && echo "  >> >> rollback complete << <<"
+      '';
+    };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
