@@ -65,7 +65,7 @@
       neededForBoot = true;
     };
 
-  fileSystems."/persist" =
+  fileSystems."/nix/persist" =
     { device = "rpool/safe/persist";
       fsType = "zfs";
       neededForBoot = true;
