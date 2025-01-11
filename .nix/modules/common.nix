@@ -2,11 +2,7 @@
 
 {
 
-  programs.nix-index.enable = true;
-
   programs.direnv.enable = true;
-
-  programs.bash.enable = true;
 
   programs.gnupg.agent = {
     enable = true;

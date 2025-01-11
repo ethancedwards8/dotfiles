@@ -9,9 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, impermanence, }:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
@@ -35,6 +36,9 @@
       nixosConfigurations.nixrpi = mkNixos [ ./systems/nixrpi.nix ];
       nixrpi = self.nixosConfigurations.nixrpi.config.system.build.toplevel;
 
+      nixosConfigurations.nixvm = mkNixos [ ./systems/nixvm.nix ];
+      nixvm = self.nixosConfigurations.nixvm.config.system.build.toplevel;
+
       darwinPackages = self.darwinConfigurations.mbair.pkgs;
 
       devShell = forAllSystems (system:
@@ -44,7 +48,7 @@
         with pkgs;
         mkShell {
           name = "config shell";
-          buildInputs = [ nixfmt-rfc-style git ];
+          buildInputs = [ neovim nixfmt-rfc-style git ];
           # shellHook = '' ${git}/bin/git pull origin master '';
         }
       );

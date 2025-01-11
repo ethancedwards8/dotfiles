@@ -7,6 +7,8 @@
     ../modules/common.nix
   ];
 
+  nix.configureBuildUsers = true;
+  programs.nix-index.enable = true;
   services.nix-daemon.enable = true;
 
   security.pam.enableSudoTouchIdAuth = true;
@@ -62,6 +64,8 @@
     masApps = {
     };
   };
+
+  programs.bash.enable = true;
 
   system.stateVersion = 5;
 
