@@ -82,6 +82,8 @@ ex ()
   fi
 }
 
+PS1='[\u@\h \W]\$ '
+
 # stops tmux from entering with my theme broken
 tfun()
 {
@@ -90,11 +92,10 @@ if [[ $TERM == screen* ]] && [[ "$HOSTNAME" == "archpc" ]]; then
 fi
 }
 
-if [[ "$HOSTNAME" == arch* ]] || [[ "$HOSTNAME" == *MacBook* ]]; then
+if [[ "$HOSTNAME" == arch* ]] || [[ "$HOSTNAME" == *Air* ]]; then
     eval "$(starship init bash)"
 fi
 
-# PS1='[\u@\h \W]\$ '
 
 vterm_printf(){
     if [ -n "$TMUX" ]; then
@@ -112,3 +113,6 @@ vterm_printf(){
 # https://unix.stackexchange.com/questions/12107/how-to-unfreeze-after-accidentally-pressing-ctrl-s-in-a-terminal
 # stop the awful terminal freeze
 stty -ixon
+
+# Added by Radicle.
+export PATH="$PATH:/Users/ece/.radicle/bin"
