@@ -16,6 +16,11 @@
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
 
+      mkNixos = modules: nixpkgs.lib.nixosSystem {
+        inherit modules;
+        specialArgs = { inherit inputs outputs self; };
+      };
+
       mkDarwin = system: modules: nix-darwin.lib.darwinSystem {
           inherit system modules;
           specialArgs = { inherit inputs outputs self; };
@@ -26,6 +31,9 @@
       # $ darwin-rebuild build --flake .#mbair
       darwinConfigurations."mbair" = mkDarwin "aarch64-darwin" [ ./systems/mbair.nix ];
       mbair = self.darwinConfigurations.mbair.config.system.build.toplevel;
+
+      nixosConfigurations.nixrpi = mkNixos [ ./systems/nixrpi.nix ];
+      nixrpi = self.nixosConfigurations.nixrpi.config.system.build.toplevel;
 
       darwinPackages = self.darwinConfigurations.mbair.pkgs;
 

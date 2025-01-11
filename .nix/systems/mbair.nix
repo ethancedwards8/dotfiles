@@ -4,28 +4,18 @@
   imports = [
     ../modules/cachix.nix
     ../modules/nix.nix
+    ../modules/common.nix
   ];
 
   services.nix-daemon.enable = true;
-  programs.nix-index.enable = true;
-  programs.nix-index.package = pkgs.nix-index;
 
   security.pam.enableSudoTouchIdAuth = true;
-
-  programs.direnv.enable = true;
 
   users.users.ece = {
     home = "/Users/ece";
     description = "Ethan Carter Edwards";
     shell = pkgs.bashInteractive;
   };
-
-  environment.systemPackages = with pkgs; [
-    nixfmt-rfc-style
-    nixpkgs-review
-    nix-info
-    nix-health
-  ];
 
   homebrew = {
     enable = true;
@@ -72,13 +62,6 @@
     masApps = {
     };
   };
-
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
-  programs.bash.enable = true;
 
   system.stateVersion = 5;
 
