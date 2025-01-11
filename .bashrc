@@ -116,3 +116,4 @@ stty -ixon
 
 # Added by Radicle.
 export PATH="$PATH:/Users/ece/.radicle/bin"
+. "$HOME/.cargo/env"
