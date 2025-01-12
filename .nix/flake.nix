@@ -32,6 +32,8 @@
           inherit system modules;
           specialArgs = { inherit inputs outputs self; };
         };
+
+      mkUsb = system: configuration: import "${inputs.nixpkgs}/nixos" { inherit configuration system; };
     in
     {
       # Build darwin flake using:
@@ -44,6 +46,14 @@
 
       nixosConfigurations.nixvm = mkNixos [ ./systems/nixvm.nix ];
       nixvm = self.nixosConfigurations.nixvm.config.system.build.toplevel;
+
+      # build using nix build .#usb.<system>.config.system.build.isoImage;
+      usb = builtins.listToAttrs (
+        builtins.map (system: {
+          name = system;
+          value = (mkUsb system (import ./systems/usb.nix inputs)).config.system.build.isoImage;
+        }) nixpkgs.lib.systems.flakeExposed
+      );
 
       darwinPackages = self.darwinConfigurations.mbair.pkgs;
 
