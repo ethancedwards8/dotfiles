@@ -47,13 +47,11 @@
       nixosConfigurations.nixvm = mkNixos [ ./systems/nixvm.nix ];
       nixvm = self.nixosConfigurations.nixvm.config.system.build.toplevel;
 
-      # build using nix build .#usb.<system>.config.system.build.isoImage;
-      usb = builtins.listToAttrs (
-        builtins.map (system: {
-          name = system;
-          value = (mkUsb system (import ./systems/usb.nix inputs)).config.system.build.isoImage;
-        }) nixpkgs.lib.systems.flakeExposed
-      );
+      # build usb with .#usb.<system>
+      usb = forAllSystems (system: (import "${inputs.nixpkgs}/nixos" {
+        inherit system;
+        configuration = (import ./systems/usb.nix inputs);
+      }).config.system.build.isoImage);
 
       darwinPackages = self.darwinConfigurations.mbair.pkgs;
 
