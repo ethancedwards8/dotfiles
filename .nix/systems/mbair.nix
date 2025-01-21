@@ -16,9 +16,9 @@
   nix.buildMachines = [
     {
       hostName = "nixvm";
-      systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
+      systems = [ "x86_64-linux" "aarch64-linux" "i686-linux" "riscv64-linux" ];
       maxJobs = 3;
-	  speedFactor = 1;
+	  speedFactor = 2;
       supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
 	  mandatoryFeatures = [ ];
     }
