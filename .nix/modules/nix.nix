@@ -15,7 +15,7 @@
     builders-use-substitutes = true
     auto-optimise-store = true
     sandbox = true
-    extra-platforms = aarch64-darwin
+    extra-platforms = aarch64-darwin x86_64-darwin x86_64-linux i686-linux
   '';
 
   # thank you @elvishjerricco:matrix.org!

@@ -13,6 +13,18 @@
   programs.nix-index.enable = true;
   services.nix-daemon.enable = true;
 
+  nix.buildMachines = [
+    {
+      hostName = "nixvm";
+      systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
+      maxJobs = 3;
+	  speedFactor = 1;
+      supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+	  mandatoryFeatures = [ ];
+    }
+  ];
+  nix.distributedBuilds = true;
+
   security.pam.enableSudoTouchIdAuth = true;
 
   users.users.ece = {
