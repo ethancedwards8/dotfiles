@@ -12,19 +12,6 @@
   nix.configureBuildUsers = true;
   programs.nix-index.enable = true;
   services.nix-daemon.enable = true;
-
-  nix.buildMachines = [
-    {
-      hostName = "nixvm";
-      systems = [ "x86_64-linux" "aarch64-linux" "i686-linux" "riscv64-linux" ];
-      maxJobs = 3;
-	  speedFactor = 2;
-      supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-	  mandatoryFeatures = [ ];
-    }
-  ];
-  nix.distributedBuilds = true;
-
   security.pam.enableSudoTouchIdAuth = true;
 
   users.users.ece = {
