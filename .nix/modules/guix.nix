@@ -13,12 +13,12 @@
       options.services.guix.substituters.authorizedKeys.default ++ [
         (builtins.fetchurl {
           url = "https://substitutes.nonguix.org/signing-key.pub";
-          hash = "";
+          sha256 = "0j66nq1bxvbxf5n8q2py14sjbkn57my0mjwq7k1qm9ddghca7177";
         })
 
         (builtins.fetchurl {
           url = "https://guix.bordeaux.inria.fr/signing-key.pub";
-          hash = "";
+          sha256 = "056cv0vlqyacyhbmwr5651fzg1icyxbw61nkap7sd4j2x8qj7ila";
         })
       ];
   };
