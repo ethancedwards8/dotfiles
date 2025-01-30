@@ -62,6 +62,12 @@
       neededForBoot = true;
     };
 
+  fileSystems."/gnu" =
+    { device = "rpool/local/guix";
+      fsType = "zfs";
+      neededForBoot = true;
+    };
+
   fileSystems."/home" =
     { device = "rpool/safe/home";
       fsType = "zfs";
