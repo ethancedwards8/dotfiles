@@ -42,6 +42,7 @@
       "neovim"
       "nmap"
       "pinentry"
+      "poetry"
       "ripgrep"
       "starship"
       "tmux"
