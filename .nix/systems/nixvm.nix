@@ -9,6 +9,7 @@
     ../modules/cachix.nix
     ../modules/nix.nix
     ../modules/linux.nix
+    ../modules/guix.nix
   ];
 
   environment.persistence."/nix/persist" = {
