@@ -1,4 +1,4 @@
-{ pkgs, config, lib, inputs, ... }:
+{ pkgs, options, config, lib, inputs, ... }:
 
 {
   services.guix = {
