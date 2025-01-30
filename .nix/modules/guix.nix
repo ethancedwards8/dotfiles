@@ -7,6 +7,6 @@
     substituters.urls = 
       options.services.guix.substituters.urls.default ++ [
         "https://substitutes.nonguix.org/"
-    ]
+    ];
   };
 }
