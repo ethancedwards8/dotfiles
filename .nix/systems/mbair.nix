@@ -42,6 +42,7 @@
       "neovim"
       "nmap"
       "pinentry"
+      "uv"
       "poetry"
       "ripgrep"
       "starship"
