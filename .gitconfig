@@ -1,9 +1,11 @@
 [user]
-	name = Ethan Edwards
+	name = Ethan Carter Edwards
 	email = ethan@ethancedwards.com
-	signingKey = "0E69 0F46 3457 D812 3387  C978 F93D DAFA 26EF 2458"
+	signingKey = "2E51 F618 39D1 FA94 7A73 00C2 34C0 4305 D581 DBFE"
 [commit]
-	gpgSign = false
+	gpgSign = true
+[tag]
+    gpgSign = true
 [core]
 	editor = nvim
 [filter "lfs"]
@@ -11,12 +13,16 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-; [sendemail]
-; 	smtpServer = smtp.gmail.com
-; 	smtpServerPort = 587
-; 	smtpEncryption = TSL
-; 	smtpUser = ethancarteredwards@gmail.com
+[sendemail]
+	smtpServer = /usr/bin/msmtp
+	; smtpServerPort = 1025
+	; ; smtpEncryption = TSL
+	; smtpUser = ethan@ethancedwards.com
 [color]
 	ui = auto
 [pull]
 	rebase = false
+[alias]
+	pall = !git remote | xargs -L1 git push --all
+	fall = !git fetch --all
+	cm = commit -s

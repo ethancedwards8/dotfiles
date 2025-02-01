@@ -1,32 +1,32 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, config, lib, inputs, ... }:
 
 {
-  nix.package = pkgs.nixUnstable;
-  nix.trustedUsers = [ "root" "ece" "@wheel" "@admin" ];
-  nix.distributedBuilds = true;
-  nix.extraOptions =
-  ''
-    experimental-features = nix-command flakes ca-references ca-derivations
+  nix.channel.enable = false;
+  nix.settings.trusted-users = [
+    "root"
+    "ece"
+    "@wheel"
+    "@admin"
+  ];
+  nix.settings.sandbox = true;
+  nix.package = pkgs.nixVersions.latest;
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes ca-derivations
     builders-use-substitutes = true
     auto-optimise-store = true
-    extra-platforms = x86_64-darwin aarch64-darwin
+    sandbox = true
+    extra-platforms = aarch64-darwin x86_64-darwin x86_64-linux i686-linux
   '';
 
-  # TODO: OLD
-  # nix.buildMachines = [{
-    # hostName = "builder-nixpc";
-    # systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" ];
-    # maxJobs = 3;
-    # speedFactor = 2;
-    # supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-    # mandatoryFeatures = [ ];
-  # }# {
-  #   hostName = "builder-fedora";
-  #   systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" ];
-  #   maxJobs = 3;
-  #   speedFactor = 2;
-  #   supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-  #   mandatoryFeatures = [ ];
-  # }
-                      # ];
+  # thank you @elvishjerricco:matrix.org!
+  # map flake inputs to registry
+  nix.registry = lib.mapAttrs (n: flake: { inherit flake; }) inputs;
+
+  # fix legacy channels
+  environment.etc = lib.mapAttrs' (name: flake: {
+    name = "nix/inputs/${name}";
+    value.source = flake.outPath;
+  }) inputs;
+  nix.nixPath = [ "/etc/nix/inputs" ];
+
 }

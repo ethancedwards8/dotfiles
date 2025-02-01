@@ -1,33 +1,39 @@
-{ pkgs, ... }:
+{ pkgs, config, lib, inputs, ... }:
 
 {
   imports = [
-    ./audio.nix
-    ./cachix.nix
-    ./ece.nix
-    ./emacs.nix
-    ./fonts.nix
-    ./networking.nix
-    ./nix.nix
-    ./pin-nixpkgs.nix
-    ./podman.nix
-    ./security.nix
-    ./shells.nix
-    ./xserver.nix
+    ./common.nix
   ];
 
-  i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "us";
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
+    viAlias = true;
+    defaultEditor = true;
   };
+
+  services.openssh.enable = true;
+
+  users.users.ece = {
+      isNormalUser = true;
+      initialPassword = "hunter2";
+      createHome = true;
+      home = "/home/ece";
+      shell = pkgs.bashInteractive;
+      extraGroups = [ "wheel" "video" "audio" "networkmanager" "docker" "libvirtd" "vboxusers" ];
+  };
+
+  networking.useDHCP = lib.mkDefault true;
+  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  time.timeZone = "America/New_York";
+  i18n.defaultLocale = "en_US.UTF-8";
+
   environment.systemPackages = with pkgs; [
-    cachix
     curl
     git
+    tmux
     gnupg
-    pinentry-curses
-    unzip
+    pinentry-tty
     wget
   ];
 }

@@ -16,11 +16,15 @@ export DENO_INSTALL="/home/ece/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="$PATH:~/.gem/ruby/2.7.0/bin"
 export PATH="$PATH:~/.node/bin"
+export PATH=$GOPATH:$GOPATH/bin:${PATH}
+if [ -e /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"; fi
 export EDITOR=nvim
+export GPG_TTY=$(tty)
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 # set -o vi
 
-alias yeet="yay"
+alias yeet="paru"
 alias e="emacsclient -c"
 alias et="emacsclient -t"
 alias sudo="sudo "
@@ -37,12 +41,12 @@ alias .5="cd ../../../../../"
 alias vim="nvim"
 alias mutt="neomutt"
 # alias ls='ls --color=auto'
-alias ls='exa --color=always'
-alias ll='exa --color=always -l'
-alias la='exa --color=always -a'
-alias lah='exa --color=always -lah'
+alias ls='eza --color=always'
+alias ll='eza --color=always -l'
+alias la='eza --color=always -a'
+alias lah='eza --color=always -lah'
 # sl alias because i mess up sometimes and its annoying
-alias sl='exa --color=always'
+alias sl='eza --color=always'
 alias ip='ip -c=always'
 alias rm="rm -i"
 alias mv="mv -i"
@@ -78,6 +82,8 @@ ex ()
   fi
 }
 
+PS1='[\u@\h \W]\$ '
+
 # stops tmux from entering with my theme broken
 tfun()
 {
@@ -86,11 +92,10 @@ if [[ $TERM == screen* ]] && [[ "$HOSTNAME" == "archpc" ]]; then
 fi
 }
 
-if [[ "$HOSTNAME" == arch* ]] || [[ "$HOSTNAME" == "navidad" ]]; then
+if [[ "$HOSTNAME" == arch* ]] || [[ "$HOSTNAME" == *Air* ]] || [[ "$HOSTNAME" == *air* ]] || [[ "$HOSTNAME" == "navidad" ]]; then
     eval "$(starship init bash)"
 fi
 
-# PS1='[\u@\h \W]\$ '
 
 vterm_printf(){
     if [ -n "$TMUX" ]; then
@@ -106,9 +111,9 @@ vterm_printf(){
 }
 
 # https://unix.stackexchange.com/questions/12107/how-to-unfreeze-after-accidentally-pressing-ctrl-s-in-a-terminal
-# stop the godawful terminal freeze
+# stop the awful terminal freeze
 stty -ixon
 
-# BEGIN_KITTY_SHELL_INTEGRATION
-if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
-# END_KITTY_SHELL_INTEGRATION
+# Added by Radicle.
+export PATH="$PATH:/Users/ece/.radicle/bin"
+. "$HOME/.cargo/env"

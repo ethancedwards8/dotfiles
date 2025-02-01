@@ -1,15 +1,16 @@
 {
-  description = "Ethan's NixOS, nix-darwin, and h-m system flake";
+  description = "Ethan's Nix Flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-21.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    nixos-hardware.url = "github:nixos/nixos-hardware";
-    impermanence.url = "github:nix-community/impermanence";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    darwin = {
-      url = "github:lnl7/nix-darwin";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -18,104 +19,59 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nur = {
-      url = "github:nix-community/nur";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    neovim-nightly = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # veloren = {
-    #   url = "gitlab:veloren/veloren/43593bc4c90172b06f5dc709ff96d960995d9fa4";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # piston-cli = {
-    #   url = "github:piston-cli/piston-cli";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    guix.url = "github:ethancedwards8/nixos-guix";
-
-    #### NON FLAKE NIX PACKAGES ####
-
-    #### NON NIX PACKAGES ####
-    st = {
-      url = "gitlab:ethancedwards/st-config";
-      flake = false;
-    };
-    dmenu = {
-      url = "gitlab:ethancedwards/dmenu-config";
-      flake = false;
-    };
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+    impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { self, darwin, nixpkgs, nur, home-manager, ...}@inputs:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
     let
-      inherit (nixpkgs.lib) nixosSystem;
-      inherit (home-manager.lib) homeManagerConfiguration;
-      inherit (darwin.lib) darwinSystem;
+      inherit (self) outputs;
+      forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
 
-      evalNixos = configuration: import "${inputs.nixpkgs}/nixos" {
-        inherit configuration;
-        system = "x86_64-linux";
+      mkNixos = modules: nixpkgs.lib.nixosSystem {
+        inherit modules;
+        specialArgs = { inherit inputs outputs self; };
       };
 
-      supportedSystems = [ "x86_64-linux" "i686-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
-      forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
-    in {
-      darwinConfigurations.mbair = darwinSystem (import ./systems/mbair.nix inputs);
+      mkDarwin = system: modules: nix-darwin.lib.darwinSystem {
+          inherit system modules;
+          specialArgs = { inherit inputs outputs self; };
+        };
+
+      mkUsb = system: configuration: import "${inputs.nixpkgs}/nixos" { inherit configuration system; };
+    in
+    {
+      # Build darwin flake using:
+      # $ darwin-rebuild build --flake .#mbair
+      darwinConfigurations."mbair" = mkDarwin "aarch64-darwin" [ ./systems/mbair.nix ];
       mbair = self.darwinConfigurations.mbair.config.system.build.toplevel;
 
-      nixosConfigurations.nixlaptop = nixosSystem (import ./systems/nixlaptop.nix inputs);
-      nixlaptop = self.nixosConfigurations.nixlaptop.config.system.build.toplevel;
-
-      nixosConfigurations.nixpc = nixosSystem (import ./systems/nixpc.nix inputs);
-      nixpc = self.nixosConfigurations.nixpc.config.system.build.toplevel;
-
-      nixosConfigurations.nixvm = nixosSystem (import ./systems/nixvm.nix inputs);
-      nixvm = self.nixosConfigurations.nixvm.config.system.build.toplevel;
-
-      nixosConfigurations.nixrpi = nixosSystem (import ./systems/nixrpi.nix inputs);
+      nixosConfigurations.nixrpi = mkNixos [ ./systems/nixrpi.nix ];
       nixrpi = self.nixosConfigurations.nixrpi.config.system.build.toplevel;
 
-      usb = (evalNixos (import ./systems/usb.nix inputs)).config.system.build.isoImage;
+      nixosConfigurations.nixvm = mkNixos [ ./systems/nixvm.nix ];
+      nixvm = self.nixosConfigurations.nixvm.config.system.build.toplevel;
 
-      overlays = {
-        neovim = self.inputs.neovim-nightly.overlay;
-        nur = self.inputs.nur.overlay;
-        emacs = self.inputs.emacs-overlay.overlay;
-        # piston-cli = self.inputs.piston-cli.overlay;
-        guix = self.inputs.guix.overlay;
-      };
+      # build usb with .#usb.<system>
+      usb = forAllSystems (system: (import "${inputs.nixpkgs}/nixos" {
+        inherit system;
+        configuration = (import ./systems/usb.nix inputs);
+      }).config.system.build.isoImage);
 
       darwinPackages = self.darwinConfigurations.mbair.pkgs;
-
-      hydraJobs = {
-        nixpc = self.nixosConfigurations.nixpc.config.system.build.toplevel;
-        nixlaptop = self.nixosConfigurations.nixlaptop.config.system.build.toplevel;
-        nixvm = self.nixosConfigurations.nixvm.config.system.build.toplevel;
-        nixrpi = self.nixosConfigurations.nixrpi.config.system.build.toplevel;
-        usb = (evalNixos (import ./systems/usb.nix inputs)).config.system.build.isoImage;
-      };
 
       devShell = forAllSystems (system:
         let
           pkgs = import nixpkgs { inherit system; };
         in
-          with pkgs; mkShell {
-            name = "system-and-home-pull-on-entry";
-            buildInputs = [ nixpkgs-fmt git ] ++ pkgs.lib.optionals (pkgs.stdenv.isx86_64 && pkgs.stdenv.isLinux) [ brave /* I want it in my store, but not in my env */ ];
-            shellHook = '' ${git}/bin/git pull origin master '';
-          }
+        with pkgs;
+        mkShell {
+          name = "config shell";
+          buildInputs = [ neovim nixfmt-rfc-style git ];
+          # shellHook = '' ${git}/bin/git pull origin master '';
+        }
       );
+
+
     };
 }

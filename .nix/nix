@@ -1,0 +1,126 @@
+diff --git a/.nix/flake.lock b/.nix/flake.lock
+index a7eea22..9df5abc 100644
+--- a/.nix/flake.lock
++++ b/.nix/flake.lock
+@@ -1,5 +1,26 @@
+ {
+   "nodes": {
++    "flake-parts": {
++      "inputs": {
++        "nixpkgs-lib": [
++          "nur",
++          "nixpkgs"
++        ]
++      },
++      "locked": {
++        "lastModified": 1733312601,
++        "narHash": "sha256-4pDvzqnegAfRkPwO3wmwBhVi/Sye1mzps0zHWYnP88c=",
++        "owner": "hercules-ci",
++        "repo": "flake-parts",
++        "rev": "205b12d8b7cd4802fbcb8e8ef6a0f1408781a4f9",
++        "type": "github"
++      },
++      "original": {
++        "owner": "hercules-ci",
++        "repo": "flake-parts",
++        "type": "github"
++      }
++    },
+     "home-manager": {
+       "inputs": {
+         "nixpkgs": [
+@@ -86,13 +107,57 @@
+         "type": "github"
+       }
+     },
++    "nur": {
++      "inputs": {
++        "flake-parts": "flake-parts",
++        "nixpkgs": [
++          "nixpkgs"
++        ],
++        "treefmt-nix": "treefmt-nix"
++      },
++      "locked": {
++        "lastModified": 1738362438,
++        "narHash": "sha256-EO2dVkMVLThWqv4hobEZEZGWBEuH2Z9SYqQDrbLSclU=",
++        "owner": "nix-community",
++        "repo": "NUR",
++        "rev": "95ddad0ff0e67c90314c6ca46324dce5f9a910d2",
++        "type": "github"
++      },
++      "original": {
++        "owner": "nix-community",
++        "repo": "NUR",
++        "type": "github"
++      }
++    },
+     "root": {
+       "inputs": {
+         "home-manager": "home-manager",
+         "impermanence": "impermanence",
+         "nix-darwin": "nix-darwin",
+         "nixos-hardware": "nixos-hardware",
+-        "nixpkgs": "nixpkgs"
++        "nixpkgs": "nixpkgs",
++        "nur": "nur"
++      }
++    },
++    "treefmt-nix": {
++      "inputs": {
++        "nixpkgs": [
++          "nur",
++          "nixpkgs"
++        ]
++      },
++      "locked": {
++        "lastModified": 1733222881,
++        "narHash": "sha256-JIPcz1PrpXUCbaccEnrcUS8jjEb/1vJbZz5KkobyFdM=",
++        "owner": "numtide",
++        "repo": "treefmt-nix",
++        "rev": "49717b5af6f80172275d47a418c9719a31a78b53",
++        "type": "github"
++      },
++      "original": {
++        "owner": "numtide",
++        "repo": "treefmt-nix",
++        "type": "github"
+       }
+     }
+   },
+diff --git a/.nix/flake.nix b/.nix/flake.nix
+index 57f6b01..1941c1c 100644
+--- a/.nix/flake.nix
++++ b/.nix/flake.nix
+@@ -4,6 +4,11 @@
+   inputs = {
+     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+ 
++    nur = {
++      url = "github:nix-community/NUR";
++      inputs.nixpkgs.follows = "nixpkgs";
++    };
++
+     nix-darwin = {
+       url = "github:LnL7/nix-darwin";
+       inputs.nixpkgs.follows = "nixpkgs";
+diff --git a/.nix/modules/common.nix b/.nix/modules/common.nix
+index be55610..7e3bcc5 100644
+--- a/.nix/modules/common.nix
++++ b/.nix/modules/common.nix
+@@ -8,11 +8,15 @@
+     enableSSHSupport = true;
+   };
+ 
++  nixpkgs.overlays = [ inputs.nur.overlays.default ];
++
+   environment.systemPackages = with pkgs; [
+     cachix
+     nix-health
+     nix-info
+     nixfmt-rfc-style
+     nixpkgs-review
++
++    nur.repos.ethancedwards8.sysfo
+   ];
+ }

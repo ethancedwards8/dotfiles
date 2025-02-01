@@ -1,4 +1,6 @@
-inputs: { pkgs, ...}: {
+inputs: { pkgs, self, lib, ... }:
+
+{
 
   # TODO: Get home-manager to work.
   imports = [
@@ -8,13 +10,14 @@ inputs: { pkgs, ...}: {
   # home-manager.users."ece" = import ../home-manager/modules/gpg.nix;
   # home-manager.useUserPackages = true;
   # home-manager.useGlobalPkgs = true;
+
   networking.hostName = "nixusb";
-  system.stateVersion = "21.05";
+  system.stateVersion = "24.11";
   time.timeZone = "America/New_York";
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.zfs.enableUnstable = true;
-  boot.tmpOnTmpfs = true;
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
+  boot.zfs.package = pkgs.zfs_unstable;
+  boot.tmp.useTmpfs = true;
   services.pcscd.enable = true;
   services.udev.packages = with pkgs; [ yubikey-personalization ];
   environment.systemPackages = with pkgs; [ gnupg pinentry-curses paperkey ];
