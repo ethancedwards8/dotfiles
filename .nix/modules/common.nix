@@ -16,5 +16,6 @@
     nix-info
     nixfmt-rfc-style
     nixpkgs-review
+    github-cli
   ];
 }
