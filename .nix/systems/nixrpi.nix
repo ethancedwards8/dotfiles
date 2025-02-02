@@ -7,6 +7,7 @@
     ../modules/cachix.nix
     ../modules/nix.nix
     ../modules/linux.nix
+    ../modules/guix.nix
   ];
 
   networking.hostName = "nixrpi";
