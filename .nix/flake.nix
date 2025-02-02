@@ -28,8 +28,8 @@
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
 
-      mkNixos = modules: nixpkgs.lib.nixosSystem {
-        inherit modules;
+      mkNixos = system: modules: nixpkgs.lib.nixosSystem {
+        inherit system modules;
         specialArgs = { inherit inputs outputs self; };
       };
 
@@ -46,10 +46,10 @@
       darwinConfigurations."mbair" = mkDarwin "aarch64-darwin" [ ./systems/mbair.nix ];
       mbair = self.darwinConfigurations.mbair.config.system.build.toplevel;
 
-      nixosConfigurations.nixrpi = mkNixos [ ./systems/nixrpi.nix ];
+      nixosConfigurations.nixrpi = mkNixos "aarch64-linux" [ ./systems/nixrpi.nix ];
       nixrpi = self.nixosConfigurations.nixrpi.config.system.build.toplevel;
 
-      nixosConfigurations.nixvm = mkNixos [ ./systems/nixvm.nix ];
+      nixosConfigurations.nixvm = mkNixos "x86_64-linux" [ ./systems/nixvm.nix ];
       nixvm = self.nixosConfigurations.nixvm.config.system.build.toplevel;
 
       # build usb with .#usb.<system>
