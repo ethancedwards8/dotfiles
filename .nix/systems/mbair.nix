@@ -44,6 +44,7 @@
       "neovim"
       "nmap"
       "pinentry"
+      "pnpm"
       "podman"
       "poetry"
       "ripgrep"
