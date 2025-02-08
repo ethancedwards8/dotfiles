@@ -43,6 +43,7 @@
       "neomutt"
       "neovim"
       "nmap"
+      "node"
       "pinentry"
       "pnpm"
       "podman"
