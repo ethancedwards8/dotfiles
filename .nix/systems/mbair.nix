@@ -12,7 +12,6 @@
   nix.configureBuildUsers = true;
   programs.nix-index.enable = true;
   services.nix-daemon.enable = true;
-
   security.pam.enableSudoTouchIdAuth = true;
 
   users.users.ece = {
@@ -30,9 +29,11 @@
       "ca-certificates"
       "exiftool"
       "eza"
+      "ffmpeg"
       "fzf"
       "gh"
       "git"
+      "git-lfs"
       "gnupg"
       "htop"
       "ispell"
@@ -43,13 +44,15 @@
       "neovim"
       "nmap"
       "pinentry"
+      "pnpm"
+      "podman"
+      "poetry"
       "ripgrep"
       "starship"
       "tmux"
+      "uv"
       "wget"
       "yt-dlp"
-      "git-lfs"
-      "podman"
     ];
     casks = [
       "element"

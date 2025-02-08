@@ -5,6 +5,9 @@
     [ (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
+  # build machine
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" "i686-linux" "riscv64-linux" ];
+
   # https://discourse.nixos.org/t/zfs-rollback-not-working-using-boot-initrd-systemd/37195
   boot.initrd.systemd.enable = lib.mkDefault true;
   boot.initrd.systemd.services.rollback = {
@@ -55,6 +58,12 @@
 
   fileSystems."/nix" =
     { device = "rpool/local/nix";
+      fsType = "zfs";
+      neededForBoot = true;
+    };
+
+  fileSystems."/gnu" =
+    { device = "rpool/local/guix";
       fsType = "zfs";
       neededForBoot = true;
     };

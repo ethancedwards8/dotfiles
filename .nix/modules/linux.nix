@@ -31,6 +31,7 @@
   environment.systemPackages = with pkgs; [
     curl
     git
+    tmux
     gnupg
     pinentry-tty
     wget

@@ -8,11 +8,14 @@
     enableSSHSupport = true;
   };
 
+  nixpkgs.overlays = [ inputs.nur.overlays.default ];
+
   environment.systemPackages = with pkgs; [
     cachix
     nix-health
     nix-info
     nixfmt-rfc-style
     nixpkgs-review
+    github-cli
   ];
 }
