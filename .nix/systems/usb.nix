@@ -1,11 +1,18 @@
-inputs: { pkgs, self, lib, ... }:
+inputs: system: { pkgs, self, lib, ... }:
 
 {
+  # better way to do this?
+  nixpkgs.buildPlatform = "x86_64-linux";
+  nixpkgs.hostPlatform = system;
+  # nixpkgs.crossSystem = { inherit system; };
 
   # TODO: Get home-manager to work.
   imports = [
     # inputs.home-manager.nixosModules.home-manager
     "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal-new-kernel.nix"
+    # ../modules/nix.nix
+    # ../modules/cachix.nix
+    # ../modules/common.nix
   ];
   # home-manager.users."ece" = import ../home-manager/modules/gpg.nix;
   # home-manager.useUserPackages = true;

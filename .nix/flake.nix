@@ -34,6 +34,7 @@
         };
 
       mkUsb = system: configuration: import "${inputs.nixpkgs}/nixos" { inherit configuration system; };
+      mkSd = system: configuration: import "${inputs.nixpkgs}/nixos" { inherit configuration system; };
     in
     {
       # Build darwin flake using:
@@ -50,7 +51,7 @@
       # build usb with .#usb.<system>
       usb = forAllSystems (system: (import "${inputs.nixpkgs}/nixos" {
         inherit system;
-        configuration = (import ./systems/usb.nix inputs);
+        configuration = (import ./systems/usb.nix inputs system);
       }).config.system.build.isoImage);
 
       darwinPackages = self.darwinConfigurations.mbair.pkgs;
