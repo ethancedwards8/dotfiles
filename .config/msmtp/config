@@ -1,25 +1,13 @@
 account ethan@ethancedwards.com
-host 127.0.0.1
-port 1025
+host smtp.mailbox.org
+port 465
 from ethan@ethancedwards.com
-user ethan@ethancedwards.com
+user ethancedwards@mailbox.org
 passwordeval "pass ethan@ethancedwards.com"
-auth login
-tls on
-tls_trust_file	/etc/ssl/certs/ca-certificates.crt
-logfile /home/ece/.config/msmtp/msmtp.log
-tls_fingerprint 0C:58:A7:E2:34:89:D3:B0:86:65:DE:8F:E4:42:84:A9:B2:A8:33:E8:8D:7B:57:F6:DF:3D:6D:17:3A:1A:1F:11
-
-account ethancarteredwards@gmail.com
-host smtp.gmail.com
-port 587
-from ethancarteredwards@gmail.com
-user ethancarteredwards@gmail.com
-passwordeval "pass ethancarteredwards@gmail.com"
 auth on
 tls on
 tls_trust_file	/etc/ssl/certs/ca-certificates.crt
 logfile /home/ece/.config/msmtp/msmtp.log
-# tls_starttls
+tls_starttls off
 
 account default: ethan@ethancedwards.com
