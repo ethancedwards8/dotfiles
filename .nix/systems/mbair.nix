@@ -6,12 +6,9 @@
 
     ../modules/cachix.nix
     ../modules/nix.nix
-    ../modules/common.nix
+    ../modules/darwin.nix
   ];
 
-  nix.configureBuildUsers = true;
-  programs.nix-index.enable = true;
-  services.nix-daemon.enable = true;
   security.pam.enableSudoTouchIdAuth = true;
 
   users.users.ece = {
@@ -73,8 +70,6 @@
 
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
-
-  programs.bash.enable = true;
 
   system.stateVersion = 5;
 
