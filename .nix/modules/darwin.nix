@@ -5,10 +5,6 @@
     ./common.nix
   ];
 
-  nix.configureBuildUsers = true;
-  programs.nix-index.enable = true;
-  services.nix-daemon.enable = true;
-
   programs.bash.enable = true;
 
   # macos system settings
@@ -18,7 +14,7 @@
   system.defaults.NSGlobalDomain.AppleShowAllFiles = true;
 
   # control center
-  system.defaults.controlcenter.BatteryShowPercentage = true;
+  system.defaults.controlcenter.BatteryShowPercentage = false;
 
   # dock
   system.defaults.dock.autohide = true;
