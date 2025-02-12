@@ -15,6 +15,7 @@
     nix-health
     nix-info
     nixfmt-rfc-style
+    nix-update
     nixpkgs-review
     github-cli
   ];
