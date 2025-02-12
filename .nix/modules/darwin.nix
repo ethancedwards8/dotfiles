@@ -5,6 +5,8 @@
     ./common.nix
   ];
 
+  programs.nix-index.enable = true;
+
   programs.bash.enable = true;
 
   # macos system settings
