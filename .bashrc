@@ -113,7 +113,3 @@ vterm_printf(){
 # https://unix.stackexchange.com/questions/12107/how-to-unfreeze-after-accidentally-pressing-ctrl-s-in-a-terminal
 # stop the awful terminal freeze
 stty -ixon
-
-# Added by Radicle.
-export PATH="$PATH:/Users/ece/.radicle/bin"
-. "$HOME/.cargo/env"
