@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    system-manager = {
+      url = "github:numtide/system-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,7 +28,7 @@
     impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, system-manager, ... }:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
@@ -37,6 +42,11 @@
           inherit system modules;
           specialArgs = { inherit inputs outputs self; };
         };
+
+      mkSystem = modules: system-manager.lib.makeSystemConfig {
+          inherit modules;
+          extraSpecialArgs = { inherit inputs outputs self; };
+      };
 
       mkUsb = system: configuration: import "${inputs.nixpkgs}/nixos" { inherit configuration system; };
       mkSd = system: configuration: import "${inputs.nixpkgs}/nixos" { inherit configuration system; };
@@ -52,6 +62,8 @@
 
       nixosConfigurations.nixvm = mkNixos "x86_64-linux" [ ./systems/nixvm.nix ];
       nixvm = self.nixosConfigurations.nixvm.config.system.build.toplevel;
+
+      systemConfigs.archpc = mkSystem [ ./systems/archpc.nix ];
 
       # build usb with .#usb.<system>
       usb = forAllSystems (system: (import "${inputs.nixpkgs}/nixos" {
