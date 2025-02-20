@@ -5,6 +5,10 @@
     ./common.nix
   ];
 
+  environment.systemPackages = with pkgs; [
+      darwin.linux-builder
+  ];
+
   programs.nix-index.enable = true;
 
   programs.bash.enable = true;
