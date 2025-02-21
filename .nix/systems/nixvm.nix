@@ -13,6 +13,7 @@
     ../modules/guix.nix
   ];
 
+  services.nixos-passthru-cache.enable = true;
   services.nixos-passthru-cache.hostName = "cache.ethancedwards.com";
 
   environment.persistence."/nix/persist" = {
