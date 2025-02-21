@@ -121,15 +121,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1735298199,
-        "narHash": "sha256-K+z4Jvn4gSWw9cNd3C8Q9PZBH2zhmADBuwvPOr5vv10=",
-        "owner": "numtide",
+        "lastModified": 1740114765,
+        "narHash": "sha256-T7I9UTbszpiY5mWY2zO8lVq7iq015HC1hIQ4ehwyu/c=",
+        "owner": "ethancedwards8",
         "repo": "nixos-passthru-cache",
-        "rev": "6571dd490aec31dfc19349c8ff89f697bbf19d60",
+        "rev": "9ddd8794d1fdacb44813c2a6df07fa5840b07972",
         "type": "github"
       },
       "original": {
-        "owner": "numtide",
+        "owner": "ethancedwards8",
+        "ref": "ssl-option",
         "repo": "nixos-passthru-cache",
         "type": "github"
       }

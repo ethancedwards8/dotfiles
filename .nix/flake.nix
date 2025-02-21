@@ -27,7 +27,7 @@
     nixos-hardware.url = "github:nixos/nixos-hardware";
     impermanence.url = "github:nix-community/impermanence";
     nixos-passthru-cache = {
-      url = "github:numtide/nixos-passthru-cache";
+      url = "github:ethancedwards8/nixos-passthru-cache/ssl-option";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

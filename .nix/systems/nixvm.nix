@@ -13,9 +13,8 @@
     ../modules/guix.nix
   ];
 
-  security.acme.defaults.email = "ethan@ethancedwards.com";
-  security.acme.acceptTerms = true;
   services.nixos-passthru-cache.enable = true;
+  services.nixos-passthru-cache.forceSSL = false;
   services.nixos-passthru-cache.hostName = "cache.ethancedwards.com";
 
   environment.persistence."/nix/persist" = {
