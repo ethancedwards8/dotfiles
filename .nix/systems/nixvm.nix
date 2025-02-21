@@ -3,7 +3,6 @@
 {
   imports = [
     inputs.impermanence.nixosModules.impermanence
-    inputs.nixos-passthru-cache.nixosModules.nixos-passthru-cache
 
     ../hardware/nixvm.nix
 
@@ -12,10 +11,6 @@
     ../modules/linux.nix
     ../modules/guix.nix
   ];
-
-  services.nixos-passthru-cache.enable = true;
-  services.nixos-passthru-cache.forceSSL = false;
-  services.nixos-passthru-cache.hostName = "cache.ethancedwards.com";
 
   environment.persistence."/nix/persist" = {
     directories = [
