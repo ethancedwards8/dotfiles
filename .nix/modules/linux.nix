@@ -5,6 +5,9 @@
     ./common.nix
   ];
 
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.flake = "github:ethancedwards8/dotfiles?dir=.nix#${config.networking.hostName}";
+
   programs.neovim = {
     enable = true;
     vimAlias = true;
