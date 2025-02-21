@@ -26,6 +26,11 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
     impermanence.url = "github:nix-community/impermanence";
+    nixos-passthru-cache = {
+      url = "github:numtide/nixos-passthru-cache";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, system-manager, ... }:
