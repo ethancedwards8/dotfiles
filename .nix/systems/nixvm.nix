@@ -12,12 +12,15 @@
     ../modules/guix.nix
   ];
 
+  virtualisation.docker.enable = true;
+
   environment.persistence."/nix/persist" = {
     directories = [
       "/etc/NetworkManager/system-connections"
       "/var/log"
       "/var/lib/systemd/coredump"
       "/var/lib/nixos"
+      "/var/lib/docker"
     ];
     files = [
       "/etc/machine-id"
