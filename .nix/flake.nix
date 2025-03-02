@@ -64,6 +64,7 @@
       nixvm = self.nixosConfigurations.nixvm.config.system.build.toplevel;
 
       systemConfigs.archpc = mkSystem [ ./systems/archpc.nix ];
+      archpc = self.systemConfigs.archpc.config.build.toplevel;
 
       # build usb with .#usb.<system>
       usb = forAllSystems (system: (import "${inputs.nixpkgs}/nixos" {
