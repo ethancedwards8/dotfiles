@@ -2,8 +2,17 @@
 
 {
   imports = [
+    ../hardware/nixrpi.nix
+
     ../modules/cachix.nix
     ../modules/nix.nix
-    ../modules/common.nix
+    ../modules/linux.nix
+    ../modules/guix.nix
   ];
+
+  networking.hostName = "nixrpi";
+
+  nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
+
+  system.stateVersion = "25.05";
 }

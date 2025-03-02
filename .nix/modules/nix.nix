@@ -2,6 +2,7 @@
 
 {
   nix.channel.enable = false;
+  nix.gc.automatic = true;
   nix.settings.trusted-users = [
     "root"
     "ece"

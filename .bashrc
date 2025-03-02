@@ -11,6 +11,7 @@ export PATH="$PATH:~/scripts"
 export PATH="$PATH:/aur/flutter/bin"
 export PATH="$PATH:~/.emacs.d/bin"
 export PATH="$PATH:~/.local/bin"
+export PATH="$PATH:~/.cargo/bin"
 export GOPATH="/home/ece/.go"
 export DENO_INSTALL="/home/ece/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
@@ -113,7 +114,3 @@ vterm_printf(){
 # https://unix.stackexchange.com/questions/12107/how-to-unfreeze-after-accidentally-pressing-ctrl-s-in-a-terminal
 # stop the awful terminal freeze
 stty -ixon
-
-# Added by Radicle.
-export PATH="$PATH:/Users/ece/.radicle/bin"
-. "$HOME/.cargo/env"

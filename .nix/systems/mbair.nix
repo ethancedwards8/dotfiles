@@ -6,13 +6,10 @@
 
     ../modules/cachix.nix
     ../modules/nix.nix
-    ../modules/common.nix
+    ../modules/darwin.nix
   ];
 
-  nix.configureBuildUsers = true;
-  programs.nix-index.enable = true;
-  services.nix-daemon.enable = true;
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   users.users.ece = {
     home = "/Users/ece";
@@ -29,9 +26,11 @@
       "ca-certificates"
       "exiftool"
       "eza"
+      "ffmpeg"
       "fzf"
       "gh"
       "git"
+      "git-lfs"
       "gnupg"
       "htop"
       "ispell"
@@ -41,16 +40,17 @@
       "neomutt"
       "neovim"
       "nmap"
+      "node"
       "pinentry"
-      "uv"
+      "pnpm"
+      "podman"
       "poetry"
       "ripgrep"
       "starship"
       "tmux"
+      "uv"
       "wget"
       "yt-dlp"
-      "git-lfs"
-      "podman"
     ];
     casks = [
       "element"
@@ -70,8 +70,6 @@
 
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
-
-  programs.bash.enable = true;
 
   system.stateVersion = 5;
 
