@@ -47,9 +47,6 @@
           inherit modules;
           extraSpecialArgs = { inherit inputs outputs self; };
       };
-
-      mkUsb = system: configuration: import "${inputs.nixpkgs}/nixos" { inherit configuration system; };
-      mkSd = system: configuration: import "${inputs.nixpkgs}/nixos" { inherit configuration system; };
     in
     {
       # Build darwin flake using:
@@ -67,10 +64,7 @@
       archpc = self.systemConfigs.archpc.config.build.toplevel;
 
       # build usb with .#usb.<system>
-      usb = forAllSystems (system: (import "${inputs.nixpkgs}/nixos" {
-        inherit system;
-        configuration = (import ./systems/usb.nix inputs system);
-      }).config.system.build.isoImage);
+      usb = (mkNixos "x86_64-linux" [ ./systems/usb.nix ]).config.system.build.isoImage;
 
       darwinPackages = self.darwinConfigurations.mbair.pkgs;
 
