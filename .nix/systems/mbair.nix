@@ -9,7 +9,7 @@
     ../modules/darwin.nix
   ];
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   users.users.ece = {
     home = "/Users/ece";
