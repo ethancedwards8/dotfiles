@@ -17,7 +17,7 @@ jobs:
           name: ethancedwards8
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - name: Build 
-        run: nix build -L .nix#{nixvm,usb,archpc,devShell.x86_64-linux}
+        run: nix build -L .nix#{nixvm,usb,archpc,devShell.x86_64-linux,nixrpi}
       - name: Deploy
         # if: github.ref == 'refs/heads/master'
         run: |
