@@ -10,12 +10,13 @@ jobs:
     name: Build and Push Config
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest, ubuntu-24.04-arm]
         include:
           - os: ubuntu-latest
             release_suffix: ubuntu
           - os: macos-latest
             release_suffix: mac
+          - os: ubuntu-24.04-arm
     runs-on: ${{ matrix.os }}
     steps:
       - run: sudo rm -rf /opt&
@@ -29,7 +30,11 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         run: nix build -L .nix#{nixvm,usb,archpc,devShell.x86_64-linux}
 
-      - name: MacOS build
+      - name: aarch64 Build
+        if: matrix.os == 'ubuntu-24.04-arm'
+        run: nix build -L .nix#nixrpi
+
+      - name: MacOS Build
         if: matrix.os == 'macos-latest'
         run: nix build -L .nix#mbair
 
