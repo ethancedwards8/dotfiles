@@ -10,7 +10,7 @@
 
     ../modules/cachix.nix
     ../modules/nix.nix
-    ../modules/linux.nix
+    ../modules/common.nix
     ../modules/guix.nix
   ];
   # home-manager.users."ece" = import ../home-manager/modules/gpg.nix;
