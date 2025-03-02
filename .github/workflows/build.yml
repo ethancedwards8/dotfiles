@@ -17,7 +17,6 @@ jobs:
           - os: macos-latest
             release_suffix: mac
     runs-on: ${{ matrix.os }}
-
     steps:
       - run: sudo rm -rf /opt&
       - uses: actions/checkout@v4
