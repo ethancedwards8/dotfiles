@@ -7,7 +7,17 @@ on:
 
 jobs:
   build:
-    runs-on: [ubuntu-latest, macOS]
+    name: Build and Push Config
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            release_suffix: ubuntu
+          - os: macos-latest
+            release_suffix: mac
+    runs-on: ${{ matrix.os }}
+
     steps:
       - run: sudo rm -rf /opt&
       - uses: actions/checkout@v4
@@ -16,9 +26,14 @@ jobs:
         with:
           name: ethancedwards8
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - name: Build 
+      - name: x86_64-linux Build
         if: matrix.os == 'ubuntu-latest'
         run: nix build -L .nix#{nixvm,usb,archpc,devShell.x86_64-linux,nixrpi}
+
+      -name: MacOS build
+        if: matrix.os == 'macos-latest'
+        run: nix build -L .nix#mbair
+
       - name: Deploy
         run: |
           cachix push ethancedwards8 .nix/result*
