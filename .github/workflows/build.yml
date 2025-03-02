@@ -32,11 +32,11 @@ jobs:
 
       - name: aarch64 Build
         if: matrix.os == 'ubuntu-24.04-arm'
-        run: nix build -L .nix#nixrpi
+        run: nix build -L .nix#{nixrpi,devShell.aarch64-linux}
 
       - name: MacOS Build
         if: matrix.os == 'macos-latest'
-        run: nix build -L .nix#mbair
+        run: nix build -L .nix#{mbair,devShell.aarch64-darwin}
 
       - name: Deploy
         run: |
