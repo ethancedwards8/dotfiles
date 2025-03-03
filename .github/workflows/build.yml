@@ -40,4 +40,4 @@ jobs:
 
       - name: Deploy
         run: |
-          cachix push ethancedwards8 .nix/result*
+          cachix push ethancedwards8 ./result*
