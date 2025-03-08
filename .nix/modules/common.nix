@@ -1,6 +1,10 @@
 { pkgs, config, lib, inputs, ... }:
 
 {
+  imports = [
+    inputs.lix.nixosModules.default
+  ];
+
   programs.direnv.enable = true;
 
   programs.gnupg.agent = {
