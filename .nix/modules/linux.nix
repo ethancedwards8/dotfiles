@@ -15,6 +15,7 @@ in
 
   system.autoUpgrade.enable = true;
   system.autoUpgrade.flake = "github:ethancedwards8/dotfiles?dir=.nix#${config.networking.hostName}";
+  system.rebuild.enableNg = true;
 
   programs.neovim = {
     enable = true;
