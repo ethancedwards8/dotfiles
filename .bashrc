@@ -53,6 +53,8 @@ alias rm="rm -i"
 alias mv="mv -i"
 alias scrot="scrot -s"
 
+alias nix="nix -vL"
+
 # source /usr/share/wikiman/widgets/widget.bash
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 
