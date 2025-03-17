@@ -48,6 +48,7 @@
       "ripgrep"
       "starship"
       "tmux"
+      "toot"
       "uv"
       "wget"
       "yt-dlp"

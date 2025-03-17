@@ -2,7 +2,7 @@
   description = "Ethan's Nix Flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nur = {
       url = "github:nix-community/NUR";
