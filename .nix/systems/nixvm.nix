@@ -16,8 +16,6 @@
 
   services.tailscale.enable = true;
 
-  services.adguardhome.enable = true;
-
   environment.persistence."/nix/persist" = {
     directories = [
       "/etc/NetworkManager/system-connections"
