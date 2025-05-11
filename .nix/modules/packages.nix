@@ -5,6 +5,7 @@
     cachix
     comma
     github-cli
+    nix-forecast
     nix-health
     nix-info
     nix-update
