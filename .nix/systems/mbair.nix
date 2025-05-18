@@ -11,6 +11,8 @@
 
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  system.primaryUser = "ece";
+
   users.users.ece = {
     home = "/Users/ece";
     description = "Ethan Carter Edwards";
