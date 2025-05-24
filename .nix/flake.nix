@@ -24,6 +24,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-check-deps = {
+      url = "github:LordGrimmauld/nix-check-deps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-hardware.url = "github:nixos/nixos-hardware";
     impermanence.url = "github:nix-community/impermanence";
   };

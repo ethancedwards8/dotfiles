@@ -11,6 +11,8 @@
     nix-update
     nixfmt-rfc-style
     nixpkgs-review
+
+    inputs.nix-check-deps
   ];
 
 }
