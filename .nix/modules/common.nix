@@ -12,8 +12,6 @@
     enableSSHSupport = true;
   };
 
-  nixpkgs.overlays = [ inputs.nur.overlays.default ];
-
   environment.shellAliases = {
       nr = "nixpkgs-review pr --no-shell --post-result";
   };
