@@ -53,5 +53,7 @@ in
     gnupg
     pinentry-tty
     wget
+
+    inputs.system-manager.${pkgs.system}.default
   ];
 }

@@ -10,6 +10,6 @@
   system-manager.allowAnyDistro = true;
 
   environment.systemPackages = with pkgs; [
-    # system-manager
+    inputs.system-manager.${pkgs.system}.default
   ];
 }

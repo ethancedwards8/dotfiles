@@ -12,6 +12,8 @@
     nix-update
     nixfmt-rfc-style
     nixpkgs-review
+
+    inputs.nix-check-deps.packages.${pkgs.system}.nix-check-deps
   ];
 
   nixpkgs.overlays = [
