@@ -28,7 +28,7 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - name: x86_64-linux Build
         if: matrix.os == 'ubuntu-latest'
-        run: nix build -L .nix#{nixvm,usb,archpc,devShell.x86_64-linux}
+        run: nix build -L .nix#{navidad,nixvm,usb,archpc,devShell.x86_64-linux}
 
       - name: aarch64 Build
         if: matrix.os == 'ubuntu-24.04-arm'
