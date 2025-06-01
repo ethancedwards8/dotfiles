@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     cachix
     comma
+    fzf
     github-cli
     # nix-check-deps
     nix-forecast

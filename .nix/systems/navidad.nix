@@ -2,6 +2,8 @@
 
 {
   imports = [
+    ../hardware/navidad.nix
+
     ../modules/cachix.nix
     ../modules/nix.nix
     ../modules/linux.nix
@@ -10,7 +12,9 @@
 
   services.tailscale.enable = true;
 
+  networking.hostName = "navidad";
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 }
