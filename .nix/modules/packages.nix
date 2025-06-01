@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     cachix
     comma
+    eza
     fzf
     github-cli
     # nix-check-deps
