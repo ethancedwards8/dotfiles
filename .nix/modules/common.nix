@@ -14,5 +14,6 @@
 
   environment.shellAliases = {
       nr = "nixpkgs-review pr --no-shell --post-result";
+      nix = "nix -vL";
   };
 }
