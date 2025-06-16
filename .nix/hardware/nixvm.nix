@@ -29,13 +29,13 @@
       ];
       unitConfig.DefaultDependencies = "no";
       serviceConfig.Type = "oneshot";
-      # serviceConfig = {
-      #   Type = "oneshot";
-      #   ExecStart = "${config.boot.zfs.package}/sbin/zfs rollback -r rpool/local/root@blank && echo \" >> >> rollback complete << <<\" ";
-      # };
-      script = ''
-        zfs rollback -r rpool/local/root@blank && echo "  >> >> rollback complete << <<"
-      '';
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${config.boot.zfs.package}/sbin/zfs rollback -r rpool/local/root@blank && echo \" >> >> rollback complete << <<\" ";
+      };
+      # script = ''
+      #   zfs rollback -r rpool/local/root@blank && echo "  >> >> rollback complete << <<"
+      # '';
     };
 
   boot.loader.systemd-boot.enable = true;
