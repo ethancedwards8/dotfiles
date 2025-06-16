@@ -29,6 +29,10 @@
       ];
       unitConfig.DefaultDependencies = "no";
       serviceConfig.Type = "oneshot";
+      # serviceConfig = {
+      #   Type = "oneshot";
+      #   ExecStart = "${config.boot.zfs.package}/sbin/zfs rollback -r rpool/local/root@blank && echo \" >> >> rollback complete << <<\" ";
+      # };
       script = ''
         zfs rollback -r rpool/local/root@blank && echo "  >> >> rollback complete << <<"
       '';
@@ -42,8 +46,8 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  boot.zfs.devNodes = "/dev/disk/by-label/rpool";
-  boot.zfs.extraPools = ["rpool"];
+  boot.zfs.devNodes = "/dev";
+  boot.zfs.extraPools = [ "rpool" ];
 
   networking.hostId = "ac4c7185";
 
