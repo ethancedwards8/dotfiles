@@ -5,6 +5,8 @@
     ./packages.nix
   ];
 
+  programs.nix-index.enable = true;
+
   programs.direnv.enable = true;
 
   programs.gnupg.agent = {

@@ -5,11 +5,6 @@
     ./common.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-  ];
-
-  programs.nix-index.enable = true;
-
   programs.bash.enable = true;
 
   # macos system settings

@@ -7,13 +7,13 @@
     eza
     fzf
     github-cli
-    # nix-check-deps
     nix-forecast
     nix-health
     nix-info
     nix-update
     nixfmt-rfc-style
     nixpkgs-review
+    ripgrep
     starship
 
     inputs.nix-check-deps.packages.${pkgs.system}.nix-check-deps

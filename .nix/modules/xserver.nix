@@ -30,6 +30,7 @@
 
   environment.systemPackages = with pkgs; [
     kitty
+    firefox
     polybar
     nitrogen
     mpv
