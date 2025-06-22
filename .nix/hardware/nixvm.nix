@@ -6,7 +6,7 @@
     ];
 
   # build machine
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" "i686-linux" "riscv64-linux" ];
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];
 
   boot.supportedFilesystems = [ "zfs" ];
 
@@ -28,7 +28,6 @@
         zfs
       ];
       unitConfig.DefaultDependencies = "no";
-      serviceConfig.Type = "oneshot";
       serviceConfig = {
         Type = "oneshot";
         ExecStart = "${config.boot.zfs.package}/sbin/zfs rollback -r rpool/local/root@blank && echo \" >> >> rollback complete << <<\" ";
@@ -47,7 +46,6 @@
   boot.extraModulePackages = [ ];
 
   boot.zfs.devNodes = "/dev";
-  boot.zfs.extraPools = [ "rpool" ];
 
   networking.hostId = "ac4c7185";
 
