@@ -20,7 +20,7 @@
   };
 
   services.displayManager = {
-      defaultSession = "none+bspwm";
+    defaultSession = "none+bspwm";
   };
 
   services.libinput = {
@@ -30,6 +30,8 @@
 
   environment.systemPackages = with pkgs; [
     kitty
+    polybar
+    nitrogen
     mpv
     xorg.xbacklight
   ];
