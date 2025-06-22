@@ -8,6 +8,7 @@
     ../modules/nix.nix
     ../modules/linux.nix
     ../modules/guix.nix
+    ../modules/xserver.nix
   ];
 
   services.tailscale.enable = true;

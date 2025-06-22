@@ -14,6 +14,7 @@
     nix-update
     nixfmt-rfc-style
     nixpkgs-review
+    starship
 
     inputs.nix-check-deps.packages.${pkgs.system}.nix-check-deps
   ];
