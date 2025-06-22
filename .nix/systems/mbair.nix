@@ -71,9 +71,6 @@
     };
   };
 
-  home-manager.useUserPackages = true;
-  home-manager.useGlobalPkgs = true;
-
   system.stateVersion = 5;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
