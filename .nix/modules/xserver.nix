@@ -29,6 +29,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    dmenu
     kitty
     firefox
     polybar
