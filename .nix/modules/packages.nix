@@ -7,6 +7,8 @@
     eza
     fzf
     github-cli
+    htop
+    neofetch
     nix-forecast
     nix-health
     nix-info
