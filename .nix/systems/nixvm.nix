@@ -8,6 +8,7 @@
     ../modules/nix.nix
     ../modules/linux.nix
     ../modules/guix.nix
+    ../modules/xserver.nix
   ];
 
   virtualisation.docker.enable = true;
