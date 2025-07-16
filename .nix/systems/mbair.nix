@@ -21,11 +21,12 @@
 
   homebrew = {
     enable = true;
-    onActivation.cleanup = "uninstall";
+    # onActivation.cleanup = "uninstall";
     brews = [
       "atomicparsley"
       "bash"
       "ca-certificates"
+      "emacs"
       "exiftool"
       "eza"
       "ffmpeg"
@@ -57,14 +58,13 @@
     ];
     casks = [
       "element"
-      "emacs"
       "firefox"
       "ghostty"
       "kdenlive"
       "kitty"
       "postman"
       "signal"
-      "tailscale"
+      "tailscale-app"
       "vlc"
     ];
     masApps = {
