@@ -15,6 +15,7 @@
     nix-update
     nixfmt-rfc-style
     nixpkgs-review
+    nixpkgs-track
     ripgrep
     starship
 
