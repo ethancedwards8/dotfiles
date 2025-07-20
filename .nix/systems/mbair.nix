@@ -21,7 +21,11 @@
 
   homebrew = {
     enable = true;
-    # onActivation.cleanup = "uninstall";
+    onActivation.cleanup = "zap";
+    masApps = {
+      "Canary Mail App" = 1236045954;
+      Xcode = 497799835;
+    };
     brews = [
       "atomicparsley"
       "bash"
@@ -57,6 +61,9 @@
       "yt-dlp"
     ];
     casks = [
+      "anki"
+      "audacity"
+      "brave-browser"
       "element"
       "firefox"
       "ghostty"
@@ -67,8 +74,6 @@
       "tailscale-app"
       "vlc"
     ];
-    masApps = {
-    };
   };
 
   system.stateVersion = 5;

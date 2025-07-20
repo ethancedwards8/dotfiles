@@ -19,6 +19,7 @@
   # dock
   system.defaults.dock.autohide = true;
   system.defaults.dock.showhidden = true;
+  system.defaults.dock.show-recents = false;
 
   # finder
   system.defaults.finder.AppleShowAllFiles = true;
