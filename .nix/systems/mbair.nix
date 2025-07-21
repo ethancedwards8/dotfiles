@@ -24,6 +24,10 @@
     onActivation.cleanup = "zap";
     masApps = {
       "Canary Mail App" = 1236045954;
+      # sad
+      "Microsoft Excel" = 462058435;
+      "Microsoft PowerPoint" = 462062816;
+      "Microsoft Word" = 462054704;
       Xcode = 497799835;
     };
     brews = [
@@ -69,6 +73,7 @@
       "ghostty"
       "kdenlive"
       "kitty"
+      "notion"
       "postman"
       "signal"
       "tailscale-app"
