@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     cachix
     comma
+    dix
     eza
     fzf
     github-cli
