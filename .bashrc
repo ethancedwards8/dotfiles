@@ -97,6 +97,9 @@ if command -v starship 2>&1 >/dev/null; then
     eval "$(starship init bash)"
 fi
 
+if command -v fzf 2>&1 >/dev/null; then
+    eval "$(fzf --bash)"
+fi
 
 vterm_printf(){
     if [ -n "$TMUX" ]; then
