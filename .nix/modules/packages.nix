@@ -9,6 +9,7 @@
     fzf
     github-cli
     htop
+    jq
     neofetch
     nix-forecast
     nix-health
