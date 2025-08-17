@@ -71,6 +71,7 @@
       "element"
       "firefox"
       "ghostty"
+      "joplin"
       "kdenlive"
       "kitty"
       "notion"
