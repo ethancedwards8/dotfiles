@@ -32,9 +32,10 @@
     dmenu
     kitty
     firefox
-    polybar
+    polybarFull
     nitrogen
     mpv
-    xorg.xbacklight
+    # acpilight
+    xbacklight
   ];
 }

@@ -9,9 +9,15 @@
     ../modules/linux.nix
     ../modules/guix.nix
     ../modules/xserver.nix
+    ../modules/audio.nix
+    ../modules/bluetooth.nix
   ];
 
   services.tailscale.enable = true;
+
+  programs.nix-ld.enable = true;
+
+  powerManagement.enable = true;
 
   networking.hostName = "veritas";
 
