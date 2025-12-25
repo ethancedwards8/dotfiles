@@ -10,7 +10,7 @@
   system-manager.allowAnyDistro = true;
 
   environment.systemPackages = with pkgs; [
-    inputs.system-manager.packages.${pkgs.system}.default
+    inputs.system-manager.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   nix.settings.trusted-users = [

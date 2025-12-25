@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     cachix
     comma
+    bat
     dix
     eza
     fzf
@@ -21,7 +22,7 @@
     ripgrep
     starship
 
-    inputs.nix-check-deps.packages.${pkgs.system}.nix-check-deps
+    inputs.nix-check-deps.packages.${pkgs.stdenv.hostPlatform.system}.nix-check-deps
   ];
 
   nixpkgs.overlays = [

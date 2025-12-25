@@ -54,6 +54,6 @@ in
     pinentry-tty
     wget
 
-    inputs.system-manager.packages.${pkgs.system}.default
+    inputs.system-manager.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
