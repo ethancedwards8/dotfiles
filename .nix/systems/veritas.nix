@@ -19,6 +19,8 @@
 
   powerManagement.enable = true;
 
+  services.tlp.enable = true;
+
   networking.hostName = "veritas";
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

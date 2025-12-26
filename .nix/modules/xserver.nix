@@ -37,5 +37,6 @@
     mpv
     # acpilight
     xbacklight
+    xclip
   ];
 }
