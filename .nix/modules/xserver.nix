@@ -28,15 +28,25 @@
     mouse.middleEmulation = true;
   };
 
+  programs.i3lock.enable = true;
+
   environment.systemPackages = with pkgs; [
     dmenu
     kitty
+    nautilus
     firefox
     polybarFull
     nitrogen
+    sxiv
     mpv
-    # acpilight
-    xbacklight
+    i3lock
+    acpilight
+    # xbacklight
     xclip
+    xss-lock
+    zathura
+    zotero
+    signal-desktop
+    scrot
   ];
 }
