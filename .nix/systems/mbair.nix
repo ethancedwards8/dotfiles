@@ -79,7 +79,7 @@
       "signal"
       "tailscale-app"
       "vlc"
-      "vscodium"
+      "zed"
       "zotero"
     ];
   };
