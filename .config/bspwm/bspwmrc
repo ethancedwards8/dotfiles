@@ -6,7 +6,7 @@ nitrogen --restore &
 xss-lock -- i3lock -c 000000 &
 $HOME/.config/polybar/launch.sh &
 
-if [[ "$HOSTNAME" == *laptop* ]] || [[ "$HOSTNAME" == "navidad" ]] || [[ "$HOSTNAME" == "veritas" ]]; then
+if [[ "$HOSTNAME" == *laptop* ]] || [[ "$HOSTNAME" == "navidad" ]] || [[ "$HOSTNAME" == "nixvm" ]] || [[ "$HOSTNAME" == "veritas" ]]; then
 	bspc monitor -d I II III IV V VI VII VIII IX X
 fi
 
