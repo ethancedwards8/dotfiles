@@ -11,28 +11,18 @@
     ../modules/cachix.nix
     ../modules/nix.nix
     ../modules/common.nix
+    ../modules/linux.nix
     ../modules/guix.nix
   ];
-  # home-manager.users."ece" = import ../home-manager/modules/gpg.nix;
-  # home-manager.useUserPackages = true;
-  # home-manager.useGlobalPkgs = true;
 
   networking.hostName = "nixusb";
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.11";
   time.timeZone = "America/New_York";
 
   boot.tmp.useTmpfs = true;
   services.pcscd.enable = true;
   services.udev.packages = with pkgs; [ yubikey-personalization ];
   environment.systemPackages = with pkgs; [ gnupg pinentry-curses paperkey ];
-
-  programs = {
-    ssh.startAgent = false;
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-  };
 
   isoImage.squashfsCompression = "gzip -Xcompression-level 1";
 }

@@ -59,6 +59,9 @@
       darwinConfigurations."mbair" = mkDarwin "aarch64-darwin" [ ./systems/mbair.nix ];
       mbair = self.darwinConfigurations.mbair.config.system.build.toplevel;
 
+      nixosConfigurations.veritas = mkNixos "x86_64-linux" [ ./systems/veritas.nix ];
+      veritas = self.nixosConfigurations.veritas.config.system.build.toplevel;
+
       nixosConfigurations.navidad = mkNixos "x86_64-linux" [ ./systems/navidad.nix ];
       navidad = self.nixosConfigurations.navidad.config.system.build.toplevel;
 
