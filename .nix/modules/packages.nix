@@ -16,13 +16,27 @@
     nix-health
     nix-info
     nix-update
-    nixfmt-rfc-style
+    nixfmt
     nixpkgs-reviewFull
     nixpkgs-track
     ripgrep
     starship
 
     inputs.nix-check-deps.packages.${pkgs.stdenv.hostPlatform.system}.nix-check-deps
+
+    (vscode-with-extensions.override {
+      vscode = pkgs.vscodium;
+      vscodeExtensions = with pkgs.vscode-extensions; [
+        asvetliakov.vscode-neovim
+        dbaeumer.vscode-eslint
+        esbenp.prettier-vscode
+        ms-python.black-formatter
+        ms-python.debugpy
+        ms-python.isort
+        ms-python.python
+        tamasfe.even-better-toml
+      ];
+    })
   ];
 
   nixpkgs.overlays = [

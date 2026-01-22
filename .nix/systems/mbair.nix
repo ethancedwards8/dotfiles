@@ -1,4 +1,4 @@
-{ pkgs, self, lib, inputs, ... }:
+{ pkgs, self, lib, inputs, options, ... }:
 
 {
   imports = [
@@ -7,24 +7,7 @@
     ../modules/cachix.nix
     ../modules/nix.nix
     ../modules/darwin.nix
-
-    "${inputs.nixpkgs}/nixos/modules/programs/vscode.nix"
   ];
-
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium;
-    extensions = with pkgs.vscode-extensions; [
-      asvetliakov.vscode-neovim
-      dbaeumer.vscode-eslint
-      esbenp.prettier-vscode
-      ms-python.black-formatter
-      ms-python.debugpy
-      ms-python.isort
-      ms-python.python
-      tamasfe.even-better-toml
-    ];
-  };
 
   security.pam.services.sudo_local.touchIdAuth = true;
 
