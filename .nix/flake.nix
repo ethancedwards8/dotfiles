@@ -86,7 +86,7 @@
         with pkgs;
         mkShell {
           name = "config shell";
-          buildInputs = [ neovim nixfmt-rfc-style git ];
+          buildInputs = [ neovim nixfmt ];
           # shellHook = '' ${git}/bin/git pull origin master '';
         }
       );
