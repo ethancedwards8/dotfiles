@@ -27,6 +27,7 @@
       "Microsoft Excel" = 462058435;
       "Microsoft PowerPoint" = 462062816;
       "Microsoft Word" = 462054704;
+      # PassioGo = 1203861956; https://github.com/mas-cli/mas/issues/321
       Xcode = 497799835;
     };
     brews = [
