@@ -21,3 +21,6 @@ truncation_length = 4
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
+
+[gcloud]
+disabled = true

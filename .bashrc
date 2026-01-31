@@ -25,6 +25,7 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 # set -o vi
 
+alias igit="GIT_SSH_COMMAND='ssh -i ~/.ssh/inigo_key' git"
 alias yeet="paru"
 alias e="emacsclient -c"
 alias et="emacsclient -t"

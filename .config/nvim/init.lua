@@ -100,7 +100,13 @@ local plugins = {
                 vim.o.ignorecase = true
             end
         },
-
+        {
+                'wuelnerdotexe/vim-astro',
+                config = function()
+                    vim.g['astro_typescript'] = 'enable'
+                    vim.g['astro_stylus'] = 'enable'
+                end
+        },
         {
                 'airblade/vim-rooter',
                 config = function()
@@ -122,6 +128,7 @@ local plugins = {
                         vim.api.nvim_set_keymap('n', '<leader>gp', ':Git pull<CR>', {noremap=true})
                         vim.api.nvim_set_keymap('n', '<leader>gd', ':Git diff<CR>', {noremap=true})
                         vim.api.nvim_set_keymap('n', '<leader>gl', ':Git log<CR>', {noremap=true})
+                        vim.api.nvim_set_keymap('n', '<leader>gb', ':Git blame<CR>', {noremap=true})
                         vim.api.nvim_set_keymap('n', '<leader>gs', ':Git<CR>', {noremap=true})
                 end
         },
