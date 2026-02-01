@@ -5,7 +5,10 @@
     ./common.nix
   ];
 
-  programs.bash.enable = true;
+  programs.bash = {
+    enable = true;
+    completion.enable = true;
+  };
 
   # macos system settings
   system.defaults.NSGlobalDomain.AppleICUForce24HourTime = true;
