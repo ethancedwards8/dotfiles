@@ -77,6 +77,7 @@
       "kdenlive"
       "kitty"
       "notion"
+      "orbstack"
       "postman"
       "signal"
       "tailscale-app"

@@ -16,6 +16,8 @@
 
   environment.shellAliases = {
       nr = "nixpkgs-review pr --no-shell --post-result";
+      nra = "nixpkgs-review pr --no-shell --post-result --approve-pr";
+      nrm = "nixpkgs-review pr --no-shell --post-result --approve-pr --merge";
       nix = "nix -vL";
       cat = "bat";
   };
