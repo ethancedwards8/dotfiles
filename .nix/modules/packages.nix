@@ -11,7 +11,7 @@
     github-cli
     htop
     jq
-    neofetch
+    fastfetch
     nix-forecast
     nix-health
     nix-info
@@ -21,6 +21,7 @@
     nixpkgs-track
     ripgrep
     starship
+    zathura
 
     inputs.nix-check-deps.packages.${pkgs.stdenv.hostPlatform.system}.nix-check-deps
 
@@ -34,6 +35,7 @@
         ms-python.debugpy
         ms-python.isort
         ms-python.python
+        svelte.svelte-vscode
         tamasfe.even-better-toml
       ];
     })
