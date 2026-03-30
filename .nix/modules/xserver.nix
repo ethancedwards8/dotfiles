@@ -31,6 +31,7 @@
   programs.i3lock.enable = true;
 
   environment.systemPackages = with pkgs; [
+    arandr
     dmenu
     kitty
     nautilus

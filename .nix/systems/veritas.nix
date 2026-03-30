@@ -11,9 +11,17 @@
     ../modules/xserver.nix
     ../modules/audio.nix
     ../modules/bluetooth.nix
+
+    ../modules/dev.nix
   ];
 
   services.tailscale.enable = true;
+
+  virtualisation.podman= {
+    enable = true;
+    dockerCompat = true;
+    dockerSocket.enable = true;
+  };
 
   programs.nix-ld.enable = true;
 

@@ -18,6 +18,8 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  boot.resumeDevice = "/dev/mapper/NIXOS_LVM-SWAP";
+
   fileSystems."/" =
     { device = "/dev/disk/by-label/ROOTFS";
       fsType = "ext4";

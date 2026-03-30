@@ -37,7 +37,7 @@ in
       createHome = true;
       home = "/home/ece";
       shell = pkgs.bashInteractive;
-      extraGroups = [ "wheel" "video" "audio" "networkmanager" "docker" "libvirtd" "vboxusers" ];
+      extraGroups = [ "wheel" "video" "audio" "networkmanager" "docker" "podman" "libvirtd" "vboxusers" ];
   };
 
   networking.useDHCP = lib.mkDefault true;
