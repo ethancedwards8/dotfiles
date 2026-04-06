@@ -1,13 +1,7 @@
 { pkgs, config, lib, inputs, ... }:
 
 {
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    # not very veritas of you
-    "claude-code"
-  ];
-
   environment.systemPackages = with pkgs; [
-    claude-code
     zed-editor
 
     (vscode-with-extensions.override {
