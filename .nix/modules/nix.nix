@@ -10,8 +10,9 @@
     "@admin"
   ];
   nix.settings.sandbox = true;
-  nix.package = pkgs.nixVersions.latest;
+  # nix.package = pkgs.nixVersions.latest;
   # nix.package = inputs.exa.packages.${pkgs.stdenv.hostPlatform.system}.nix;
+  nix.package = inputs.nix.packages.${pkgs.stdenv.hostPlatform.system}.nix-cli;
   nix.extraOptions = ''
     experimental-features = nix-command flakes ca-derivations
     builders-use-substitutes = true
