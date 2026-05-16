@@ -4,8 +4,15 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    exa = {
-      url = "github:exa-labs/nix";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
+
+    # exa = {
+    #   url = "github:exa-labs/nix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
+    lix = {
+      url = "git+https://git.lix.systems/lix-project/lix.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -21,7 +21,6 @@
     nixpkgs-track
     ripgrep
     starship
-    zathura
 
     inputs.nix-check-deps.packages.${pkgs.stdenv.hostPlatform.system}.nix-check-deps
   ];

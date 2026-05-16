@@ -49,5 +49,13 @@
     zotero
     signal-desktop
     scrot
+
+    (with inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}; anki.withAddons (with ankiAddons; [
+      review-heatmap
+      passfail2
+      anki-quizlet-importer-extended
+    ]))
+
+    inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.zathura
   ];
 }

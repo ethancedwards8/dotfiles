@@ -1,6 +1,8 @@
 { pkgs, config, lib, inputs, ... }:
 
 {
+  # nixpkgs.config.structuredAttrsByDefault = true;
+  #
   nix.channel.enable = false;
   nix.gc.automatic = true;
   nix.settings.trusted-users = [
@@ -10,10 +12,11 @@
     "@admin"
   ];
   nix.settings.sandbox = true;
-  # nix.package = pkgs.nixVersions.latest;
-  nix.package = inputs.exa.packages.${pkgs.stdenv.hostPlatform.system}.nix;
+  nix.package = pkgs.nixVersions.latest;
+  # nix.package = inputs.exa.packages.${pkgs.stdenv.hostPlatform.system}.nix;
+  # nix.package = inputs.lix.packages.${pkgs.stdenv.hostPlatform.system}.nix;
   nix.extraOptions = ''
-    experimental-features = nix-command flakes ca-derivations
+    experimental-features = nix-command flakes
     builders-use-substitutes = true
     auto-optimise-store = true
     sandbox = true
