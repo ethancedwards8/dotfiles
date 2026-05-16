@@ -1,8 +1,8 @@
 account ethan@ethancedwards.com
-host smtp.mailbox.org
+host smtp.fastmail.com
 port 465
 from ethan@ethancedwards.com
-user ethancedwards@mailbox.org
+user ethan@ethancedwards.com
 passwordeval "pass ethan@ethancedwards.com"
 auth on
 tls on
