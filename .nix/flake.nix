@@ -16,6 +16,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix = {
+      url = "github:nixos/nix";
+    };
+
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -98,7 +102,9 @@
         with pkgs;
         mkShell {
           name = "config shell";
-          buildInputs = [ neovim nixfmt ];
+          buildInputs = [ neovim nixfmt
+            brave
+          ];
           # shellHook = '' ${git}/bin/git pull origin master '';
         }
       );
