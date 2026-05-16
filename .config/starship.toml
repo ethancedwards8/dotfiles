@@ -4,6 +4,9 @@ add_newline = false
 [line_break]
 disabled = true
 
+[docker_context]
+disabled = true
+
 [git_status]
 # enabled = true
 
