@@ -2,6 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
+    awscli2
+
     cachix
     comma
     bat

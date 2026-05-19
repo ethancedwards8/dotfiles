@@ -22,14 +22,9 @@
   homebrew = {
     enable = true;
     onActivation.cleanup = "zap";
-    masApps = {
-      # Xcode = 497799835;
-    };
     brews = [
-      "atomicparsley"
       "bash"
       "ca-certificates"
-      "exiftool"
       "eza"
       "ffmpeg"
       "fzf"
@@ -58,6 +53,8 @@
       "postman"
       "zed"
       "zotero"
+      "slack"
+      "linear"
     ];
   };
 
