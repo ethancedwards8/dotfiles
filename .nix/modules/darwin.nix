@@ -35,6 +35,8 @@
 
   system.defaults.WindowManager.StandardHideWidgets = true;
 
+  system.defaults.universalaccess.closeViewScrollWheelToggle = true;
+
   # mouse
   system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
 }

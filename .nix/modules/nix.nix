@@ -17,7 +17,7 @@
   # nix.package = inputs.lix.packages.${pkgs.stdenv.hostPlatform.system}.nix-cli;
   # nix.package = inputs.nix.packages.${pkgs.stdenv.hostPlatform.system}.nix-cli;
   nix.extraOptions = ''
-    experimental-features = nix-command flakes
+    experimental-features = nix-command flakes ca-derivations
     builders-use-substitutes = true
     auto-optimise-store = true
     sandbox = true
