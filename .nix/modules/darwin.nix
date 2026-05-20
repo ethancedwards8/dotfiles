@@ -33,6 +33,8 @@
   system.defaults.finder.ShowPathbar = true;
   system.defaults.finder.ShowMountedServersOnDesktop = true;
 
+  system.defaults.WindowManager.StandardHideWidgets = true;
+
   # mouse
   system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
 }

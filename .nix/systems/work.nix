@@ -47,6 +47,7 @@
     ];
     casks = [
       "brave-browser"
+      "codex"
       "firefox"
       "kitty"
       "notion"

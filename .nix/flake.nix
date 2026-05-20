@@ -107,6 +107,7 @@
           name = "config shell";
           buildInputs = [ neovim nixfmt
             brave
+            statix
           ];
           # shellHook = '' ${git}/bin/git pull origin master '';
         }
