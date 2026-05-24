@@ -3,7 +3,10 @@
 {
   imports = [
     ./common.nix
+    ./homebrew.nix
   ];
+
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   programs.bash = {
     enable = true;
@@ -33,10 +36,10 @@
   system.defaults.finder.ShowPathbar = true;
   system.defaults.finder.ShowMountedServersOnDesktop = true;
 
+  # wm/desktop
   system.defaults.WindowManager.StandardHideWidgets = true;
-
-  system.defaults.universalaccess.closeViewScrollWheelToggle = true;
 
   # mouse
   system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
+  system.defaults.universalaccess.closeViewScrollWheelToggle = true;
 }

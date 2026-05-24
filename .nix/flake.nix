@@ -6,11 +6,6 @@
 
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
 
-    # exa = {
-    #   url = "github:exa-labs/nix";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     lix = {
       url = "git+https://git.lix.systems/lix-project/lix.git";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,11 +30,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-check-deps = {
       url = "github:LordGrimmauld/nix-check-deps";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,7 +39,7 @@
     impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, system-manager, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, system-manager, ... }:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;

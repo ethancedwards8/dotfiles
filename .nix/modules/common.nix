@@ -3,6 +3,7 @@
 {
   imports = [
     ./packages.nix
+    ./nix.nix
   ];
 
   programs.nix-index.enable = true;

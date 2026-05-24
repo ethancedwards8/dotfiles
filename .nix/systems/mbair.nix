@@ -2,14 +2,9 @@
 
 {
   imports = [
-    inputs.home-manager.darwinModules.home-manager
-
     ../modules/cachix.nix
-    ../modules/nix.nix
     ../modules/darwin.nix
   ];
-
-  security.pam.services.sudo_local.touchIdAuth = true;
 
   system.primaryUser = "ece";
 
@@ -32,58 +27,22 @@
     };
     brews = [
       "atomicparsley"
-      "bash"
-      "ca-certificates"
       "emacs"
       "exiftool"
-      "eza"
-      "ffmpeg"
-      "fzf"
-      "gh"
-      "git"
-      "git-lfs"
-      "gnupg"
-      "htop"
       "ispell"
-      "jq"
-      "mas"
-      "neofetch"
-      "neomutt"
-      "neovim"
-      "nmap"
-      "node"
-      "pinentry"
-      "pnpm"
-      "poetry"
-      "ripgrep"
-      "starship"
-      "tmux"
-      "toot"
-      "uv"
-      "wget"
       "yt-dlp"
     ];
     casks = [
       "anki"
       "audacity"
-      "brave-browser"
       "element"
       "fastmail"
-      "firefox"
-      "gcloud-cli"
-      "ghostty"
       "hamrs-pro"
       "joplin"
       "kdenlive"
-      "kitty"
-      "notion"
-      "orbstack"
-      "postman"
       "signal"
       "tailscale-app"
       "vlc"
-      "zed"
-      "zotero"
     ];
   };
 

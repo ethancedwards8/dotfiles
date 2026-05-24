@@ -2,14 +2,9 @@
 
 {
   imports = [
-    inputs.home-manager.darwinModules.home-manager
-
     ../modules/cachix.nix
-    ../modules/nix.nix
     ../modules/darwin.nix
   ];
-
-  security.pam.services.sudo_local.touchIdAuth = true;
 
   system.primaryUser = "ece";
 
@@ -23,39 +18,14 @@
     enable = true;
     onActivation.cleanup = "zap";
     brews = [
-      "bash"
-      "ca-certificates"
-      "eza"
-      "ffmpeg"
-      "fzf"
-      "gh"
-      "git"
-      "git-lfs"
-      "gnupg"
-      "htop"
-      "jq"
-      "neovim"
-      "nmap"
-      "node"
-      "pnpm"
-      "ripgrep"
-      "starship"
-      "tmux"
-      "uv"
-      "wget"
-      "yt-dlp"
+      "awscli"
     ];
     casks = [
-      "brave-browser"
       "codex"
-      "firefox"
-      "kitty"
-      "notion"
-      "postman"
-      "zed"
-      "zotero"
-      "slack"
+      "cursor"
       "linear"
+      "notion"
+      "slack"
     ];
   };
 
