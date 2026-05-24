@@ -95,14 +95,15 @@
         with pkgs;
         mkShell {
           name = "config shell";
-          buildInputs = [ neovim nixfmt
+          buildInputs = [
             brave
+            neovim
+            nixfmt
             statix
           ];
           # shellHook = '' ${git}/bin/git pull origin master '';
         }
       );
-
 
     };
 }
