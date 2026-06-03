@@ -26,7 +26,7 @@
     };
 
     system-manager = {
-      url = "github:numtide/system-manager";
+      url = "github:ethancedwards8/system-manager/ethan";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

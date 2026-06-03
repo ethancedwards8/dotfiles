@@ -646,15 +646,16 @@
         "userborn": "userborn"
       },
       "locked": {
-        "lastModified": 1778508009,
-        "narHash": "sha256-mp63mt+EwfKiVZX+4BC/59g5oTbsXNtSYESVci3opso=",
-        "owner": "numtide",
+        "lastModified": 1780519330,
+        "narHash": "sha256-Qctl6d3sIhoKRLvLyqIx0r0keSVpx4WP1alDT8KXapY=",
+        "owner": "ethancedwards8",
         "repo": "system-manager",
-        "rev": "dc1baae12eed1758755e73f8aff7fca5502c6e9f",
+        "rev": "c36d8c71634a17afb8bb9405dff179154adedaa0",
         "type": "github"
       },
       "original": {
-        "owner": "numtide",
+        "owner": "ethancedwards8",
+        "ref": "ethan",
         "repo": "system-manager",
         "type": "github"
       }
