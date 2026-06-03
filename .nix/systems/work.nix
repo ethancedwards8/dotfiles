@@ -6,6 +6,12 @@
     ../modules/darwin.nix
   ];
 
+  environment.systemPackages = with pkgs; [
+    pi-coding-agent
+
+    ollama
+  ];
+
   system.primaryUser = "ece";
 
   users.users.ece = {
@@ -21,11 +27,15 @@
       "awscli"
     ];
     casks = [
+      "1password"
+      "claude-code"
       "codex"
       "cursor"
+      "devin-cli"
       "linear"
       "notion"
       "slack"
+      "windsurf"
     ];
   };
 
