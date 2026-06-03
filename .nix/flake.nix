@@ -21,7 +21,7 @@
     };
 
     nix-darwin = {
-      url = "github:nix-darwin/nix-darwin";
+      url = "github:ethancedwards8/nix-darwin/ethan";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -15,8 +15,6 @@
   };
 
   homebrew = {
-    enable = true;
-    onActivation.cleanup = "zap";
     masApps = {
       # sad
       "Microsoft Excel" = 462058435;

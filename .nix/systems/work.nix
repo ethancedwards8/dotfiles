@@ -21,8 +21,6 @@
   };
 
   homebrew = {
-    enable = true;
-    onActivation.cleanup = "zap";
     brews = [
       "awscli"
     ];
