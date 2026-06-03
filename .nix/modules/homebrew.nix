@@ -40,6 +40,7 @@
       "brave-browser"
       "firefox"
       "kitty"
+      "okta-verify"
       "orbstack"
       "postman"
       "zed"
