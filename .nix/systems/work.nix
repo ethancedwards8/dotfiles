@@ -24,7 +24,6 @@
     brews = [
       "awscli"
       "k9s"
-      "kubeconfig"
       "kubectl"
     ];
     casks = [
