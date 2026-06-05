@@ -34,6 +34,7 @@
       "tmux"
       "uv"
       "wget"
+      "zig"
     ];
 
     casks = [
