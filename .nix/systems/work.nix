@@ -35,7 +35,6 @@
       "linear"
       "notion"
       "slack"
-      "windsurf"
     ];
   };
 

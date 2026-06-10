@@ -7,7 +7,7 @@
     cachix
     comma
     bat
-    dix
+    inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.dix
     eza
     fzf
     github-cli
