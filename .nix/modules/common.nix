@@ -4,6 +4,7 @@
   imports = [
     ./packages.nix
     ./nix.nix
+    ./fun.nix
   ];
 
   programs.nix-index.enable = true;
