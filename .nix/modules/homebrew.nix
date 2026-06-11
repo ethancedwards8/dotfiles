@@ -14,7 +14,6 @@
     brews = [
       "bash"
       "ca-certificates" # weird nix thing i think idrk
-      "colima"
       "eza"
       "ffmpeg"
       "fzf"
@@ -24,7 +23,6 @@
       "gnupg"
       "htop"
       "jq"
-      "lima"
       "mas"
       "neovim"
       "nmap"
@@ -44,6 +42,7 @@
       "firefox"
       "kitty"
       "okta-verify"
+      "orbstack"
       "postman"
       "zed"
       "zotero"
