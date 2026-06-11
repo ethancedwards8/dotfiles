@@ -10,6 +10,8 @@
     inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.dix
     eza
     fzf
+    git
+    git-lfs
     github-cli
     htop
     jq
