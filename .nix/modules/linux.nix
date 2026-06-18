@@ -23,6 +23,10 @@ in
     defaultEditor = true;
   };
 
+  services.emacs = {
+    enable = true;
+  };
+
   services.openssh = {
       enable = true;
       settings.PasswordAuthentication = false;
@@ -48,6 +52,7 @@ in
   environment.systemPackages = with pkgs; [
     curl
     git
+    git-lfs
     tmux
     gnupg
     pinentry-tty
