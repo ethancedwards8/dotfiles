@@ -5,6 +5,7 @@
     ./packages.nix
     ./nix.nix
     ./fun.nix
+    ./cachix.nix
   ];
 
   programs.nix-index.enable = true;
