@@ -18,6 +18,10 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 1;
+  };
+
   boot.resumeDevice = "/dev/mapper/NIXOS_LVM-SWAP";
 
   fileSystems."/" =

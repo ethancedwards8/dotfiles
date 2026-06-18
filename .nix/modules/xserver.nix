@@ -17,6 +17,10 @@
     };
 
     displayManager.lightdm.enable = true;
+    displayManager.lightdm.background = pkgs.fetchurl {
+      url = "https://gitlab.com/ethancedwards/wallpaper/-/raw/d20d16f1a2fa2b4c034be6e8c6c28bc0dad87460/free-software-gnu-meditate.png";
+      hash = "sha256-2BAtuqNCviC92/UxRwni8uCu4g+MLJkW9KINagrIAoQ=";
+    };
   };
 
   services.displayManager = {
