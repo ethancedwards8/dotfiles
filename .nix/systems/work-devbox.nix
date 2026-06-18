@@ -69,9 +69,6 @@
       dates = "daily";
       options = "--delete-older-than 14d";
     };
-    settings = {
-      accept-flake-config = true;
-    };
   };
 
   system.stateVersion = "26.05";
