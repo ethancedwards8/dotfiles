@@ -60,7 +60,7 @@
 
       mkSystem = modules: system-manager.lib.makeSystemConfig {
           inherit modules;
-          extraSpecialArgs = { inherit inputs outputs self; };
+          specialArgs = { inherit inputs outputs self; };
       };
     in
     {
@@ -74,6 +74,9 @@
 
       nixosConfigurations.work-devbox = mkNixos "x86_64-linux" [ ./systems/work-devbox.nix ];
       work-devbox = self.nixosConfigurations.work-devbox.config.system.build.toplevel;
+
+      nixosConfigurations.work-gpu-devbox = mkNixos "x86_64-linux" [ ./systems/work-gpu-devbox.nix ];
+      work-gpu-devbox = self.nixosConfigurations.work-gpu-devbox.config.system.build.toplevel;
 
       nixosConfigurations.veritas = mkNixos "x86_64-linux" [ ./systems/veritas.nix ];
       veritas = self.nixosConfigurations.veritas.config.system.build.toplevel;
