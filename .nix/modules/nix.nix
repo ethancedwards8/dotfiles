@@ -19,6 +19,7 @@
   # nix.package = inputs.nix.packages.${pkgs.stdenv.hostPlatform.system}.nix-cli;
   nix.extraOptions = ''
     experimental-features = nix-command flakes ca-derivations auto-allocate-uids cgroups
+    extra-system-features = uid-range
     auto-allocate-uids = true
     builders-use-substitutes = true
     extra-platforms = aarch64-darwin x86_64-darwin x86_64-linux i686-linux
