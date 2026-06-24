@@ -22,7 +22,15 @@
   # control center
   system.defaults.controlcenter.BatteryShowPercentage = false;
 
+  # wm/desktop
+  system.defaults.WindowManager.StandardHideWidgets = true;
+
   # dock
+  system.defaults.dock.wvous-bl-corner = 1;
+  system.defaults.dock.wvous-br-corner = 1;
+  system.defaults.dock.wvous-tl-corner = 1;
+  system.defaults.dock.wvous-tr-corner = 1;
+
   system.defaults.dock.autohide = true;
   system.defaults.dock.showhidden = true;
   system.defaults.dock.show-recents = false;
@@ -35,9 +43,6 @@
   system.defaults.finder._FXShowPosixPathInTitle = true;
   system.defaults.finder.ShowPathbar = true;
   system.defaults.finder.ShowMountedServersOnDesktop = true;
-
-  # wm/desktop
-  system.defaults.WindowManager.StandardHideWidgets = true;
 
   # mouse
   system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
