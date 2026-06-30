@@ -96,6 +96,10 @@
       # build usb with .#usb.<system>
       usb = (mkNixos "x86_64-linux" [ ./systems/usb.nix ]).config.system.build.isoImage;
 
+      packages = forAllSystems (system: {
+        nix = inputs.nix.packages.${system}.nix-cli;
+      });
+
       darwinPackages = self.darwinConfigurations.mbair.pkgs;
 
       devShell = forAllSystems (system:
