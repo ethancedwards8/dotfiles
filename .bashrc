@@ -53,6 +53,8 @@ alias rm="rm -i"
 alias mv="mv -i"
 alias scrot="scrot -s"
 
+alias gpr="git pull --recurse-submodules"
+
 alias nf="nix repl -f ."
 
 # source /usr/share/wikiman/widgets/widget.bash
