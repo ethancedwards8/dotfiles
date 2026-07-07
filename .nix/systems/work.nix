@@ -34,6 +34,7 @@
       "devin-cli"
       "linear"
       "notion"
+      "signal"
       "slack"
     ];
   };
