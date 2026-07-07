@@ -13,16 +13,16 @@
   ];
   nix.settings.sandbox = true;
   nix.settings.auto-optimise-store = true;
-  nix.package = pkgs.nixVersions.latest;
+  # nix.package = pkgs.nixVersions.latest;
   # nix.package = inputs.exa.packages.${pkgs.stdenv.hostPlatform.system}.nix-cli;
   # nix.package = inputs.lix.packages.${pkgs.stdenv.hostPlatform.system}.nix-cli;
-  # nix.package = inputs.nix.packages.${pkgs.stdenv.hostPlatform.system}.nix-cli;
+  nix.package = inputs.nix.packages.${pkgs.stdenv.hostPlatform.system}.nix-cli;
   nix.extraOptions = ''
     experimental-features = nix-command flakes ca-derivations auto-allocate-uids cgroups
     extra-system-features = uid-range
     auto-allocate-uids = true
     builders-use-substitutes = true
-    extra-platforms = aarch64-darwin x86_64-darwin x86_64-linux i686-linux
+    extra-platforms = aarch64-darwin x86_64-linux i686-linux
   '';
 
   # thank you @elvishjerricco:matrix.org!

@@ -13,6 +13,7 @@
 
     nix = {
       url = "github:nixos/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nur = {
@@ -21,7 +22,7 @@
     };
 
     nix-darwin = {
-      url = "github:ethancedwards8/nix-darwin/ethan";
+      url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -40,7 +41,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    impermanence.url = "github:nix-community/impermanence";
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, system-manager, ... }:
