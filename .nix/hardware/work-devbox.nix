@@ -14,4 +14,5 @@
   };
 
   boot.loader.grub.device = lib.mkForce "nodev";
+  boot.loader.grub.copyKernels = true;
 }
