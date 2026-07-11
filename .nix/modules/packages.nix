@@ -16,6 +16,7 @@
     htop
     jq
     fastfetch
+    nh
     nix-forecast
     nix-health
     nix-info
@@ -24,7 +25,7 @@
     nixpkgs-reviewFull
     nixpkgs-track
     ripgrep
-    starship
+    inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.starship
 
     inputs.nix-check-deps.packages.${pkgs.stdenv.hostPlatform.system}.nix-check-deps
   ];
