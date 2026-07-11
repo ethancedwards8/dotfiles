@@ -258,6 +258,26 @@
         "type": "github"
       }
     },
+    "nh": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783516471,
+        "narHash": "sha256-pG1VyDQiVuhi/Jm/MqkGDs27hZAeuGpI/HnN7h7GdRc=",
+        "owner": "nix-community",
+        "repo": "nh",
+        "rev": "181b151744faed80ef66d3e86ebe023ba703bc23",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nh",
+        "type": "github"
+      }
+    },
     "nix": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -577,6 +597,7 @@
       "inputs": {
         "impermanence": "impermanence",
         "lix": "lix",
+        "nh": "nh",
         "nix": "nix",
         "nix-check-deps": "nix-check-deps",
         "nix-darwin": "nix-darwin",

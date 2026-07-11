@@ -16,7 +16,6 @@
     htop
     jq
     fastfetch
-    nh
     nix-forecast
     nix-health
     nix-info
@@ -28,6 +27,8 @@
     inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.starship
 
     inputs.nix-check-deps.packages.${pkgs.stdenv.hostPlatform.system}.nix-check-deps
+
+    inputs.nh.packages.${pkgs.stdenv.hostPlatform.system}.nh
   ];
 
   nixpkgs.overlays = [
