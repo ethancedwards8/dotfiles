@@ -11,6 +11,7 @@ in
 {
   imports = [
     ./common.nix
+    ./kernel.nix
   ];
 
   system.autoUpgrade.enable = true;
