@@ -35,6 +35,7 @@ in
   users.users.root.openssh.authorizedKeys.keys = sshKeys;
   users.users.ece.openssh.authorizedKeys.keys = sshKeys;
 
+  users.mutableUsers = false;
   users.users.ece = {
       isNormalUser = true;
       initialPassword = "hunter2";
