@@ -9,6 +9,7 @@ jobs:
   build:
     name: Build and Push Config
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, ubuntu-24.04-arm]
         include:
