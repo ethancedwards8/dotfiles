@@ -11,10 +11,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix = {
-      url = "github:nixos/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nix.url = "github:nixos/nix";
 
     nur = {
       url = "github:nix-community/NUR";
