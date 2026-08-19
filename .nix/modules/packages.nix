@@ -26,7 +26,7 @@
     ripgrep
     inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.starship
 
-    # inputs.nix-check-deps.packages.${pkgs.stdenv.hostPlatform.system}.nix-check-deps
+    inputs.nix-check-deps.packages.${pkgs.stdenv.hostPlatform.system}.nix-check-deps
 
     inputs.nh.packages.${pkgs.stdenv.hostPlatform.system}.nh
   ];
