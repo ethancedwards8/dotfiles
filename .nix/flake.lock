@@ -292,11 +292,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1785414049,
-        "narHash": "sha256-KffLU1SBllUeylUcxrp5e0qVgju/3QrP0RUQ5OQBwwU=",
+        "lastModified": 1786948721,
+        "narHash": "sha256-CJZRpEizw1x07WA5hpOqQePcxM2SzPox2woe5iGv8/I=",
         "owner": "LordGrimmauld",
         "repo": "nix-check-deps",
-        "rev": "000e56d230fef999e5b79d4bacccaa19aecd88e5",
+        "rev": "8012947337c0be458524153917b8f1b4e44dab0b",
         "type": "github"
       },
       "original": {
