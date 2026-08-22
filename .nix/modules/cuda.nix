@@ -18,7 +18,7 @@
 
   environment.systemPackages = with pkgs; [
     pciutils
-    btop-nvidia
+    btop-cuda
     nvtopPackages.nvidia
   ];
 }
