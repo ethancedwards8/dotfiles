@@ -30,8 +30,8 @@
 
     inputs.nh.packages.${pkgs.stdenv.hostPlatform.system}.nh
   ]
-  ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [ nvtopPackages.apple ]
-  ++ lib.optionals (pkgs.stdenv.hostPlatform.isLinux && config.hardware.nvidia.open) [ nvtopPackages.nvidia ];
+  ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [ nvtopPackages.apple btop ]
+  ++ lib.optionals (pkgs.stdenv.hostPlatform.isLinux && config ? hardware.nvidia.open && config.hardware.nvidia.open) [ nvtopPackages.nvidia btop-nvidia ];
 
   nixpkgs.overlays = [
     inputs.nur.overlays.default
