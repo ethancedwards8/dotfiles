@@ -29,7 +29,9 @@
     inputs.nix-check-deps.packages.${pkgs.stdenv.hostPlatform.system}.nix-check-deps
 
     inputs.nh.packages.${pkgs.stdenv.hostPlatform.system}.nh
-  ];
+  ]
+  ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [ nvtopPackages.apple ]
+  ++ lib.optionals (pkgs.stdenv.hostPlatform.isLinux && config.hardware.nvidia.open) [ nvtopPackages.nvidia ];
 
   nixpkgs.overlays = [
     inputs.nur.overlays.default
