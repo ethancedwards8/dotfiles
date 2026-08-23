@@ -6,11 +6,6 @@
 
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-26.05";
 
-    lix = {
-      url = "git+https://git.lix.systems/lix-project/lix.git";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix.url = "github:nixos/nix";
 
     nur = {
