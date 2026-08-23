@@ -14,8 +14,9 @@
     shell = pkgs.bashInteractive;
   };
 
-  homebrew = {
-    masApps = {
+  programs.mas = {
+    enable = true;
+    packages = {
       # sad
       "Microsoft Excel" = 462058435;
       "Microsoft PowerPoint" = 462062816;
@@ -23,6 +24,9 @@
       # PassioGo = 1203861956; https://github.com/mas-cli/mas/issues/321
       Xcode = 497799835;
     };
+  };
+
+  homebrew = {
     brews = [
       "atomicparsley"
       "emacs"

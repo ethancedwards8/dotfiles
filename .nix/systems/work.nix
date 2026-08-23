@@ -6,12 +6,6 @@
     ../modules/darwin.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    pi-coding-agent
-
-    ollama
-  ];
-
   system.primaryUser = "ece";
 
   users.users.ece = {
