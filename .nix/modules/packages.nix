@@ -7,7 +7,6 @@
     cachix
     comma
     bat
-    btop
     inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.dix
     eza
     fzf
@@ -31,7 +30,7 @@
 
     inputs.nh.packages.${pkgs.stdenv.hostPlatform.system}.nh
   ]
-  ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [ nvtopPackages.apple ];
+  ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [ nvtopPackages.apple btop ];
 
   nixpkgs.overlays = [
     inputs.nur.overlays.default
