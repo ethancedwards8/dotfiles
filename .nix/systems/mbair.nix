@@ -28,11 +28,7 @@
 
   homebrew = {
     brews = [
-      "atomicparsley"
       "emacs"
-      "exiftool"
-      "ispell"
-      "yt-dlp"
     ];
     casks = [
       "anki"

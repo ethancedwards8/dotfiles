@@ -15,11 +15,6 @@
   };
 
   homebrew = {
-    brews = [
-      "awscli"
-      "k9s"
-      "kubectl"
-    ];
     casks = [
       "1password"
       "claude-code"

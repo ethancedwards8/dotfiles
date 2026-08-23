@@ -3,6 +3,12 @@
 {
   environment.systemPackages = with pkgs; [
     awscli2
+    ispell
+    # yt-dlp
+    exiftool
+    atomicparsley
+    k9s
+    kubectl
 
     cachix
     comma
