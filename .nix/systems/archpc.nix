@@ -3,8 +3,12 @@
 {
   imports = [
     ../modules/packages.nix
+
+    ../modules/cachix.nix
   ];
 
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.cudaSupport = true;
   nixpkgs.hostPlatform = "x86_64-linux";
 
   system-manager.allowAnyDistro = true;
@@ -13,6 +17,7 @@
     inputs.system-manager.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
+  nix.enable = true;
   nix.settings.trusted-users = [
     "root"
     "ece"
@@ -25,6 +30,6 @@
     builders-use-substitutes = true
     auto-optimise-store = true
     sandbox = true
-    extra-platforms = aarch64-darwin x86_64-darwin x86_64-linux i686-linux
+    extra-platforms = aarch64-darwin x86_64-linux i686-linux
   '';
 }
