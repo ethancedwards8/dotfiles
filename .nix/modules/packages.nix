@@ -7,6 +7,7 @@
     cachix
     comma
     bat
+    btop
     inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.dix
     eza
     fzf
@@ -30,8 +31,7 @@
 
     inputs.nh.packages.${pkgs.stdenv.hostPlatform.system}.nh
   ]
-  ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [ nvtopPackages.apple btop ]
-  ++ lib.optionals (pkgs.stdenv.hostPlatform.isLinux && config ? hardware.nvidia.open && config.hardware.nvidia.open == true) [ nvtopPackages.nvidia btop-cuda ];
+  ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [ nvtopPackages.apple ];
 
   nixpkgs.overlays = [
     inputs.nur.overlays.default

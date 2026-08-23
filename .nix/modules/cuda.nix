@@ -20,5 +20,6 @@
     pciutils
     btop-cuda
     nvtopPackages.nvidia
+    btop-cuda
   ];
 }
