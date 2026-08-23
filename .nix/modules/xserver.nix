@@ -41,7 +41,6 @@
     nautilus
     firefox
     polybarFull
-    nitrogen
     sxiv
     mpv
     i3lock
