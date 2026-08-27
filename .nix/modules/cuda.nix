@@ -10,6 +10,8 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.cudaSupport = true;
 
+  nix.settings.system-features = [ "cuda" ];
+
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
     graphics.enable = true;
