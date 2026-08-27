@@ -63,13 +63,5 @@
     starship
   ];
 
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 14d";
-    };
-  };
-
   system.stateVersion = "26.05";
 }

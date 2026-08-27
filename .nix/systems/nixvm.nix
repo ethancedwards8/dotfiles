@@ -1,4 +1,4 @@
-{ pkgs, self, lib, inputs, ... }:
+{ pkgs, self, lib, inputs, config, ... }:
 
 {
   imports = [
@@ -8,8 +8,13 @@
     ../modules/nix.nix
     ../modules/linux.nix
     ../modules/guix.nix
-    ../modules/xserver.nix
+    ../modules/cuda.nix
+
+    ../modules/k3s.nix
   ];
+
+  hardware.nvidia.open = lib.mkForce false;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
 
   virtualisation.docker.enable = true;
   virtualisation.podman.enable = true;

@@ -13,6 +13,8 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
     graphics.enable = true;
+    # OLD consumers need to set - see nixvm gtx 970
+    # hardware.nvidia.open = lib.mkForce false;
     nvidia.open = true;
   };
 
