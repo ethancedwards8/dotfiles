@@ -29,6 +29,7 @@ vim.opt.undofile = true
 -- Macros
 vim.cmd([[
     let @i = 'iSigned-off-by: Ethan Carter Edwards <ethan@ethancedwards.com>'
+    let @s = "i\rstrictDeps = true;\r__structuredAttrs = true;\r"
 ]])
 
 --- Keymaps
