@@ -19,6 +19,7 @@
     git
     git-lfs
     github-cli
+    gnupg
     htop
     jq
     fastfetch
@@ -27,9 +28,14 @@
     nix-info
     nix-update
     nixfmt
+    neovim
+    nmap
+    nodejs
     nixpkgs-reviewFull
     nixpkgs-track
+    tmux
     ripgrep
+    wget
     inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.starship
 
     inputs.nix-check-deps.packages.${pkgs.stdenv.hostPlatform.system}.nix-check-deps
