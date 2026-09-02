@@ -26,8 +26,6 @@
       PermitRootLogin = "prohibit-password";
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
-      ClientAliveInterval = 60;
-      ClientAliveCountMax = 10;
     };
   };
 
@@ -61,7 +59,12 @@
     tmux
     neovim
     starship
+
+    devin-cli
+    codex
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "26.05";
 }
