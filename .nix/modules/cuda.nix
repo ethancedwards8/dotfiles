@@ -10,6 +10,12 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.cudaSupport = true;
 
+  
+  programs.nix-required-mounts = {
+    enable = true;
+    presets.nvidia-gpu.enable = true;
+  };
+
   nix.settings.system-features = [ "cuda" ];
 
   services.xserver.videoDrivers = [ "nvidia" ];
