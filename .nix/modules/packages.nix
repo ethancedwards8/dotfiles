@@ -17,6 +17,7 @@
     eza
     fzf
     git
+    jj
     git-lfs
     github-cli
     gnupg
