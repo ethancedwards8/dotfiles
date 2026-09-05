@@ -19,7 +19,6 @@ let
 in
 {
   imports = [
-    ../modules/cachix.nix
     ../modules/darwin.nix
   ];
 

@@ -17,7 +17,7 @@
     eza
     fzf
     git
-    jj
+    jujutsu
     git-lfs
     github-cli
     gnupg
