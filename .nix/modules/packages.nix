@@ -17,6 +17,7 @@
     eza
     fzf
     git
+    hydra-check
     jujutsu
     git-lfs
     github-cli
