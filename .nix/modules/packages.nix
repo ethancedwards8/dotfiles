@@ -11,6 +11,7 @@
     kubectl
 
     cachix
+    mdcat
     comma
     bat
     inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.dix
