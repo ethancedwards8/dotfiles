@@ -1,21 +1,7 @@
 { pkgs, self, lib, inputs, options, ... }:
 
 let
-  getDarwinApp' =
-    x: y:
-    assert
-      lib.isDerivation x
-      || throw "lib.meta.getDarwinApp': The first argument is of type ${lib.typeOf x}, but it should be a derivation instead.";
-    assert
-      lib.isString y
-      || throw "lib.meta.getDarwinApp': The second argument is of type ${lib.typeOf y}, but it should be a string instead.";
-    assert
-      lib.hasInfix "/" y == false
-      || throw "lib.meta.getDarwinApp': The second argument \"${y}\" is a nested path with a \"/\" character, but it should just be the name of the app instead.";
-    assert
-      lib.hasSuffix ".app" y
-      || throw "lib.meta.getDarwinApp': The second argument \"${y}\" must end in `.app`";
-    "${lib.getOutput "out" x}/Applications/${y}";
+  getSystemApp = app: "/Applications/Nix Apps/${app}";
 in
 {
   imports = [
@@ -23,6 +9,25 @@ in
   ];
 
   system.primaryUser = "ece";
+  nixpkgs.overlays = [
+    (final: prev: {
+      rio = prev.rio.overrideAttrs (old: rec {
+        version = "0.5.24";
+        src = final.fetchFromGitHub {
+          owner = "raphamorim";
+          repo = "rio";
+          tag = "v${version}";
+          hash = "sha256-71LP6Jy9C+XI0wIiUIuMqcVj3QrPHz1w5oc5JuesNwE=";
+        };
+        cargoDeps = final.rustPlatform.fetchCargoVendor {
+          inherit (old) pname;
+          inherit version src;
+          hash = "sha256-7j7h7UEj6lJDct9Q/L7JXQ5xPgSrVpwaN8xOwchCDIo=";
+        };
+        doCheck = false;
+      });
+    })
+  ];
 
   users.users.ece = {
     home = "/Users/ece";
@@ -44,19 +49,19 @@ in
 
   system.defaults.dock.persistent-apps = with pkgs; [
     {
-      app = getDarwinApp' anki-bin "Anki.app";
+      app = getSystemApp "Anki.app";
     }
     {
-      app = getDarwinApp' kitty "kitty.app";
+      app = getSystemApp "kitty.app";
     }
     {
-      app = getDarwinApp' firefox "Firefox.app";
+      app = getSystemApp "Firefox.app";
     }
     {
-      app = getDarwinApp' brave "Brave Browser.app";
+      app = getSystemApp "Brave Browser.app";
     }
     {
-      app = getDarwinApp' zotero "Zotero.app";
+      app = getSystemApp "Zotero.app";
     }
   ];
 
