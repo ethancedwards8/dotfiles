@@ -9,6 +9,7 @@
     atomicparsley
     k9s
     kubectl
+    modal
 
     cachix
     mdcat
