@@ -61,6 +61,7 @@
     starship
 
     devin-cli
+    pi-coding-agent
     codex
   ];
 
