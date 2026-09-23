@@ -47,34 +47,13 @@ in
     };
   };
 
-  system.defaults.dock.persistent-apps = with pkgs; [
-    {
-      app = getSystemApp "Anki.app";
-    }
-    {
-      app = getSystemApp "kitty.app";
-    }
-    {
-      app = getSystemApp "Firefox.app";
-    }
-    {
-      app = getSystemApp "Brave Browser.app";
-    }
-    {
-      app = getSystemApp "Zotero.app";
-    }
-  ];
-
-  environment.systemPackages = with pkgs; [
-    anki-bin
-    kitty
-    firefox
-    brave
-    zotero
-  ];
-
   homebrew = {
     casks = [
+      "anki"
+      "kitty"
+      "firefox"
+      "brave-browser"
+      "zotero"
       "audacity"
       "element"
       "fastmail"
