@@ -20,6 +20,10 @@
     netrc-file = "/etc/nix/netrc";
   };
 
+  environment.systemPackages = with pkgs; [
+    pi-coding-agent
+  ];
+
   homebrew = {
     casks = [
       "1password"
