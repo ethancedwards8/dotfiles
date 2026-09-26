@@ -43,6 +43,7 @@ in
       "signal"
       "tailscale-app"
       "vlc"
+      "vscodium"
     ];
   };
 
