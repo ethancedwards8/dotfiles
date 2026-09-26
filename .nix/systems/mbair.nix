@@ -42,7 +42,7 @@ in
       "kdenlive"
       "signal"
       "tailscale-app"
-      "vlc"
+      "vscodium"
     ];
   };
 
