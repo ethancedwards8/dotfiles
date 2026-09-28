@@ -28,8 +28,10 @@
 
   environment.systemPackages = with pkgs; [
     pciutils
-    btop-cuda
     nvtopPackages.nvidia
     btop-cuda
+    cudaPackages.nvbandwidth
+    cudaPackages.cuda_cuobjdump
+    cudaPackages.cuda_nvdisasm
   ];
 }
