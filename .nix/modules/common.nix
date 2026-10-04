@@ -20,6 +20,7 @@
 
   environment.shellAliases = {
     nbc = "nix-build --arg config '{ allowUnfree = true; cudaSupport = true; }'";
+    nbr = "nix-build --arg config '{ allowUnfree = true; rocmSupport = true; }'";
     nr = "nixpkgs-review pr --post-result --tests";
     nrn = "nixpkgs-review pr --no-shell --post-result --tests";
     nra = "nixpkgs-review pr --no-shell --post-result --approve-pr --tests";
