@@ -63,6 +63,7 @@
     devin-cli
     pi-coding-agent
     codex
+    claude-code
   ];
 
   nixpkgs.config.allowUnfree = true;
