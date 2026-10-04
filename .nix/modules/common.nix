@@ -25,6 +25,7 @@
     nra = "nixpkgs-review pr --no-shell --post-result --approve-pr --tests";
     nrm = "nixpkgs-review pr --no-shell --post-result --approve-pr --merge --tests";
     nrc = "nixpkgs-review pr --no-shell --post-result --tests --extra-nixpkgs-config '{ allowUnfree = true; cudaSupport = true; }'";
+    nrr = "nixpkgs-review pr --no-shell --post-result --tests --extra-nixpkgs-config '{ allowUnfree = true; rocmSupport = true; }'";
     nix = "nix -vL";
     cat = "bat";
   };
