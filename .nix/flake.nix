@@ -18,6 +18,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     system-manager = {
       url = "github:numtide/system-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,7 +49,7 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, system-manager, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, system-manager, home-manager, ... }:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
@@ -55,13 +60,19 @@
       };
 
       mkDarwin = system: modules: nix-darwin.lib.darwinSystem {
-          inherit system modules;
-          specialArgs = { inherit inputs outputs self; };
-        };
+        inherit system modules;
+        specialArgs = { inherit inputs outputs self; };
+      };
 
       mkSystem = modules: system-manager.lib.makeSystemConfig {
-          inherit modules;
-          specialArgs = { inherit inputs outputs self; };
+        inherit modules;
+        specialArgs = { inherit inputs outputs self; };
+      };
+
+      mkHome = system: modules: home-manager.lib.homeManagerConfiguration {
+        inherit modules;
+        extraSpecialArgs = { inherit inputs outputs self; };
+        pkgs = nixpkgs.legacyPackages.${system};
       };
     in
     {
@@ -78,6 +89,9 @@
 
       nixosConfigurations.work-gpu-devbox = mkNixos "x86_64-linux" [ ./systems/work-gpu-devbox.nix ];
       work-gpu-devbox = self.nixosConfigurations.work-gpu-devbox.config.system.build.toplevel;
+
+      homeConfigurations.exa-box = mkHome "x86_64-linux" [ ./homes/exa-box.nix ];
+      exa-box = self.homeConfigurations.exa-box.activationPackage;
 
       nixosConfigurations.veritas = mkNixos "x86_64-linux" [ ./systems/veritas.nix ];
       veritas = self.nixosConfigurations.veritas.config.system.build.toplevel;
