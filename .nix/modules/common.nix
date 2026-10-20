@@ -18,6 +18,11 @@
     enableSSHSupport = true;
   };
 
+  security.pki.caCertificateBlacklist = [
+    "Comodo AAA Services root"
+    "emSign ECC Root CA - G3"
+  ];
+
   environment.shellAliases = {
     nbc = "nix-build --arg config '{ allowUnfree = true; cudaSupport = true; }'";
     nbr = "nix-build --arg config '{ allowUnfree = true; rocmSupport = true; }'";
