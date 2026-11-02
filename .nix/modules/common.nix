@@ -26,12 +26,12 @@
   environment.shellAliases = {
     nbc = "nix-build --arg config '{ allowUnfree = true; cudaSupport = true; }'";
     nbr = "nix-build --arg config '{ allowUnfree = true; rocmSupport = true; }'";
-    nr = "nixpkgs-review pr --post-result --tests";
-    nrn = "nixpkgs-review pr --no-shell --post-result --tests";
-    nra = "nixpkgs-review pr --no-shell --post-result --approve-pr --tests";
-    nrm = "nixpkgs-review pr --no-shell --post-result --approve-pr --merge --tests";
-    nrc = "nixpkgs-review pr --no-shell --post-result --tests --extra-nixpkgs-config '{ allowUnfree = true; cudaSupport = true; }'";
-    nrr = "nixpkgs-review pr --no-shell --post-result --tests --extra-nixpkgs-config '{ allowUnfree = true; rocmSupport = true; }'";
+    nr = "nixpkgs-review pr --post-result";
+    nrn = "nixpkgs-review pr --no-shell --post-result";
+    nra = "nixpkgs-review pr --no-shell --post-result --approve-pr";
+    nrm = "nixpkgs-review pr --no-shell --post-result --approve-pr --merge";
+    nrc = "nixpkgs-review pr --no-shell --post-result --extra-nixpkgs-config '{ allowUnfree = true; cudaSupport = true; }'";
+    nrr = "nixpkgs-review pr --no-shell --post-result --extra-nixpkgs-config '{ allowUnfree = true; rocmSupport = true; }'";
     nix = "nix -vL";
     cat = "bat";
   };
