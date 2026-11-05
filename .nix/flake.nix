@@ -2,7 +2,7 @@
   description = "Ethan's Nix Flake";
 
   inputs = {
-    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
+    nixpkgs.url = "github:nixos/nixpkgs/staging-next";
 
     nixpkgs-stable.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.zst";
 
@@ -125,7 +125,6 @@
         mkShell {
           name = "config shell";
           buildInputs = [
-            brave
             neovim
             nixfmt
             statix
