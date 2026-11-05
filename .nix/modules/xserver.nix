@@ -49,7 +49,7 @@
     xclip
     xss-lock
     zathura
-    zotero
+    inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.zotero
     signal-desktop
     scrot
 
