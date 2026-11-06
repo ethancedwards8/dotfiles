@@ -44,7 +44,7 @@
 
     inputs.nix-check-deps.packages.${pkgs.stdenv.hostPlatform.system}.nix-check-deps
 
-    inputs.nh.packages.${pkgs.stdenv.hostPlatform.system}.nh
+    nh
   ]
   ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [ nvtopPackages.apple btop ];
 

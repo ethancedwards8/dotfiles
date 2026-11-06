@@ -205,26 +205,6 @@
         "type": "github"
       }
     },
-    "nh": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1793318278,
-        "narHash": "sha256-zRJ4SBYMYN3JfAPqTtt1GSRp79SXSvzUHYVoVN6oxmA=",
-        "owner": "nix-community",
-        "repo": "nh",
-        "rev": "74d60e6b998e583c1e0acab1e513ff28b11c4c3b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nh",
-        "type": "github"
-      }
-    },
     "nix": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -391,11 +371,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1793888740,
-        "narHash": "sha256-fcwd7/x51dRfsBIC/HXNOzu89/Q9qQtACM3o4Zw0NGs=",
+        "lastModified": 1793927734,
+        "narHash": "sha256-VMfQyTEGRhEGeu822ZugPawJs61QYklsFJ4p0loM+48=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "000cc9d42e878f3cdc1efac54096dc27cd76ef7a",
+        "rev": "b39b88a7d606f8cdca0943bf5c730fc18dd157ff",
         "type": "github"
       },
       "original": {
@@ -458,7 +438,6 @@
       "inputs": {
         "home-manager": "home-manager",
         "impermanence": "impermanence",
-        "nh": "nh",
         "nix": "nix",
         "nix-check-deps": "nix-check-deps",
         "nix-darwin": "nix-darwin",
