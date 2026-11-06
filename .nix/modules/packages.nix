@@ -50,7 +50,7 @@
   ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [ nvtopPackages.apple btop ];
 
   nixpkgs.overlays = [
-    inputs.nur.overlays.default
+    # inputs.nur.overlays.default
 
     # inputs.system-manager.overlays.default
     # inputs.nix-check-deps.overlays.default
