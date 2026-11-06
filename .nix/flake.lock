@@ -228,28 +228,6 @@
         "type": "github"
       }
     },
-    "nix-check-deps": {
-      "inputs": {
-        "nix-github-actions": "nix-github-actions",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "treefmt-nix": "treefmt-nix"
-      },
-      "locked": {
-        "lastModified": 1786948721,
-        "narHash": "sha256-CJZRpEizw1x07WA5hpOqQePcxM2SzPox2woe5iGv8/I=",
-        "owner": "LordGrimmauld",
-        "repo": "nix-check-deps",
-        "rev": "8012947337c0be458524153917b8f1b4e44dab0b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "LordGrimmauld",
-        "repo": "nix-check-deps",
-        "type": "github"
-      }
-    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -267,27 +245,6 @@
       "original": {
         "owner": "nix-darwin",
         "repo": "nix-darwin",
-        "type": "github"
-      }
-    },
-    "nix-github-actions": {
-      "inputs": {
-        "nixpkgs": [
-          "nix-check-deps",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1737420293,
-        "narHash": "sha256-F1G5ifvqTpJq7fdkT34e/Jy9VCyzd5XfJ9TO8fHhJWE=",
-        "owner": "nix-community",
-        "repo": "nix-github-actions",
-        "rev": "f4158fa080ef4503c8f4c820967d946c2af31ec9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nix-github-actions",
         "type": "github"
       }
     },
@@ -371,11 +328,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1793927734,
-        "narHash": "sha256-VMfQyTEGRhEGeu822ZugPawJs61QYklsFJ4p0loM+48=",
+        "lastModified": 1793974155,
+        "narHash": "sha256-7jeo5jj9rBgeJnVlmrDD/QLqQN8jmJr6K1RySRs93h4=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b39b88a7d606f8cdca0943bf5c730fc18dd157ff",
+        "rev": "56b98d0f2abf10289086d911d1b8995a150dbcc7",
         "type": "github"
       },
       "original": {
@@ -439,7 +396,6 @@
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "nix": "nix",
-        "nix-check-deps": "nix-check-deps",
         "nix-darwin": "nix-darwin",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
@@ -482,27 +438,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "treefmt-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "nix-check-deps",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1785360170,
-        "narHash": "sha256-XE1lKgQ3eIO3E7zWryqcRsax+mYXod/5RHBn4YaR9YE=",
-        "owner": "numtide",
-        "repo": "treefmt-nix",
-        "rev": "d1187f8bc71fb8aab02395869ec3f5c1920f75c0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "treefmt-nix",
         "type": "github"
       }
     },

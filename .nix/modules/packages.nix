@@ -10,6 +10,7 @@
     k9s
     kubectl
     modal
+    zoxide
 
     cachix
     mdcat
@@ -42,7 +43,7 @@
     wget
     inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.starship
 
-    inputs.nix-check-deps.packages.${pkgs.stdenv.hostPlatform.system}.nix-check-deps
+    nix-check-deps
 
     nh
   ]
