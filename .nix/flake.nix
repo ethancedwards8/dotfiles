@@ -73,9 +73,6 @@
       nixosConfigurations.work-gpu-devbox = mkNixos "x86_64-linux" [ ./systems/work-gpu-devbox.nix ];
       work-gpu-devbox = self.nixosConfigurations.work-gpu-devbox.config.system.build.toplevel;
 
-      homeConfigurations.exa-box = mkHome "x86_64-linux" [ ./homes/exa-box.nix ];
-      exa-box = self.homeConfigurations.exa-box.activationPackage;
-
       nixosConfigurations.veritas = mkNixos "x86_64-linux" [ ./systems/veritas.nix ];
       veritas = self.nixosConfigurations.veritas.config.system.build.toplevel;
 
@@ -94,9 +91,7 @@
       # build usb with .#usb.<system>
       usb = (mkNixos "x86_64-linux" [ ./systems/usb.nix ]).config.system.build.isoImage;
 
-      packages = forAllSystems (system: {
-        nix = inputs.nix.packages.${system}.nix-cli;
-      });
+      x86-builder = nixpkgs.legacyPackages.x86_64-linux.writeScriptBin "remote-hm" self.nixosConfigurations.nixvm.config.systemd.services.home-manager-ece.serviceConfig.ExecStart;
 
       darwinPackages = self.darwinConfigurations.mbair.pkgs;
 
