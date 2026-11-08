@@ -6,6 +6,11 @@
     options edns0
   '';
 
+  environment.systemPackages = with pkgs; [
+    kubectl
+    k9s
+  ];
+
   networking.firewall.enable = false;
 
   services.k3s = {
