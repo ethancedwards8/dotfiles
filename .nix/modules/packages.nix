@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs; [
     awscli2
     ispell
-    # yt-dlp
+    yt-dlp
     exiftool
     atomicparsley
     k9s
@@ -35,7 +35,6 @@
     nixfmt
     neovim
     nmap
-    nodejs
     nixpkgs-reviewFull
     nixpkgs-track
     tmux
