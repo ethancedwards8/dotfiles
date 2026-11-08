@@ -10,6 +10,7 @@
     nix-update
     nixpkgs-track
 
+    ispell
     jujutsu
     mdcat
     yt-dlp

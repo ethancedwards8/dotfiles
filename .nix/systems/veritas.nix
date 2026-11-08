@@ -13,6 +13,7 @@
   ];
 
   home-manager.users.ece.imports = [
+    ../home-manager/common.nix
     ../home-manager/dev.nix
   ];
 

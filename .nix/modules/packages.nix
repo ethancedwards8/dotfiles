@@ -2,12 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    awscli2
-    ispell
-    k9s
-    kubectl
-    modal
-
     comma
     eza
     fzf

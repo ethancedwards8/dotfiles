@@ -13,6 +13,11 @@
     ../modules/linux.nix
   ];
 
+  home-manager.users.ece.imports = [
+    ../home-manager/common.nix
+    ../home-manager/work.nix
+  ];
+
   environment.variables.AWS_DEFAULT_REGION = "us-west-2";
 
   networking.hostName = "work-devbox";
@@ -41,10 +46,6 @@
   security.sudo.wheelNeedsPassword = false;
 
   virtualisation.docker.enable = true;
-
-  home-manager.users.ece.imports = [
-    ../home-manager/work.nix
-  ];
 
   environment.systemPackages = with pkgs; [
     awscli2

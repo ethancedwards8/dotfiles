@@ -8,6 +8,11 @@ in
     ../modules/darwin.nix
   ];
 
+  home-manager.users.ece.imports = [
+    ../home-manager/common.nix
+    ../home-manager/cloud.nix
+  ];
+
   programs.mas = {
     enable = true;
     packages = {
