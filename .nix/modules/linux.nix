@@ -12,6 +12,7 @@ in
   imports = [
     ./common.nix
     ./kernel.nix
+    inputs.home-manager.nixosModules.home-manager
   ];
 
   system.autoUpgrade.enable = true;
@@ -24,26 +25,22 @@ in
     defaultEditor = true;
   };
 
-  services.emacs = {
-    enable = true;
-  };
-
   services.openssh = {
-      enable = true;
-      settings.PasswordAuthentication = false;
+    enable = true;
+    settings.PasswordAuthentication = false;
   };
 
   users.users.root.openssh.authorizedKeys.keys = sshKeys;
   users.users.ece.openssh.authorizedKeys.keys = sshKeys;
 
   users.mutableUsers = false;
+  # also see common.nix
   users.users.ece = {
-      isNormalUser = true;
-      initialPassword = "hunter2";
-      createHome = true;
-      home = "/home/ece";
-      shell = pkgs.bashInteractive;
-      extraGroups = [ "wheel" "video" "audio" "networkmanager" "docker" "podman" "libvirtd" "vboxusers" ];
+    isNormalUser = true;
+    createHome = true;
+    initialPassword = "hunter2";
+    home = "/home/ece";
+    extraGroups = [ "wheel" "video" "audio" "networkmanager" "docker" "podman" "libvirtd" "vboxusers" ];
   };
 
   networking.useDHCP = lib.mkDefault true;

@@ -23,7 +23,6 @@
     ports = [ 2222 ];
     openFirewall = true;
     settings = {
-      PermitRootLogin = "prohibit-password";
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
     };
@@ -43,6 +42,10 @@
 
   virtualisation.docker.enable = true;
 
+  home-manager.users.ece.imports = [
+    ../home-manager/work.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     awscli2
     cachix
@@ -51,19 +54,10 @@
     git
     git-lfs
     htop
-    jq
     nix-direnv
     parted
     ripgrep
     rsync
-    tmux
-    neovim
-    starship
-
-    devin-cli
-    pi-coding-agent
-    codex
-    claude-code
   ];
 
   nixpkgs.config.allowUnfree = true;

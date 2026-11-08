@@ -8,13 +8,6 @@ in
     ../modules/darwin.nix
   ];
 
-  system.primaryUser = "ece";
-  users.users.ece = {
-    home = "/Users/ece";
-    description = "Ethan Carter Edwards";
-    shell = pkgs.bashInteractive;
-  };
-
   programs.mas = {
     enable = true;
     packages = {

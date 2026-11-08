@@ -1,7 +1,7 @@
-{ pkgs, config, lib, inputs, ... }:
+{ lib, pkgs, inputs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     zed-editor
 
     (vscode-with-extensions.override {

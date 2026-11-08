@@ -8,10 +8,27 @@
     ./cachix.nix
   ];
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = { inherit inputs; };
+    users.ece = import ../home-manager/common.nix;
+  };
+
+  users.users.ece = {
+    description = "Ethan Carter Edwards";
+    shell = pkgs.bashInteractive;
+  };
+
   programs.nix-index.enable = true;
 
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
+
+  programs.bash = {
+    enable = true;
+    completion.enable = true;
+  };
 
   programs.gnupg.agent = {
     enable = true;

@@ -10,8 +10,10 @@
     ../modules/xserver.nix
     ../modules/audio.nix
     ../modules/bluetooth.nix
+  ];
 
-    ../modules/dev.nix
+  home-manager.users.ece.imports = [
+    ../home-manager/dev.nix
   ];
 
   services.tailscale.enable = true;

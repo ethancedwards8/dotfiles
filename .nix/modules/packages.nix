@@ -4,48 +4,22 @@
   environment.systemPackages = with pkgs; [
     awscli2
     ispell
-    # yt-dlp
-    exiftool
-    atomicparsley
     k9s
     kubectl
     modal
-    zoxide
 
-    cachix
-    mdcat
     comma
-    bat
-    inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.dix
     eza
     fzf
     git
-    hydra-check
-    jujutsu
     git-lfs
-    github-cli
     gnupg
     htop
-    jq
-    fastfetch
-    nix-forecast
-    nix-health
-    nix-info
-    nix-update
-    nixfmt
     neovim
     nmap
-    nodejs
-    nixpkgs-reviewFull
-    nixpkgs-track
-    tmux
     ripgrep
     wget
-    inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.starship
-
-    nix-check-deps
-
-    nh
+    starship
   ]
   ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [ nvtopPackages.apple btop ];
 
