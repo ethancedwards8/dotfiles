@@ -9,8 +9,6 @@
     ../modules/linux.nix
     ../modules/guix.nix
     ../modules/cuda.nix
-
-    ../modules/k3s.nix
   ];
 
   hardware.nvidia.open = lib.mkForce false;
